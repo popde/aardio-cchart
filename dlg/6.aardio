@@ -8,42 +8,31 @@ static={cls="static";left=0;top=0;right=760;bottom=428;db=1;dl=1;dr=1;dt=1;notif
 )
 /*}}*/
 
-var dll = ..raw.loadDll("\res\CChartu.dll","ccshare","cdecl");
-Attach = dll.api("?Attach@Classless@@YAHPAUHWND__@@H@Z", "int(addr hwnd,int)");//int __cdecl Attach(struct HWND__ *)
-CreateChart = dll.api("?CreateChart@Classless@@YAXXZ", "void(void)");
-DestroyChart = dll.api("?DestroyChart@Classless@@YAXXZ", "void(void)");
-Detach = dll.api("?Detach@Classless@@YA_NPAUHWND__@@@Z", "int(addr hwnd)");
-SetType = dll.api("?SetType@Classless@@YA_NH@Z", "byte(int)");//bool __cdecl SetType(int)
+import cchart;
 
-ReDraw = dll.api("?ReDraw@Classless@@YAXXZ", "void(void)");//void __cdecl ReDraw(void)
-SetTitle = dll.api("?SetTitle@Classless@@YAXPB_W@Z", "void(ustring title)");//void __cdecl SetTitle(wchar_t const *)
-SetGridLine = dll.api("?SetGridLine@Classless@@YAX_N000H@Z", "void(bool,bool,bool,bool,int)");
-SetBkgndColor = dll.api("?SetBkgndColor@Classless@@YAXKH@Z", "void(INT,int)");
-
-//
-AddPoint2D = dll.api("?AddPoint2D@Classless@@YAHNNHH@Z", "int(double,double,int,int)");
-
-
-CreateChart();
-Attach(winform.static.hwnd,0);//kTypeXY=0 折线图
-
+cchart.CreateChart();
+cchart.Attach1(winform.static.hwnd,0);//kTypeXY=0 折线图
+cchart.ChooseCurChart1(winform.static.hwnd);
 //设置显示网格
-SetGridLine(true,true,true,true,0);
+cchart.SetGridLine(true,true,true,true,0);
 //设置背景色
-SetBkgndColor(0xFFE6C2,0);
-ReDraw();
+cchart.SetBkgndColor(0xFFE6C2,0);
 
 var timeid;
 var index = 0;
-winform.button.oncommand = function(id,event){
-    //开定时器
-	timeid = winform.setInterval(
+
+//开定时器
+timeid = winform.setInterval(
 	300,function(){
-		AddPoint2D(index, math.random(0,50) ,0,0);
-		ReDraw();
+		cchart.AddPoint2D(index, math.random(0,50) ,0,0);
+		cchart.ReDraw2();
 		index++;
 	}
 );
+
+winform.button.oncommand = function(id,event){
+    //开定时器
+	winform.changeInterval(timeid,300);
 }
 winform.button2.oncommand = function(id,event){
     if(timeid){
@@ -60,8 +49,8 @@ winform.static.onEraseBkgnd  = function(hwnd,message,wParam,lParam){
 
 
 winform.onClose = function(hwnd,message,wParam,lParam){
-    Detach(winform.static.hwnd);
-    DestroyChart();
+    cchart.Detach(winform.static.hwnd);
+    cchart.DestroyChart();
 }
 
 
