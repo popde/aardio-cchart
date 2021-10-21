@@ -1,8 +1,9 @@
 import win.ui;
 /*DSG{{*/
-mainForm = win.form(text="aardio工程20";right=388;bottom=228)
+mainForm = win.form(text="aardio工程20";right=388;bottom=277)
 mainForm.add(
 button={cls="button";text="第一例";left=24;top=55;right=124;bottom=80;dl=1;dt=1;z=1};
+button10={cls="button";text="第十例";left=24;top=172;right=124;bottom=197;db=1;dl=1;dr=1;z=12};
 button2={cls="button";text="第二例";left=142;top=55;right=242;bottom=80;dl=1;dr=1;dt=1;z=2};
 button3={cls="button";text="第三例";left=260;top=55;right=360;bottom=80;dr=1;dt=1;z=3};
 button4={cls="button";text="第四例";left=24;top=94;right=124;bottom=119;db=1;dl=1;dt=1;z=4};
@@ -10,9 +11,9 @@ button5={cls="button";text="第五例";left=142;top=94;right=242;bottom=119;db=1
 button6={cls="button";text="第六例";left=260;top=94;right=360;bottom=119;db=1;dr=1;dt=1;z=6};
 button7={cls="button";text="第七例";left=24;top=133;right=124;bottom=158;db=1;dl=1;z=7};
 button8={cls="button";text="第八例";left=142;top=133;right=242;bottom=158;db=1;dl=1;dr=1;z=8};
-button9={cls="button";text="第九例";left=260;top=133;right=360;bottom=158;db=1;dr=1;z=9};
-static={cls="static";text="CChart波形图AArdio调用示例";left=30;top=8;right=358;bottom=45;align="center";center=1;dl=1;dr=1;dt=1;font=LOGFONT(h=-20);transparent=1;z=10};
-static2={cls="static";text="如果有些波形未显示,请关闭窗口后再次打开,然后直接打开不显示的那个.";left=29;top=191;right=357;bottom=229;align="center";db=1;dl=1;dr=1;font=LOGFONT(h=-11);transparent=1;z=11}
+button9={cls="button";text="第九例";left=260;top=133;right=360;bottom=158;db=1;dl=1;dr=1;z=11};
+static={cls="static";text="CChart波形图AArdio调用示例";left=30;top=8;right=358;bottom=45;align="center";center=1;dl=1;dr=1;dt=1;font=LOGFONT(h=-20);transparent=1;z=9};
+static2={cls="static";text="如果有些波形未显示,请关闭窗口后再次打开,然后直接打开不显示的那个.";left=21;top=227;right=358;bottom=269;align="center";db=1;dl=1;dr=1;font=LOGFONT(h=-11);transparent=1;z=10}
 )
 /*}}*/
 
@@ -48,9 +49,16 @@ mainForm.button8.oncommand = function(id,event){
 	var frmChild = mainForm.loadForm("\dlg\8.aardio");
 	frmChild.show();
 }
+
 mainForm.button9.oncommand = function(id,event){
 	var frmChild = mainForm.loadForm("\dlg\9.aardio");
 	frmChild.show();
 }
+
+mainForm.button10.oncommand = function(id,event){
+	var frmChild = mainForm.loadForm("\dlg\10.aardio");
+	frmChild.show();
+}
+
 mainForm.show();
 return win.loopMessage();
