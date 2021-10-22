@@ -1,4 +1,4 @@
-﻿
+
 namespace cchart;
 dll = ..raw.loadDll($"\res\CChartu.dll","CChartu","cdecl")
 AddAlternateLabel = dll.api("?AddAlternateLabel@NsClassless@@YAXPA_WH@Z","void(ustring&,int)")
@@ -626,7 +626,7 @@ UpdateStemValue = dll.api("?UpdateStemValue@NsClassless@@YAXNHH@Z","void(double,
 WriteOneToFile = dll.api("?WriteOneToFile@NsClassless@@YA_NPA_WHH@Z","bool(ustring&,int,int)")
 WriteToFile = dll.api("?WriteToFile@NsClassless@@YA_NPA_WH@Z","bool(ustring&,int)")
 
-/**intellisense()
+/**intellisense(cchart)
 AddAlternateLabel = dll.api("?AddAlternateLabel@NsClassless@@YAXPA_WH@Z","void(ustring&,int)")
 AddAlternateLabel1 = dll.api("?AddAlternateLabel@NsClassless@@YAXPA_WHH@Z","void(ustring&,int,int)")
 AddAxis = dll.api("?AddAxis@NsClassless@@YAXHH@Z","void(int,int)")
