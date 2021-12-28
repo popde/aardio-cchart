@@ -11,9 +11,9 @@
 /*                                                                            */
 /*============================================================================*/
 ////////////////////////////////////////////////////////////////////////////////
-//                                  ç‰ˆæƒç”³æ˜                                  //
-//                         ç‰ˆæƒæ‰€æœ‰(C)2006-2020ï¼Œæ¨å›½å›                       //
-//                                ä¿ç•™æ‰€æœ‰æƒåˆ©                                //
+//                                  °æÈ¨ÉêÃ÷                                  //
+//                         °æÈ¨ËùÓĞ(C)2006-2020£¬Ñî¹ú¾ı                       //
+//                                ±£ÁôËùÓĞÈ¨Àû                                //
 ////////////////////////////////////////////////////////////////////////////////
 /* ############################################################################################################################## */
 
@@ -24,8 +24,8 @@
 
 namespace NsCChart{
 
-//ç”¨äºåŠ¨æ€é“¾æ¥åº“çš„æ—¶å€™ï¼Œæ³¨é‡Šæ‰#elseä¸­çš„ç¬¬äºŒè¡Œ
-//ç”¨äºé™æ€åº“æˆ–è€…æºç æ—¶ï¼Œæ³¨é‡Šæ‰#elseä¸­çš„ç¬¬ä¸€è¡Œ
+//ÓÃÓÚ¶¯Ì¬Á´½Ó¿âµÄÊ±ºò£¬×¢ÊÍµô#elseÖĞµÄµÚ¶şĞĞ
+//ÓÃÓÚ¾²Ì¬¿â»òÕßÔ´ÂëÊ±£¬×¢ÊÍµô#elseÖĞµÄµÚÒ»ĞĞ
 #ifdef CChart_EXPORTS
 #	define CChart_API __declspec(dllexport)
 #else
@@ -34,31 +34,31 @@ namespace NsCChart{
 #endif
 	
 	
-// CChartåŒ…è£…ç±»æ”¯æŒçš„ç»˜å›¾ç±»å‹
+// CChart°ü×°ÀàÖ§³ÖµÄ»æÍ¼ÀàĞÍ
 enum
 {
-	kTypeXY,							//0 æŠ˜çº¿å›¾
-	kTypePie,							//1 é¥¼å›¾
-	kTypeStem,							//2 æŸ±å›¾
-	kTypeOscillo,						//3 æ¨¡æ‹Ÿç¤ºæ³¢å™¨å›¾
-	kTypeContourLine,					//4 ç­‰é«˜çº¿å›¾
-	kTypeContourMap,					//5 äº‘å›¾
-	kTypeContour,						//6 ç­‰é«˜çº¿äº‘å›¾
-	kTypeHeatMap,						//7 çƒ­å›¾
-	kTypeXY3D	,						//8 ç€‘å¸ƒå›¾
+	kTypeXY,							//0 ÕÛÏßÍ¼
+	kTypePie,							//1 ±ıÍ¼
+	kTypeStem,							//2 ÖùÍ¼
+	kTypeOscillo,						//3 Ä£ÄâÊ¾²¨Æ÷Í¼
+	kTypeContourLine,					//4 µÈ¸ßÏßÍ¼
+	kTypeContourMap,					//5 ÔÆÍ¼
+	kTypeContour,						//6 µÈ¸ßÏßÔÆÍ¼
+	kTypeHeatMap,						//7 ÈÈÍ¼
+	kTypeXY3D	,						//8 ÆÙ²¼Í¼
 
-	kTypeSingleLayerCount,				// å•å±‚è§†å›¾æ•°ç›®
+	kTypeSingleLayerCount,				// µ¥²ãÊÓÍ¼ÊıÄ¿
 	
-	kTypeSplit = kTypeSingleLayerCount,	//9 åˆ†è£‚è§†å›¾
-	kTypeShareX,						//10 å…±äº«Xè½´è§†å›¾
-	kTypeLayered,						//11 åˆ†å±‚è§†å›¾
+	kTypeSplit = kTypeSingleLayerCount,	//9 ·ÖÁÑÊÓÍ¼
+	kTypeShareX,						//10 ¹²ÏíXÖáÊÓÍ¼
+	kTypeLayered,						//11 ·Ö²ãÊÓÍ¼
 	
-	kType2DCount,						// äºŒç»´è§†å›¾æ•°ç›®
+	kType2DCount,						// ¶şÎ¬ÊÓÍ¼ÊıÄ¿
 
-	kType3DLine = kType2DCount,			//12 3ç»´æŠ˜çº¿å›¾
-	kType3DSurface,						//13 3ç»´æ›²é¢å›¾
+	kType3DLine = kType2DCount,			//12 3Î¬ÕÛÏßÍ¼
+	kType3DSurface,						//13 3Î¬ÇúÃæÍ¼
 	
-	kTypeCount			//CChartæ‰€æ”¯æŒçš„è§†å›¾ç±»å‹æ•°
+	kTypeCount			//CChartËùÖ§³ÖµÄÊÓÍ¼ÀàĞÍÊı
 };
 
 const struct stChartType
@@ -84,163 +84,163 @@ const struct stChartType
 	{kType3DSurface		,_T("Type3DSurface")	,_T("3dsurface")},
 };
 
-// å›¾åƒæ•´ä½“ç¼©æ”¾æ—¶çš„ç¼©æ”¾ä¸­å¿ƒ
-// å¦‚æœå–æ¶ˆæ³¨é‡Šï¼Œå¯ä»¥ç›´æ¥ç”¨ä»£å·ï¼Œå¦åˆ™ç”¨ä»£ç 
+// Í¼ÏñÕûÌåËõ·ÅÊ±µÄËõ·ÅÖĞĞÄ
+// Èç¹ûÈ¡Ïû×¢ÊÍ£¬¿ÉÒÔÖ±½ÓÓÃ´úºÅ£¬·ñÔòÓÃ´úÂë
 enum
 {
-	kZoomCenterLT,		//0 å·¦ä¸Š
-	kZoomCenterLB,		//1 å·¦ä¸‹
-	kZoomCenterRT,		//2 å³ä¸Š
-	kZoomCenterRB,		//3 å³ä¸‹
-	kZoomCenterCT,		//4 ä¸­å¿ƒ
-	kZoomCenterARB,		//5 ä»»æ„ç‚¹ï¼Œä¸»è¦ç”¨äºé¼ æ ‡ä½ç½®
+	kZoomCenterLT,		//0 ×óÉÏ
+	kZoomCenterLB,		//1 ×óÏÂ
+	kZoomCenterRT,		//2 ÓÒÉÏ
+	kZoomCenterRB,		//3 ÓÒÏÂ
+	kZoomCenterCT,		//4 ÖĞĞÄ
+	kZoomCenterARB,		//5 ÈÎÒâµã£¬Ö÷ÒªÓÃÓÚÊó±êÎ»ÖÃ
 	
 	kZoomCenterCount
 };
 
 /*
 
-// æ›²çº¿ç»˜åˆ¶æ–¹å¼
+// ÇúÏß»æÖÆ·½Ê½
 enum
 {
-	kXYPlotScatter = 0,		//0 æ•£ç‚¹å›¾
-	kXYPlotConnect = 1,		//1 è¿çº¿å›¾
-	kXYPlotStepHV = 2,		//2 å°é˜¶å›¾å…ˆæ°´å¹³å†ç«–ç›´
-	kXYPlotStepVH = 3,		//3 å°é˜¶å›¾å…ˆç«–ç›´å†æ°´å¹³
-	kXYPlotStepHVH = 4,		//4 å°é˜¶å›¾æ°´å¹³ç«–ç›´æ°´å¹³
-	kXYPlotStepVHV = 5,		//5 å°é˜¶å›¾ç«–ç›´æ°´å¹³ç«–ç›´
-	kXYPlotBezier = 6,		//6 è´å¡å°”è¿çº¿å›¾
-	kXYPlotBar = 7,			//7 æ¯ä¸ªç‚¹åªç»˜åˆ¶ä»åæ ‡è½´å¼€å§‹çš„æ•°æ®æ£’
+	kXYPlotScatter = 0,		//0 É¢µãÍ¼
+	kXYPlotConnect = 1,		//1 Á¬ÏßÍ¼
+	kXYPlotStepHV = 2,		//2 Ì¨½×Í¼ÏÈË®Æ½ÔÙÊúÖ±
+	kXYPlotStepVH = 3,		//3 Ì¨½×Í¼ÏÈÊúÖ±ÔÙË®Æ½
+	kXYPlotStepHVH = 4,		//4 Ì¨½×Í¼Ë®Æ½ÊúÖ±Ë®Æ½
+	kXYPlotStepVHV = 5,		//5 Ì¨½×Í¼ÊúÖ±Ë®Æ½ÊúÖ±
+	kXYPlotBezier = 6,		//6 ±´Èû¶ûÁ¬ÏßÍ¼
+	kXYPlotBar = 7,			//7 Ã¿¸öµãÖ»»æÖÆ´Ó×ø±êÖá¿ªÊ¼µÄÊı¾İ°ô
   
 	kPlotTypeCount
 };
 
- // æ›²çº¿å¤šè‰²æ¨¡å¼ä¸‹é¢œè‰²èŠ‚ç‚¹çš„è¾“å…¥æ–¹å¼ï¼ˆAddSegColorç¬¬ä¸€ä¸ªå‚æ•°çš„å«ä¹‰ï¼‰
+ // ÇúÏß¶àÉ«Ä£Ê½ÏÂÑÕÉ«½ÚµãµÄÊäÈë·½Ê½£¨AddSegColorµÚÒ»¸ö²ÎÊıµÄº¬Òå£©
  enum
  {
-	kSegColorPointRatio = 0,	//0 æ•°æ®ç‚¹çš„æ¯”ä¾‹
-	kSegColorXVal = 1,			//1 Xæ•°å€¼
-	kSegColorYVal,				//2 Yæ•°å€¼
+	kSegColorPointRatio = 0,	//0 Êı¾İµãµÄ±ÈÀı
+	kSegColorXVal = 1,			//1 XÊıÖµ
+	kSegColorYVal,				//2 YÊıÖµ
   
 	kSegColorCount
 };
 
-// æ•°æ®æ ‡è®°çš„å½¢çŠ¶
+// Êı¾İ±ê¼ÇµÄĞÎ×´
 enum
 {
-	kXYMarkerNone = 0,			//0 æ— æ ‡è®°
-	kXYMarkerCircle = 1,		//1 åœ†åœˆæ ‡è®°
-	kXYMarkerSquareUpright = 2,	//2 æ­£æ­£æ–¹å½¢
-	kXYMarkerSquareOblique = 3,	//3 æ–œæ­£æ–¹å½¢
-	kXYMarkerTriangleLeft = 4,	//4 å·¦å‘ä¸‰è§’å½¢
-	kXYMarkerTriangleRight = 5,	//5 å³å‘ä¸‰è§’å½¢
-	kXYMarkerTriangleUp = 6,	//6 ä¸Šä¸‰è§’å½¢
-	kXYMarkerTriangleDown = 7,	//7 ä¸‹ä¸‰è§’å½¢
-	kXYMarkerX = 8,				//8 æ–œåå­—
-	kXYMarkerCross = 9,			//9 æ­£åå­—
-	kXYMarkerBar = 10,			//10é¢œè‰²æ£’
-	kXYMarkerDot = 11,			//11ç‚¹
+	kXYMarkerNone = 0,			//0 ÎŞ±ê¼Ç
+	kXYMarkerCircle = 1,		//1 Ô²È¦±ê¼Ç
+	kXYMarkerSquareUpright = 2,	//2 ÕıÕı·½ĞÎ
+	kXYMarkerSquareOblique = 3,	//3 Ğ±Õı·½ĞÎ
+	kXYMarkerTriangleLeft = 4,	//4 ×óÏòÈı½ÇĞÎ
+	kXYMarkerTriangleRight = 5,	//5 ÓÒÏòÈı½ÇĞÎ
+	kXYMarkerTriangleUp = 6,	//6 ÉÏÈı½ÇĞÎ
+	kXYMarkerTriangleDown = 7,	//7 ÏÂÈı½ÇĞÎ
+	kXYMarkerX = 8,				//8 Ğ±Ê®×Ö
+	kXYMarkerCross = 9,			//9 ÕıÊ®×Ö
+	kXYMarkerBar = 10,			//10ÑÕÉ«°ô
+	kXYMarkerDot = 11,			//11µã
 		
 	kMarkerTypeCount
 };
 
- // æ›²çº¿å¡«å……çš„æ–¹å¼
+ // ÇúÏßÌî³äµÄ·½Ê½
 enum
 {
-	kDataFillClosed = 0,			//0 å°é—­å¡«å……
-	kDataFillFromBottomAxis = 1,	//1 åº•è½´å¡«å……
-	kDataFillFromTopAxis = 2,		//2 é¡¶è½´å¡«å……
-	kDataFillFromLeftAxis = 3,      //3 å·¦è½´å¡«å……
-	kDataFillFromRightAxis = 4,		//4 å³è½´å¡«å……
+	kDataFillClosed = 0,			//0 ·â±ÕÌî³ä
+	kDataFillFromBottomAxis = 1,	//1 µ×ÖáÌî³ä
+	kDataFillFromTopAxis = 2,		//2 ¶¥ÖáÌî³ä
+	kDataFillFromLeftAxis = 3,      //3 ×óÖáÌî³ä
+	kDataFillFromRightAxis = 4,		//4 ÓÒÖáÌî³ä
   
 	kDataFillModeCount
 };
-// æ•°æ®æ£’æ˜¾ç¤ºæ–¹å¼
+// Êı¾İ°ôÏÔÊ¾·½Ê½
 enum
 {
-	kDataBarBaseBottom,		//0 ä»åº•éƒ¨å¼€å§‹
-	kDataBarBaseTop,		//1 ä»é¡¶éƒ¨å¼€å§‹
-	kDataBarBaseLeft,		//2 ä»å·¦éƒ¨å¼€å§‹
-	kDataBarBaseRight,		//3 ä»å³éƒ¨å¼€å§‹
+	kDataBarBaseBottom,		//0 ´Óµ×²¿¿ªÊ¼
+	kDataBarBaseTop,		//1 ´Ó¶¥²¿¿ªÊ¼
+	kDataBarBaseLeft,		//2 ´Ó×ó²¿¿ªÊ¼
+	kDataBarBaseRight,		//3 ´ÓÓÒ²¿¿ªÊ¼
 		
 	kDataBarBaseCount
 };
 
-// åˆ†è£‚è§†å›¾çš„åˆ†è£‚æ¨¡å¼
-// å¦‚æœå–æ¶ˆæ³¨é‡Šï¼Œå¯ä»¥ç›´æ¥ç”¨ä»£å·ï¼Œå¦åˆ™ç”¨ä»£ç ï¼Œä¾‹å¦‚2è¡¨ç¤ºå·¦ä¸€å³äºŒçš„ä¸‰åˆ†è£‚
+// ·ÖÁÑÊÓÍ¼µÄ·ÖÁÑÄ£Ê½
+// Èç¹ûÈ¡Ïû×¢ÊÍ£¬¿ÉÒÔÖ±½ÓÓÃ´úºÅ£¬·ñÔòÓÃ´úÂë£¬ÀıÈç2±íÊ¾×óÒ»ÓÒ¶şµÄÈı·ÖÁÑ
 enum
 {
-	kSplitNot=0,		//0 ä¸åˆ†è£‚
-	kSplitNM=1,			//1 è¡Œåˆ—åˆ†å‰²
-	kSplit3L1R2=2,		//2 å·¦1å³2
-	kSplit3L2R1=3,		//3 å·¦2å³1
-	kSplit3T1B2=4,		//4 ä¸Š1ä¸‹2
-	kSplit3T2B1=5,		//5 ä¸Š2ä¸‹1
+	kSplitNot=0,		//0 ²»·ÖÁÑ
+	kSplitNM=1,			//1 ĞĞÁĞ·Ö¸î
+	kSplit3L1R2=2,		//2 ×ó1ÓÒ2
+	kSplit3L2R1=3,		//3 ×ó2ÓÒ1
+	kSplit3T1B2=4,		//4 ÉÏ1ÏÂ2
+	kSplit3T2B1=5,		//5 ÉÏ2ÏÂ1
 		
 	kSplitModeCount
 };
 
-// åæ ‡è½´ä½ç½®
-// å¦‚æœå–æ¶ˆæ³¨é‡Šï¼Œå¯ä»¥ç›´æ¥ç”¨ä»£å·ï¼Œå¦åˆ™ç”¨ä»£ç 
+// ×ø±êÖáÎ»ÖÃ
+// Èç¹ûÈ¡Ïû×¢ÊÍ£¬¿ÉÒÔÖ±½ÓÓÃ´úºÅ£¬·ñÔòÓÃ´úÂë
 enum
 {
-	kLocationLeft = 0,	//0 å·¦è½´
-	kLocationBottom,	//1 ä¸‹è½´
-	kLocationRight,		//2 å³è½´
-	kLocationTop,		//3 ä¸Šè½´
-	kLocationCenterVL,	//4 ä¸­è½´ç«–ç›´åå·¦
-	kLocationCenterVR,	//5 ä¸­è½´ç«–ç›´åå³
-	kLocationCenterHB,	//6 ä¸­è½´æ°´å¹³åä¸‹
-	kLocationCenterHT,	//7 ä¸­è½´æ°´å¹³åä¸Š
+	kLocationLeft = 0,	//0 ×óÖá
+	kLocationBottom,	//1 ÏÂÖá
+	kLocationRight,		//2 ÓÒÖá
+	kLocationTop,		//3 ÉÏÖá
+	kLocationCenterVL,	//4 ÖĞÖáÊúÖ±Æ«×ó
+	kLocationCenterVR,	//5 ÖĞÖáÊúÖ±Æ«ÓÒ
+	kLocationCenterHB,	//6 ÖĞÖáË®Æ½Æ«ÏÂ
+	kLocationCenterHT,	//7 ÖĞÖáË®Æ½Æ«ÉÏ
   
-	kLocationTDX,		//8 ä¸‰ç»´Xè½´
-	kLocationTDY,		//9 ä¸‰ç»´Yè½´
-	kLocationTDZ,		//10ä¸‰ç»´Zè½´
+	kLocationTDX,		//8 ÈıÎ¬XÖá
+	kLocationTDY,		//9 ÈıÎ¬YÖá
+	kLocationTDZ,		//10ÈıÎ¬ZÖá
 	
 	kLocationCount
 };
 
-// å›¾ä¾‹ä½ç½®
+// Í¼ÀıÎ»ÖÃ
 enum
 {
-	kLegendArbitrary,									//0 å†…éƒ¨ä»»æ„ä½ç½®ï¼Œå¯æ‹–åŠ¨
+	kLegendArbitrary,									//0 ÄÚ²¿ÈÎÒâÎ»ÖÃ£¬¿ÉÍÏ¶¯
   
-	kLegendInnerLeft,									//1 å†…å·¦
-	kLegendInnerLeftTop,								//2 å†…å·¦ä¸Š
-	kLegendInnerTopLeft = kLegendInnerLeftTop,			//2 å†…ä¸Šå·¦
-	kLegendInnerLeftBottom,								//3 å†…å·¦ä¸‹
-	kLegendInnerBottomLeft = kLegendInnerLeftBottom,	//3 å†…ä¸‹å·¦
-	kLegendInnerRight,									//4 å†…å³
-	kLegendInnerRightTop,								//5 å†…å³ä¸Š
-	kLegendInnerTopRight = kLegendInnerRightTop,		//5 å†…ä¸Šå³
-	kLegendInnerRightBottom,							//6 å†…å³ä¸‹
-	kLegendInnerBottomRight = kLegendInnerRightBottom,	//6 å†…ä¸‹å³
-	kLegendInnerTop,									//7 å†…ä¸Š
-	kLegendInnerBottom,									//8 å†…ä¸‹
+	kLegendInnerLeft,									//1 ÄÚ×ó
+	kLegendInnerLeftTop,								//2 ÄÚ×óÉÏ
+	kLegendInnerTopLeft = kLegendInnerLeftTop,			//2 ÄÚÉÏ×ó
+	kLegendInnerLeftBottom,								//3 ÄÚ×óÏÂ
+	kLegendInnerBottomLeft = kLegendInnerLeftBottom,	//3 ÄÚÏÂ×ó
+	kLegendInnerRight,									//4 ÄÚÓÒ
+	kLegendInnerRightTop,								//5 ÄÚÓÒÉÏ
+	kLegendInnerTopRight = kLegendInnerRightTop,		//5 ÄÚÉÏÓÒ
+	kLegendInnerRightBottom,							//6 ÄÚÓÒÏÂ
+	kLegendInnerBottomRight = kLegendInnerRightBottom,	//6 ÄÚÏÂÓÒ
+	kLegendInnerTop,									//7 ÄÚÉÏ
+	kLegendInnerBottom,									//8 ÄÚÏÂ
 	
-	kLegendLeft,										//9 å·¦
-	kLegendLeftTop,										//10å·¦ä¸Š
-	kLegendLeftBottom,									//11å·¦ä¸‹
-	kLegendRight,										//12å³
-	kLegendRightTop,									//13å³ä¸Š
-	kLegendRightBottom,									//14å³ä¸‹
-	kLegendTop,											//15ä¸Š
-	kLegendTopLeft,										//16ä¸Šå·¦
-	kLegendTopRight,									//17ä¸Šå³
-	kLegendBottom,										//18ä¸‹
-	kLegendBottomLeft,									//19ä¸‹å·¦
-	kLegendBottomRight,									//20ä¸‹å³
+	kLegendLeft,										//9 ×ó
+	kLegendLeftTop,										//10×óÉÏ
+	kLegendLeftBottom,									//11×óÏÂ
+	kLegendRight,										//12ÓÒ
+	kLegendRightTop,									//13ÓÒÉÏ
+	kLegendRightBottom,									//14ÓÒÏÂ
+	kLegendTop,											//15ÉÏ
+	kLegendTopLeft,										//16ÉÏ×ó
+	kLegendTopRight,									//17ÉÏÓÒ
+	kLegendBottom,										//18ÏÂ
+	kLegendBottomLeft,									//19ÏÂ×ó
+	kLegendBottomRight,									//20ÏÂÓÒ
   
-	kLegendPostionCount									//å…±21ç§é€‰é¡¹
+	kLegendPostionCount									//¹²21ÖÖÑ¡Ïî
 };
 
-// æŸ±å›¾èµ·å§‹ä½ç½®
+// ÖùÍ¼ÆğÊ¼Î»ÖÃ
 enum
 {
-	kStemBaseBottom		=	0,		//ä¸‹
-	kStemBaseTop		=	1,		//ä¸Š
-	kStemBaseLeft		=	2,		//å·¦
-	kStemBaseRight		=	3,		//å³
+	kStemBaseBottom		=	0,		//ÏÂ
+	kStemBaseTop		=	1,		//ÉÏ
+	kStemBaseLeft		=	2,		//×ó
+	kStemBaseRight		=	3,		//ÓÒ
   
 	kStemBaseCount		=	4
 };
@@ -257,11 +257,11 @@ enum
 	kDesCount
 };
 
-// å¯¹è¯æ¡†ã€å³é”®èœå•ä½¿ç”¨çš„è¯­è¨€
+// ¶Ô»°¿ò¡¢ÓÒ¼ü²Ëµ¥Ê¹ÓÃµÄÓïÑÔ
 enum
 {
-	kLangEnglish,		//0 è‹±è¯­
-	kLangChinese,		//1 æ±‰è¯­
+	kLangEnglish,		//0 Ó¢Óï
+	kLangChinese,		//1 ººÓï
 	kLangCount
 };
 */
@@ -275,16 +275,16 @@ enum
 class	CChart_API	CChart
 {
 public:	
-	// CChartå†…éƒ¨æ•°æ®ç»“æ„
+	// CChartÄÚ²¿Êı¾İ½á¹¹
 	struct stChartPara;
-	// è·å¾—stChartParaçš„å¤§å°
+	// »ñµÃstChartParaµÄ´óĞ¡
 	static	int	GetParaSize();
-	// è·å¾—å†…éƒ¨æ•°æ®çš„æŒ‡é’ˆ
+	// »ñµÃÄÚ²¿Êı¾İµÄÖ¸Õë
 	stChartPara *GetPara();
 protected:
-	// å†…éƒ¨æ•°æ®
+	// ÄÚ²¿Êı¾İ
 	stChartPara	*m_pPara;
-	// é‡Šæ”¾å†…éƒ¨èµ„æº
+	// ÊÍ·ÅÄÚ²¿×ÊÔ´
 	void		Release();	
 	
 public:
@@ -292,136 +292,136 @@ public:
 	~CChart();
 
 public:
-	// è®¾ç½®å¯¹è¯æ¡†ã€å³é”®èœå•ä½¿ç”¨çš„è¯­è¨€
+	// ÉèÖÃ¶Ô»°¿ò¡¢ÓÒ¼ü²Ëµ¥Ê¹ÓÃµÄÓïÑÔ
 	static	void	SetLangurage(int nLang);
-	// è®¾ç½®æ•°æ®å¤„ç†èœå•æ˜¯å¦æ˜¾ç¤º
+	// ÉèÖÃÊı¾İ´¦Àí²Ëµ¥ÊÇ·ñÏÔÊ¾
 	static	void	SetDataProcessing(bool process);
 	
-	// æµ‹è¯•æ˜¯å¦å¯ç”¨å·¥å…·æç¤º
+	// ²âÊÔÊÇ·ñÆôÓÃ¹¤¾ßÌáÊ¾
 	static	bool	IsEnableToolTip();
-	// è®¾ç½®æ˜¯å¦å¯ç”¨å·¥å…·æç¤º
+	// ÉèÖÃÊÇ·ñÆôÓÃ¹¤¾ßÌáÊ¾
 	static	void	SetEnableToolTip(bool enable);
-	// æ£€æŸ¥è§†å›¾å·æ˜¯å¦æœ‰æ•ˆ
+	// ¼ì²éÊÓÍ¼ºÅÊÇ·ñÓĞĞ§
 	static	bool	CheckPlotType(int nType);	
 	
-	// è®¾ç½®é»˜è®¤é¢œè‰²é…ç½®è¡¨
+	// ÉèÖÃÄ¬ÈÏÑÕÉ«ÅäÖÃ±í
 	static	void	SetColorTable(int nTableIndex);
 
-	// è®¾ç½®æ˜¯å¦æ˜¾ç¤ºå›¾åƒå¤„ç†çš„å³é”®èœå•
+	// ÉèÖÃÊÇ·ñÏÔÊ¾Í¼Ïñ´¦ÀíµÄÓÒ¼ü²Ëµ¥
 	static	void	SetImagePopupMenu(bool bShow);
 
 public:
-	// æ‹·è´å›¾åƒåˆ°å‰ªè´´æ¿
+	// ¿½±´Í¼Ïñµ½¼ôÌù°å
 	void		CopyImageToClipBoard(HWND hWnd);
-	// ä¿å­˜å›¾åƒåˆ°æ–‡ä»¶
+	// ±£´æÍ¼Ïñµ½ÎÄ¼ş
 	void		SaveImageToFile(HWND hWnd, TCHAR *strFileName, TCHAR *strFileExt);
-	// æ‰“å°å›¾åƒ
+	// ´òÓ¡Í¼Ïñ
 	void		PrintImage(HWND hWnd, bool bStretch);
-	// æ‰“å°å›¾åƒ
+	// ´òÓ¡Í¼Ïñ
 	void		PrintImage(HDC hDC, bool bStretch);
 
 public:
-	// è·å–å†…éƒ¨PlotæŒ‡é’ˆ
+	// »ñÈ¡ÄÚ²¿PlotÖ¸Õë
 	void		*GetPlot();
-	// è·å–å›¾åƒç±»å‹ç¼–ç 
+	// »ñÈ¡Í¼ÏñÀàĞÍ±àÂë
 	int			GetType();
-	// è®¾ç½®å›¾åƒç±»å‹ç¼–ç ï¼Œæ³¨æ„å°†æ¸…ç©ºæ‰€æœ‰æ•°æ®
+	// ÉèÖÃÍ¼ÏñÀàĞÍ±àÂë£¬×¢Òâ½«Çå¿ÕËùÓĞÊı¾İ
 	bool		SetType(int nType);
-	// è®¾ç½®å›¾åƒç±»å‹ç¼–ç ï¼Œå¹¶è®¾ç½®ç»˜å›¾çª—å£ï¼Œä¸»è¦ç”¨äºä¸‰ç»´è§†å›¾ï¼ŒäºŒç»´è§†å›¾å°†å¿½ç•¥hWnd
+	// ÉèÖÃÍ¼ÏñÀàĞÍ±àÂë£¬²¢ÉèÖÃ»æÍ¼´°¿Ú£¬Ö÷ÒªÓÃÓÚÈıÎ¬ÊÓÍ¼£¬¶şÎ¬ÊÓÍ¼½«ºöÂÔhWnd
 	bool		SetType(int nType, HWND hWnd);
-	// è®¾ç½®å›¾åƒç±»å‹ç¼–ç ï¼Œæ³¨æ„å°†æ¸…ç©ºæ‰€æœ‰æ•°æ®
+	// ÉèÖÃÍ¼ÏñÀàĞÍ±àÂë£¬×¢Òâ½«Çå¿ÕËùÓĞÊı¾İ
 	bool		CreateChart(int nType);
-	// è®¾ç½®å›¾åƒç±»å‹ç¼–ç ï¼Œå¹¶è®¾ç½®ç»˜å›¾çª—å£ï¼Œä¸»è¦ç”¨äºä¸‰ç»´è§†å›¾ï¼ŒäºŒç»´è§†å›¾å°†å¿½ç•¥hWnd
+	// ÉèÖÃÍ¼ÏñÀàĞÍ±àÂë£¬²¢ÉèÖÃ»æÍ¼´°¿Ú£¬Ö÷ÒªÓÃÓÚÈıÎ¬ÊÓÍ¼£¬¶şÎ¬ÊÓÍ¼½«ºöÂÔhWnd
 	bool		CreateChart(int nType, HWND hWnd);
 
-	// è·å¾—æ ‡è¯†ç¬¦ï¼Œç”¨äºCChartWnd
+	// »ñµÃ±êÊ¶·û£¬ÓÃÓÚCChartWnd
 	int			GetPlotID();
-	// è®¾ç½®æ ‡è¯†ç¬¦ï¼Œç”¨äºCChartWnd
+	// ÉèÖÃ±êÊ¶·û£¬ÓÃÓÚCChartWnd
 	void		SetPlotID(int nID);
-	// è·å¾—é¢„ç½®çª—å£
+	// »ñµÃÔ¤ÖÃ´°¿Ú
 	HWND		GetWnd();
-	// è®¾ç½®é¢„ç½®çª—å£
+	// ÉèÖÃÔ¤ÖÃ´°¿Ú
 	void		SetWnd(HWND hWnd);
-	// æµ‹è¯•æ˜¯å¦é™åˆ¶ç»˜å›¾åŒº
+	// ²âÊÔÊÇ·ñÏŞÖÆ»æÍ¼Çø
 	bool		IsRectConfined();
-	// è®¾ç½®æ˜¯å¦é™åˆ¶ç»˜å›¾åŒº
+	// ÉèÖÃÊÇ·ñÏŞÖÆ»æÍ¼Çø
 	void		SetRectConfined(bool confine);
-	// è®¾ç½®é™åˆ¶åŒºåŸŸ
+	// ÉèÖÃÏŞÖÆÇøÓò
 	bool		SetConfineRect(RECT ConfineRect);
-	// è·å–é™åˆ¶åŒºåŸŸ
+	// »ñÈ¡ÏŞÖÆÇøÓò
 	RECT		GetConfineRect(); 
 
-	// æµ‹è¯•å†…éƒ¨æ˜¯å¦æ— æ•°æ®
+	// ²âÊÔÄÚ²¿ÊÇ·ñÎŞÊı¾İ
 	bool		IsEmpty();
 	
-	// é‡ç½®å¤–è§‚æ•°æ®
+	// ÖØÖÃÍâ¹ÛÊı¾İ
 	void		ResetApperance();
-	// è·å¾—å¤–è§‚æ¨¡å¼åºå·
+	// »ñµÃÍâ¹ÛÄ£Ê½ĞòºÅ
 	int			GetApperanceMode();
-	// è®¾ç½®å¤–è§‚æ¨¡å¼
+	// ÉèÖÃÍâ¹ÛÄ£Ê½
 	void		SetApperanceMode(int mode);
 
-	// è®¾ç½®ç»˜å›¾å®Œæˆåï¼Œç”¨æˆ·ä»£ç å¯ä»¥æ¥ç€ç»˜å›¾
+	// ÉèÖÃ»æÍ¼Íê³Éºó£¬ÓÃ»§´úÂë¿ÉÒÔ½Ó×Å»æÍ¼
 	void		SetContinuePaint(bool ctn);
-	// è®¾ç½®æ¶ˆæ¯å¤„ç†åï¼Œç”¨æˆ·ä»£ç å¯ä»¥æ¥ç€å¤„ç†
+	// ÉèÖÃÏûÏ¢´¦Àíºó£¬ÓÃ»§´úÂë¿ÉÒÔ½Ó×Å´¦Àí
 	void		SetContinueReact(bool ctn);
 
-	// æµ‹è¯•å›¾åƒæ˜¯å¦åŒç¼“å†²
+	// ²âÊÔÍ¼ÏñÊÇ·ñË«»º³å
 	bool		IsDoubleBuffer();
-	// è®¾ç½®å›¾åƒæ˜¯å¦åŒç¼“å†²
+	// ÉèÖÃÍ¼ÏñÊÇ·ñË«»º³å
 	void		SetDoubleBuffer(bool bDb);
 
 public:
-	// æµ‹è¯•æ˜¯å¦å“åº”é¼ æ ‡é”®ç›˜æ¶ˆæ¯
+	// ²âÊÔÊÇ·ñÏìÓ¦Êó±ê¼üÅÌÏûÏ¢
 	bool		IsReact();
-	// è®¾ç½®æ˜¯å¦å“åº”é¼ æ ‡é”®ç›˜æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦Êó±ê¼üÅÌÏûÏ¢
 	void		SetReact(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”å·¦é”®å•å‡»æŒ‰ä¸‹æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦×ó¼üµ¥»÷°´ÏÂÏûÏ¢
 	void		SetReactLButtonDown(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”å·¦é”®å•å‡»æŠ¬èµ·æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦×ó¼üµ¥»÷Ì§ÆğÏûÏ¢
 	void		SetReactLButtonUp(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”å·¦é”®åŒå‡»æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦×ó¼üË«»÷ÏûÏ¢
 	void		SetReactLButtonDblClk(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”é¼ æ ‡ç§»åŠ¨æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦Êó±êÒÆ¶¯ÏûÏ¢
 	void		SetReactMouseMove(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”å³é”®èœå•æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦ÓÒ¼ü²Ëµ¥ÏûÏ¢
 	void		SetReactContextMenu(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”æŒ‰é”®æ¶ˆæ¯
+	// ÉèÖÃÊÇ·ñÏìÓ¦°´¼üÏûÏ¢
 	void		SetReactKeyDown(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”æ ‡é¢˜
+	// ÉèÖÃÊÇ·ñÏìÓ¦±êÌâ
 	void		SetReactTitle(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”åæ ‡è½´
+	// ÉèÖÃÊÇ·ñÏìÓ¦×ø±êÖá
 	void		SetReactAxes(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”å›¾ä¾‹
+	// ÉèÖÃÊÇ·ñÏìÓ¦Í¼Àı
 	void		SetReactLegend(bool react);
-	// è®¾ç½®æ˜¯å¦å“åº”æ•°æ®
+	// ÉèÖÃÊÇ·ñÏìÓ¦Êı¾İ
 	void		SetReactData(bool react);
-	// æµ‹è¯•æ¶ˆæ¯å“åº”æ—¶æ˜¯å¦è‡ªåŠ¨åˆ·æ–°ï¼Œèµ·ä½œç”¨äºæœ«å°¾å¸¦Rçš„å‡ ä¸ªå‡½æ•°å’ŒInteractive
-	// ä¸»è¦ç”¨äºå®æ—¶æ›²çº¿æ˜¾ç¤º,æ­¤æ—¶è®¾ç½®ä¸ºfalse
+	// ²âÊÔÏûÏ¢ÏìÓ¦Ê±ÊÇ·ñ×Ô¶¯Ë¢ĞÂ£¬Æğ×÷ÓÃÓÚÄ©Î²´øRµÄ¼¸¸öº¯ÊıºÍInteractive
+	// Ö÷ÒªÓÃÓÚÊµÊ±ÇúÏßÏÔÊ¾,´ËÊ±ÉèÖÃÎªfalse
 	bool		IsAutoRedraw();
-	// è®¾ç½®æ¶ˆæ¯å“åº”æ—¶æ˜¯å¦è‡ªåŠ¨åˆ·æ–°ï¼Œèµ·ä½œç”¨äºæœ«å°¾å¸¦Rçš„å‡ ä¸ªå‡½æ•°å’ŒInteractive
-	// ä¸»è¦ç”¨äºå®æ—¶æ›²çº¿æ˜¾ç¤º,æ­¤æ—¶è®¾ç½®ä¸ºfalse
+	// ÉèÖÃÏûÏ¢ÏìÓ¦Ê±ÊÇ·ñ×Ô¶¯Ë¢ĞÂ£¬Æğ×÷ÓÃÓÚÄ©Î²´øRµÄ¼¸¸öº¯ÊıºÍInteractive
+	// Ö÷ÒªÓÃÓÚÊµÊ±ÇúÏßÏÔÊ¾,´ËÊ±ÉèÖÃÎªfalse
 	void		SetAutoRedraw(bool redraw);
-	// è®¾ç½®ç»˜å›¾åŒºåç§»
+	// ÉèÖÃ»æÍ¼ÇøÆ«ÒÆ
 	void		SetOffsetClient(int offsetX, int offsetY);
 
 public:
-	// å¯¹é¢„ç½®çª—å£å¥æŸ„ç»˜å›¾ï¼Œé¢„ç½®çª—å£å¯ä»¥ç”¨SetWnd()è®¾ç½®ï¼Œä¹Ÿå¯è°ƒç”¨å…¶å®ƒOnDrawè‡ªåŠ¨è®¾ç½®
+	// ¶ÔÔ¤ÖÃ´°¿Ú¾ä±ú»æÍ¼£¬Ô¤ÖÃ´°¿Ú¿ÉÒÔÓÃSetWnd()ÉèÖÃ£¬Ò²¿Éµ÷ÓÃÆäËüOnDraw×Ô¶¯ÉèÖÃ
 	virtual	void		OnDraw();
-	// å¯¹çª—å£å¥æŸ„ç»˜å›¾
+	// ¶Ô´°¿Ú¾ä±ú»æÍ¼
 	virtual	void		OnDraw(HWND hWnd);
-	// å¯¹è®¾å¤‡ä¸Šä¸‹æ–‡ç»˜å›¾
+	// ¶ÔÉè±¸ÉÏÏÂÎÄ»æÍ¼
 	virtual	void		OnDraw(HDC hDC);
-	// åœ¨çª—å£ä¸Šé€‰æ‹©åŒºåŸŸç»˜å›¾
+	// ÔÚ´°¿ÚÉÏÑ¡ÔñÇøÓò»æÍ¼
 	virtual	void		OnDraw(HWND hWnd, RECT destRect);
-	// åœ¨è®¾å¤‡ä¸Šä¸‹æ–‡å¯¹åº”çš„çª—å£ä¸Šï¼Œé€‰æ‹©åŒºåŸŸç»˜å›¾
+	// ÔÚÉè±¸ÉÏÏÂÎÄ¶ÔÓ¦µÄ´°¿ÚÉÏ£¬Ñ¡ÔñÇøÓò»æÍ¼
 	virtual	void		OnDraw(HDC hDC, RECT destRect);
 
-	// å¯¹é¢„ç½®çª—å£å‘é‡ç»˜æ¶ˆæ¯ï¼Œä¸»è¦ç”¨äºå¤šçº¿ç¨‹ï¼Œä»¥ä¿è¯çº¿ç¨‹å®‰å…¨
+	// ¶ÔÔ¤ÖÃ´°¿Ú·¢ÖØ»æÏûÏ¢£¬Ö÷ÒªÓÃÓÚ¶àÏß³Ì£¬ÒÔ±£Ö¤Ïß³Ì°²È«
 	virtual	void		Invalidate( BOOL bErase = TRUE );
 
 public:
-	// å•ä¸ªçš„é¼ æ ‡é”®ç›˜æ¶ˆæ¯ï¼Œä½†ä¸é‡ç»˜ï¼Œç”±ç”¨æˆ·æ ¹æ®è¿”å›å€¼é‡ç»˜
+	// µ¥¸öµÄÊó±ê¼üÅÌÏûÏ¢£¬µ«²»ÖØ»æ£¬ÓÉÓÃ»§¸ù¾İ·µ»ØÖµÖØ»æ
 	virtual	bool		OnLButtonDown( HWND hWnd, POINT point, UINT ctrlKey );
 	virtual	bool		OnLButtonUp( HWND hWnd, POINT point, UINT ctrlKey );
 	virtual	bool		OnLButtonDblClk( HWND hWnd, POINT point, UINT ctrlKey );
@@ -431,7 +431,7 @@ public:
 	virtual	bool		OnContextMenu( HMENU hMenu, HWND hWnd, POINT point );
 	virtual	bool		OnKeyDown( HWND hWnd, UINT key );
 
-	// å•ä¸ªçš„é¼ æ ‡é”®ç›˜æ¶ˆæ¯ï¼Œåœ¨AutoRedrawä¸ºçœŸæƒ…å†µä¸‹é‡ç»˜
+	// µ¥¸öµÄÊó±ê¼üÅÌÏûÏ¢£¬ÔÚAutoRedrawÎªÕæÇé¿öÏÂÖØ»æ
 	void				OnLButtonDownR( HWND hWnd, POINT point, UINT ctrlKey );
 	void				OnLButtonUpR( HWND hWnd, POINT point, UINT ctrlKey );
 	void				OnLButtonDblClkR( HWND hWnd, POINT point, UINT ctrlKey );
@@ -441,1124 +441,1124 @@ public:
 	void				OnContextMenuR( HMENU hMenu, HWND hWnd, POINT point );
 	void				OnKeyDownR( HWND hWnd, UINT key );
 
-	// å“åº”æ¶ˆæ¯ï¼Œä½†ä¸é‡ç»˜ï¼Œç”±ç”¨æˆ·æ ¹æ®è¿”å›å€¼é‡ç»˜
+	// ÏìÓ¦ÏûÏ¢£¬µ«²»ÖØ»æ£¬ÓÉÓÃ»§¸ù¾İ·µ»ØÖµÖØ»æ
 	virtual	bool		OnEvent(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	// å“åº”æ¶ˆæ¯ï¼Œåœ¨AutoRedrawä¸ºçœŸæƒ…å†µä¸‹é‡ç»˜
+	// ÏìÓ¦ÏûÏ¢£¬ÔÚAutoRedrawÎªÕæÇé¿öÏÂÖØ»æ
 	void				Interactive(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
-	// å¢åŠ å³é”®èœå•é¡¹ï¼Œæ’ä»¶èœå•åŠŸèƒ½
+	// Ôö¼ÓÓÒ¼ü²Ëµ¥Ïî£¬²å¼ş²Ëµ¥¹¦ÄÜ
 	void		SetPluginMenu(void (*fcnAddPluginMenu)( void *plot, HMENU addMenu, void *pPara ), int (*fcnInterpretPluginMenu)( void *plot, HWND hWnd, int result, void *pPara ), void *pParaAdd, void *pParaInt);
-	// éšè—æˆ–æ˜¾ç¤ºç¼ºçœå³é”®èœå•ï¼Œç»“åˆæ’ä»¶èœå•åŠŸèƒ½å¯å®ç°å³é”®èœå•å…¨éƒ¨è‡ªå®šä¹‰
+	// Òş²Ø»òÏÔÊ¾È±Ê¡ÓÒ¼ü²Ëµ¥£¬½áºÏ²å¼ş²Ëµ¥¹¦ÄÜ¿ÉÊµÏÖÓÒ¼ü²Ëµ¥È«²¿×Ô¶¨Òå
 	void		SetDefMenus(bool bShow);
-	// ç”¨æˆ·è‡ªå®šä¹‰ç»˜å›¾æ“ä½œ
+	// ÓÃ»§×Ô¶¨Òå»æÍ¼²Ù×÷
 	void		SetUserDrawingFunc(void	(*fcnUserDrawing)( void *plot, HDC hDC, RECT clientRect, RECT plotRect, void *pPara ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰ç»˜å›¾æ“ä½œ
+	// ÓÃ»§×Ô¶¨Òå»æÍ¼²Ù×÷
 	void		SetUserDrawingFunc(void	(*fcnUserDrawing)( void *plot, HDC hDC, RECT clientRect, RECT plotRect, void *pPara ), void *pPara, int nPlotIndex);
-	// ç”¨æˆ·è‡ªå®šä¹‰æ›´æ–°æ“ä½œ
+	// ÓÃ»§×Ô¶¨Òå¸üĞÂ²Ù×÷
 	void		SetUserUpdateFunc(void	(*fcnUserUpdate)( void *plot, void *pPara ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰æ›´æ–°æ“ä½œ
+	// ÓÃ»§×Ô¶¨Òå¸üĞÂ²Ù×÷
 	void		SetUserUpdateFunc(void	(*fcnUserUpdate)( void *plot, void *pPara ), void *pPara, int nPlotIndex);
 	
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡ç§»åŠ¨å‰æ“ä½œï¼ŒbContinueè®¾ç½®ä¸ºfalseè·³è¿‡é»˜è®¤ä¾‹ç¨‹
+	// ÓÃ»§×Ô¶¨ÒåÊó±êÒÆ¶¯Ç°²Ù×÷£¬bContinueÉèÖÃÎªfalseÌø¹ıÄ¬ÈÏÀı³Ì
 	void		SetPreMouseMoveFunc(bool	(*fcnPreMouseMove)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡å•å‡»å‰æ“ä½œï¼ŒbContinueè®¾ç½®ä¸ºfalseè·³è¿‡é»˜è®¤ä¾‹ç¨‹
+	// ÓÃ»§×Ô¶¨ÒåÊó±êµ¥»÷Ç°²Ù×÷£¬bContinueÉèÖÃÎªfalseÌø¹ıÄ¬ÈÏÀı³Ì
 	void		SetPreLButtonDownFunc(bool	(*fcnPreLButtonDown)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡æŠ¬èµ·å‰æ“ä½œï¼ŒbContinueè®¾ç½®ä¸ºfalseè·³è¿‡é»˜è®¤ä¾‹ç¨‹
+	// ÓÃ»§×Ô¶¨ÒåÊó±êÌ§ÆğÇ°²Ù×÷£¬bContinueÉèÖÃÎªfalseÌø¹ıÄ¬ÈÏÀı³Ì
 	void		SetPreLButtonUpFunc(bool	(*fcnPreLButtonUp)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡åŒå‡»å‰æ“ä½œï¼ŒbContinueè®¾ç½®ä¸ºfalseè·³è¿‡é»˜è®¤ä¾‹ç¨‹
+	// ÓÃ»§×Ô¶¨ÒåÊó±êË«»÷Ç°²Ù×÷£¬bContinueÉèÖÃÎªfalseÌø¹ıÄ¬ÈÏÀı³Ì
 	void		SetPreLButtonDblClkFunc(bool	(*fcnPreLButtonDblClk)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰æŒ‰é”®å‰æ“ä½œï¼ŒbContinueè®¾ç½®ä¸ºfalseè·³è¿‡é»˜è®¤ä¾‹ç¨‹
+	// ÓÃ»§×Ô¶¨Òå°´¼üÇ°²Ù×÷£¬bContinueÉèÖÃÎªfalseÌø¹ıÄ¬ÈÏÀı³Ì
 	void		SetPreKeyDownFunc(bool	(*fcnPreKeyDown)( void *plot, HDC hDC, UINT key, void *para, bool &bContinue ), void *pPara);
 	
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡ç§»åŠ¨åæ“ä½œï¼ŒbContinueè¢«å¿½ç•¥
+	// ÓÃ»§×Ô¶¨ÒåÊó±êÒÆ¶¯ºó²Ù×÷£¬bContinue±»ºöÂÔ
 	void		SetPostMouseMoveFunc(bool	(*fcnPostMouseMove)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡å•å‡»åæ“ä½œï¼ŒbContinueè¢«å¿½ç•¥
+	// ÓÃ»§×Ô¶¨ÒåÊó±êµ¥»÷ºó²Ù×÷£¬bContinue±»ºöÂÔ
 	void		SetPostLButtonDownFunc(bool	(*fcnPostLButtonDown)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡æŠ¬èµ·åæ“ä½œï¼ŒbContinueè¢«å¿½ç•¥
+	// ÓÃ»§×Ô¶¨ÒåÊó±êÌ§Æğºó²Ù×÷£¬bContinue±»ºöÂÔ
 	void		SetPostLButtonUpFunc(bool	(*fcnPostLButtonUp)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰é¼ æ ‡åŒå‡»åæ“ä½œï¼ŒbContinueè¢«å¿½ç•¥
+	// ÓÃ»§×Ô¶¨ÒåÊó±êË«»÷ºó²Ù×÷£¬bContinue±»ºöÂÔ
 	void		SetPostLButtonDblClkFunc(bool	(*fcnPostLButtonDblClk)( void *plot, HDC hDC, POINT point, UINT ctrlKey, void *para, bool &bContinue ), void *pPara);
-	// ç”¨æˆ·è‡ªå®šä¹‰æŒ‰é”®åæ“ä½œï¼ŒbContinueè¢«å¿½ç•¥
+	// ÓÃ»§×Ô¶¨Òå°´¼üºó²Ù×÷£¬bContinue±»ºöÂÔ
 	void		SetPostKeyDownFunc(bool	(*fcnPreKeyDown)( void *plot, HDC hDC, UINT key, void *para, bool &bContinue ), void *pPara);
 
 public:
-	// åˆå§‹åŒ–ç­‰é«˜çº¿æ—¶è‡ªå®šä¹‰åŠ¨ä½œï¼Œå› ä¸ºæœ‰æ—¶å¯èƒ½æ¯”è¾ƒæ…¢ï¼Œå¯ä»¥ç”¨æ¥æ˜¾ç¤ºè¿›åº¦æ¡
+	// ³õÊ¼»¯µÈ¸ßÏßÊ±×Ô¶¨Òå¶¯×÷£¬ÒòÎªÓĞÊ±¿ÉÄÜ±È½ÏÂı£¬¿ÉÒÔÓÃÀ´ÏÔÊ¾½ø¶ÈÌõ
 	void		SetContourUserAction(void (*fcnUserAction)());
-	// ç­‰é«˜çº¿åˆå§‹åŒ–çš„åŠ¨ä½œæ•°
+	// µÈ¸ßÏß³õÊ¼»¯µÄ¶¯×÷Êı
 	int			GetContourInitSteps();
 
 public:
-	// è·å¾—å­å›¾åºå·ï¼Œä»…ä»…ç”¨äºkTypeSplit
+	// »ñµÃ×ÓÍ¼ĞòºÅ£¬½ö½öÓÃÓÚkTypeSplit
 	int			GetPlotIndexByMousePos(POINT point);
 	
 public:
-	// è®¾ç½®åœ¨æ²¡æœ‰æ•°æ®çš„æ—¶å€™æ˜¯å¦ç”»åæ ‡è½´åŠæ ‡é¢˜
+	// ÉèÖÃÔÚÃ»ÓĞÊı¾İµÄÊ±ºòÊÇ·ñ»­×ø±êÖá¼°±êÌâ
 	void		SetDrawBasicAnyway(bool draw);
-	// è®¾ç½®åœ¨æ²¡æœ‰æ•°æ®çš„æ—¶å€™å­å›¾æ˜¯å¦ç”»åæ ‡è½´åŠæ ‡é¢˜
+	// ÉèÖÃÔÚÃ»ÓĞÊı¾İµÄÊ±ºò×ÓÍ¼ÊÇ·ñ»­×ø±êÖá¼°±êÌâ
 	void		SetDrawBasicAnyway(bool draw, int nPlotIndex);
-	// è®¾ç½®æ— æ•°æ®æ—¶é»˜è®¤å±å¹•
+	// ÉèÖÃÎŞÊı¾İÊ±Ä¬ÈÏÆÁÄ»
 	void		SetDefScreen( void (*fcnDefScreen)( void *plot, HDC hDC, RECT plotRect, void *pPara ), void *pPara );
-	// è®¾ç½®æ— æ•°æ®æ—¶å­å›¾é»˜è®¤å±å¹•
+	// ÉèÖÃÎŞÊı¾İÊ±×ÓÍ¼Ä¬ÈÏÆÁÄ»
 	void		SetDefScreen( void (*fcnDefScreen)( void *plot, HDC hDC, RECT plotRect, void *pPara ), void *pPara, int nPlotIndex );
-	// è®¾ç½®é»˜è®¤å±å¹•çš„ä¸»å­—ç¬¦ä¸²
+	// ÉèÖÃÄ¬ÈÏÆÁÄ»µÄÖ÷×Ö·û´®
 	void		SetDefMainString(TCHAR *str);
-	// è®¾ç½®å­å›¾é»˜è®¤å±å¹•çš„ä¸»å­—ç¬¦ä¸²
+	// ÉèÖÃ×ÓÍ¼Ä¬ÈÏÆÁÄ»µÄÖ÷×Ö·û´®
 	void		SetDefMainString(TCHAR *str, int nPlotIndex);
-	//  è®¾ç½®é»˜è®¤å±å¹•çš„å‰¯å­—ç¬¦ä¸²
+	//  ÉèÖÃÄ¬ÈÏÆÁÄ»µÄ¸±×Ö·û´®
 	void		SetDefSubString(TCHAR *str);
-	//  è®¾ç½®å­å›¾é»˜è®¤å±å¹•çš„å‰¯å­—ç¬¦ä¸²
+	//  ÉèÖÃ×ÓÍ¼Ä¬ÈÏÆÁÄ»µÄ¸±×Ö·û´®
 	void		SetDefSubString(TCHAR *str, int nPlotIndex);
-	//  è®¾ç½®é»˜è®¤å±å¹•çš„èƒŒæ™¯å›¾
+	//  ÉèÖÃÄ¬ÈÏÆÁÄ»µÄ±³¾°Í¼
 	void		SetDefImage(HBITMAP hbm);
-	//  è®¾ç½®å­å›¾é»˜è®¤å±å¹•çš„èƒŒæ™¯å›¾
+	//  ÉèÖÃ×ÓÍ¼Ä¬ÈÏÆÁÄ»µÄ±³¾°Í¼
 	void		SetDefImage(HBITMAP hbm, int nPlotIndex);
 
 
 public:
-	// æ£€æµ‹å­å›¾åºå·æ˜¯å¦åœ¨èŒƒå›´å†…
+	// ¼ì²â×ÓÍ¼ĞòºÅÊÇ·ñÔÚ·¶Î§ÄÚ
 	bool		CheckSubPlotIndex(int nPlotIndex);
 
 public:
-	// è·å¾—å·¥å…·æç¤ºå­—ç¬¦ä¸²
+	// »ñµÃ¹¤¾ßÌáÊ¾×Ö·û´®
 	TCHAR		*GetDescriptionByMousePos(HDC hDC, POINT point);
-	// è®¾ç½®å·¥å…·æç¤ºå­—ç¬¦ä¸²ç±»å‹
+	// ÉèÖÃ¹¤¾ßÌáÊ¾×Ö·û´®ÀàĞÍ
 	void		SetTooltipType(int type);
-	// è®¾ç½®è‡ªå®šä¹‰å·¥å…·æç¤ºå‡½æ•°
+	// ÉèÖÃ×Ô¶¨Òå¹¤¾ßÌáÊ¾º¯Êı
 	void		SetUserFcnTooltip(TCHAR	*(*fcnUserTooltip)( void *plot, RECT clientRect, RECT plotRect, POINT point, double *data, double *xRange, double *yRange, int nPointIndex, int nDataIndex, void *pPara), void *pPara);
 
 public:
-	// è®¾ç½®å†…ç½®ç¼©æ”¾æ¨¡å¼ï¼Œæ‰“å¼€åå¯å“åº”é¼ æ ‡æ‹–æ”¾
+	// ÉèÖÃÄÚÖÃËõ·ÅÄ£Ê½£¬´ò¿ªºó¿ÉÏìÓ¦Êó±êÍÏ·Å
 	void		SetZoomModeBuildIn(bool zoom);
-	// é‡ç½®ç¼©æ”¾èŒƒå›´
+	// ÖØÖÃËõ·Å·¶Î§
 	void		ResetZoomedRanges();
-	// è®¾ç½®å›¾åƒæ•´ä½“ç¼©æ”¾æ¨¡å¼ï¼Œåªæ˜¯ç»˜åˆ¶ï¼Œé€‚ç”¨äºä¸é‡‡ç”¨CChartWndçš„æƒ…å†µ
+	// ÉèÖÃÍ¼ÏñÕûÌåËõ·ÅÄ£Ê½£¬Ö»ÊÇ»æÖÆ£¬ÊÊÓÃÓÚ²»²ÉÓÃCChartWndµÄÇé¿ö
 	void		SetZoomMode(bool zoom);
-	// è®¾ç½®å›¾åƒæ•´ä½“ç¼©æ”¾æ—¶Xæ–¹å‘çš„ç¼©æ”¾ç³»æ•°
+	// ÉèÖÃÍ¼ÏñÕûÌåËõ·ÅÊ±X·½ÏòµÄËõ·ÅÏµÊı
 	void		SetZoomFactorX(double fact);
-	// è®¾ç½®å›¾åƒæ•´ä½“ç¼©æ”¾æ—¶Yæ–¹å‘çš„ç¼©æ”¾ç³»æ•°
+	// ÉèÖÃÍ¼ÏñÕûÌåËõ·ÅÊ±Y·½ÏòµÄËõ·ÅÏµÊı
 	void		SetZoomFactorY(double fact);
-	// è®¾ç½®å›¾åƒæ•´ä½“ç¼©æ”¾æ—¶ä¸¤ä¸ªæ–¹å‘çš„ç¼©æ”¾ç³»æ•°
+	// ÉèÖÃÍ¼ÏñÕûÌåËõ·ÅÊ±Á½¸ö·½ÏòµÄËõ·ÅÏµÊı
 	void		SetZoomFactor(double fact);
-	// è®¾ç½®å›¾åƒæ•´ä½“ç¼©æ”¾æ—¶çš„ç¼©æ”¾ä¸­å¿ƒï¼Œä¸­å¿ƒçš„ä»£å·è§æœ¬æ–‡ä»¶å¼€å§‹è¢«æ³¨é‡Šæ‰çš„enum
+	// ÉèÖÃÍ¼ÏñÕûÌåËõ·ÅÊ±µÄËõ·ÅÖĞĞÄ£¬ÖĞĞÄµÄ´úºÅ¼û±¾ÎÄ¼ş¿ªÊ¼±»×¢ÊÍµôµÄenum
 	void		SetZoomCenterMode(int center);
 protected:
-	// å†…éƒ¨è°ƒç”¨å‡½æ•°
+	// ÄÚ²¿µ÷ÓÃº¯Êı
 	RECT		GetZoomedRect(RECT destRect);
 
 public:	
-	// æ”¹å˜æ›²çº¿æ¡æ•°
-	// å¦‚æœnCountæ¯”ç°æœ‰æ›²çº¿æ¡æ•°å¤šï¼Œåˆ™å¢åŠ ç©ºæ›²çº¿
-	// å¦‚æœnCountæ¯”ç°æœ‰æ›²çº¿æ¡æ•°å°‘ï¼Œåˆ™åˆ é™¤éƒ¨åˆ†æ›²çº¿ï¼Œå…ˆåˆ åæ·»åŠ çš„ã€‚
+	// ¸Ä±äÇúÏßÌõÊı
+	// Èç¹ûnCount±ÈÏÖÓĞÇúÏßÌõÊı¶à£¬ÔòÔö¼Ó¿ÕÇúÏß
+	// Èç¹ûnCount±ÈÏÖÓĞÇúÏßÌõÊıÉÙ£¬ÔòÉ¾³ı²¿·ÖÇúÏß£¬ÏÈÉ¾ºóÌí¼ÓµÄ¡£
 	void		ResizeCurves(int nCount, int nPlotIndex=0);
-	// æ·»åŠ æ›²çº¿ï¼Œå‰ä¸‰ä¸ªå‚æ•°æ˜¯æ›²çº¿æ•°æ®
-	// ç¬¬å››ä¸ªå‚æ•°ä¸»è¦ç”¨äºåˆ†è£‚è§†å›¾ã€åˆ†å±‚è§†å›¾ã€å…±äº«Xè½´è§†å›¾ï¼Œè¡¨ç¤ºå­å›¾åºå·ã€‚åç»­å‡½æ•°ç›¸åŒ
-	// è¿”å›å€¼æ˜¯æ›²çº¿çš„IDå·ï¼Œæ³¨æ„ä¸æ˜¯åºå·ï¼Œè¿”å›-1è¡¨ç¤ºæ·»åŠ æ›²çº¿å¤±è´¥ã€‚åç»­å‡½æ•°ç›¸åŒ
+	// Ìí¼ÓÇúÏß£¬Ç°Èı¸ö²ÎÊıÊÇÇúÏßÊı¾İ
+	// µÚËÄ¸ö²ÎÊıÖ÷ÒªÓÃÓÚ·ÖÁÑÊÓÍ¼¡¢·Ö²ãÊÓÍ¼¡¢¹²ÏíXÖáÊÓÍ¼£¬±íÊ¾×ÓÍ¼ĞòºÅ¡£ºóĞøº¯ÊıÏàÍ¬
+	// ·µ»ØÖµÊÇÇúÏßµÄIDºÅ£¬×¢Òâ²»ÊÇĞòºÅ£¬·µ»Ø-1±íÊ¾Ìí¼ÓÇúÏßÊ§°Ü¡£ºóĞøº¯ÊıÏàÍ¬
 	int			AddCurve(double *pX, double *pY, int nLen, int nPlotIndex=0);
-	// æ·»åŠ æ›²çº¿ï¼Œå…¶ä¸­Xåæ ‡ä¸ºæ—¶é—´ï¼Œç”¨å­—ç¬¦ä¸²å½¢å¼è¾“å…¥
-	// å­—ç¬¦ä¸²æ ¼å¼ç”±fmtç¡®å®šï¼Œå‚è€ƒCåº“å‡½æ•°strftime
-	// æ—¶é—´åªèƒ½ç²¾ç¡®åˆ°ç§’ï¼Œå› ä¸ºå†…éƒ¨ä½¿ç”¨time_t
+	// Ìí¼ÓÇúÏß£¬ÆäÖĞX×ø±êÎªÊ±¼ä£¬ÓÃ×Ö·û´®ĞÎÊ½ÊäÈë
+	// ×Ö·û´®¸ñÊ½ÓÉfmtÈ·¶¨£¬²Î¿¼C¿âº¯Êıstrftime
+	// Ê±¼äÖ»ÄÜ¾«È·µ½Ãë£¬ÒòÎªÄÚ²¿Ê¹ÓÃtime_t
 	int			AddCurve(TCHAR **pStrTime, TCHAR *fmt, double *pY, int nLen, int nPlotIndex=0);
-	// æ·»åŠ ç©ºæ›²çº¿
+	// Ìí¼Ó¿ÕÇúÏß
 	int			AddCurve(int nPlotIndex=0);
-	// æ›´æ–°æ›²çº¿æ•°æ®
+	// ¸üĞÂÇúÏßÊı¾İ
 	int			UpdateCurve(int nDataIndex, double *pX, double *pY, int nLen, int nPlotIndex=0);
-	// æ ¹æ®IDå·æ›´æ–°æ›²çº¿æ•°æ®
+	// ¸ù¾İIDºÅ¸üĞÂÇúÏßÊı¾İ
 	int			UpdateCurveByID(int nDataID, double *pX, double *pY, int nLen, int nPlotIndex=0);
-	// æ›¿æ¢æ›²çº¿æ•°æ®ï¼Œä¸æ›´æ–°èŒƒå›´
+	// Ìæ»»ÇúÏßÊı¾İ£¬²»¸üĞÂ·¶Î§
 	int			ReplaceCurve(int nDataIndex, double *pX, double *pY, int nLen, int nPlotIndex=0);
-	// æ ¹æ®IDå·æ›¿æ¢æ›²çº¿æ•°æ®ï¼Œä¸æ›´æ–°èŒƒå›´
+	// ¸ù¾İIDºÅÌæ»»ÇúÏßÊı¾İ£¬²»¸üĞÂ·¶Î§
 	int			ReplaceCurveByID(int nDataID, double *pX, double *pY, int nLen, int nPlotIndex=0);
-	// ä»æ›²çº¿çš„DataIDè·å¾—Index
+	// ´ÓÇúÏßµÄDataID»ñµÃIndex
 	int			GetIndex(int dataID, int nPlotIndex=0);
-	// ä»æ›²çº¿çš„Indexè·å¾—DataID
+	// ´ÓÇúÏßµÄIndex»ñµÃDataID
 	int			GetDataID(int nIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿çš„dataIDï¼Œç‰¹æ®Šç”¨é€”ï¼Œå±äºå€šå¤©å‰‘å± é¾™åˆ€ï¼Œä¸è¦éšä¾¿è°ƒç”¨
+	// ÉèÖÃÇúÏßµÄdataID£¬ÌØÊâÓÃÍ¾£¬ÊôÓÚÒĞÌì½£ÍÀÁúµ¶£¬²»ÒªËæ±ãµ÷ÓÃ
 	void		SetDataID(int newID, int nIndex, int nPlotIndex=0);
 
-	// æ·»åŠ 2ç»´æ›²çº¿çš„ä¸€ä¸ªæ•°æ®ç‚¹
-	// nDataIndexè¡¨ç¤ºæ›²çº¿çš„åºå·,
-	// nDataIndexå¦‚æœç­‰äºå½“å‰æ›²çº¿çš„æ¡æ•°ï¼Œåˆ™æ–°å¢ä¸€æ¡æ›²çº¿ï¼Œå¦‚æœå°äº0æˆ–è€…å¤§äºå½“å‰æ›²çº¿æ¡æ•°ï¼Œåˆ™æ·»åŠ å¤±è´¥
+	// Ìí¼Ó2Î¬ÇúÏßµÄÒ»¸öÊı¾İµã
+	// nDataIndex±íÊ¾ÇúÏßµÄĞòºÅ,
+	// nDataIndexÈç¹ûµÈÓÚµ±Ç°ÇúÏßµÄÌõÊı£¬ÔòĞÂÔöÒ»ÌõÇúÏß£¬Èç¹ûĞ¡ÓÚ0»òÕß´óÓÚµ±Ç°ÇúÏßÌõÊı£¬ÔòÌí¼ÓÊ§°Ü
 	int			AddPoint2D(double x, double y, int nDataIndex=0, int nPlotIndex=0);
-	// æ·»åŠ æ•°æ®ç‚¹ï¼Œå…¶ä¸­Xåæ ‡ä¸ºæ—¶é—´ï¼Œç”¨å­—ç¬¦ä¸²å½¢å¼è¾“å…¥
-	// å­—ç¬¦ä¸²æ ¼å¼ç”±fmtç¡®å®šï¼Œå‚è€ƒCåº“å‡½æ•°strftime
-	// æ—¶é—´åªèƒ½ç²¾ç¡®åˆ°ç§’ï¼Œå› ä¸ºå†…éƒ¨ä½¿ç”¨time_t
+	// Ìí¼ÓÊı¾İµã£¬ÆäÖĞX×ø±êÎªÊ±¼ä£¬ÓÃ×Ö·û´®ĞÎÊ½ÊäÈë
+	// ×Ö·û´®¸ñÊ½ÓÉfmtÈ·¶¨£¬²Î¿¼C¿âº¯Êıstrftime
+	// Ê±¼äÖ»ÄÜ¾«È·µ½Ãë£¬ÒòÎªÄÚ²¿Ê¹ÓÃtime_t
 	int			AddPoint2D(TCHAR *strTime, TCHAR *fmt, double y, int nDataIndex=0, int nPlotIndex=0);
-	// æ’å…¥2ç»´æ›²çº¿çš„ä¸€ä¸ªæ•°æ®ç‚¹
-	// nPosè¡¨ç¤ºéœ€è¦æ’å…¥çš„ä½ç½®,
+	// ²åÈë2Î¬ÇúÏßµÄÒ»¸öÊı¾İµã
+	// nPos±íÊ¾ĞèÒª²åÈëµÄÎ»ÖÃ,
 	int			InsertPoint2D(double x, double y, int nPos, int nDataIndex=0, int nPlotIndex=0);
-	// æ·»åŠ 2ç»´æ›²çº¿çš„å¤šä¸ªæ•°æ®ç‚¹
-	// nDataIndexè¡¨ç¤ºæ›²çº¿çš„åºå·,
-	// nDataIndexå¦‚æœç­‰äºå½“å‰æ›²çº¿çš„æ¡æ•°ï¼Œåˆ™æ–°å¢ä¸€æ¡æ›²çº¿ï¼Œå¦‚æœå°äº0æˆ–è€…å¤§äºå½“å‰æ›²çº¿æ¡æ•°ï¼Œåˆ™æ·»åŠ å¤±è´¥
+	// Ìí¼Ó2Î¬ÇúÏßµÄ¶à¸öÊı¾İµã
+	// nDataIndex±íÊ¾ÇúÏßµÄĞòºÅ,
+	// nDataIndexÈç¹ûµÈÓÚµ±Ç°ÇúÏßµÄÌõÊı£¬ÔòĞÂÔöÒ»ÌõÇúÏß£¬Èç¹ûĞ¡ÓÚ0»òÕß´óÓÚµ±Ç°ÇúÏßÌõÊı£¬ÔòÌí¼ÓÊ§°Ü
 	int			AddPoints2D(double *pX, double *pY, int nLen, int nDataIndex=0, int nPlotIndex=0);
 
-	// æ·»åŠ ä¸‰ç»´æ›²çº¿çš„ä¸€ä¸ªæ•°æ®ç‚¹
+	// Ìí¼ÓÈıÎ¬ÇúÏßµÄÒ»¸öÊı¾İµã
 	int			AddPoint3D(double x, double y, double z, int nDataIndex=0);
-	// æ·»åŠ ä¸€æ¡ä¸‰ç»´æ›²çº¿
+	// Ìí¼ÓÒ»ÌõÈıÎ¬ÇúÏß
 	int			AddCurve(double *pX, double *pY, double *pZ, int nLen);	
 
-	// æ¸…é™¤æ‰€æœ‰æ›²çº¿æ•°æ®
+	// Çå³ıËùÓĞÇúÏßÊı¾İ
 	void		ClrAllData();
-	// æ¸…é™¤å•å­å›¾å…¨éƒ¨æ›²çº¿æ•°æ®
+	// Çå³ıµ¥×ÓÍ¼È«²¿ÇúÏßÊı¾İ
 	void		ClrPlotData(int nPlotIndex=0);
-	// æ¸…é™¤å•æ¡æ›²çº¿æ•°æ®
+	// Çå³ıµ¥ÌõÇúÏßÊı¾İ
 	void		ClrSingleData(int nDataIndex, int nPlotIndex=0);
-	// æ¸…ç©ºå•æ¡æ›²çº¿æ•°æ®
+	// Çå¿Õµ¥ÌõÇúÏßÊı¾İ
 	void		EmptySingleData(int nDataIndex, int nPlotIndex=0);
-	// ä¸ºæ›²çº¿é¢„ç•™å†…å­˜ç©ºé—´ã€‚ä¸»è¦ç›®çš„æ˜¯åŠ å¿«é€Ÿåº¦
-	// CChartå†…éƒ¨æ•°æ®é‡‡ç”¨vectorã€‚å¦‚æœæ•°æ®ç‚¹è¿‡å¤šï¼Œéšç€æ•°æ®ç‚¹çš„å¢åŠ ï¼ŒCChartå°†ä¸æ–­åœ°ä¸ºvectoré‡æ–°åˆ†é…å†…å­˜ï¼Œå½±å“é€Ÿåº¦
-	// å¦‚æœæ ¹æ®å®é™…æƒ…å†µé¢„ç•™äº†å†…å­˜ï¼Œåˆ™ä¼šä¸€æ¬¡æ€§æˆåŠŸåˆ†é…å†…å­˜
+	// ÎªÇúÏßÔ¤ÁôÄÚ´æ¿Õ¼ä¡£Ö÷ÒªÄ¿µÄÊÇ¼Ó¿ìËÙ¶È
+	// CChartÄÚ²¿Êı¾İ²ÉÓÃvector¡£Èç¹ûÊı¾İµã¹ı¶à£¬Ëæ×ÅÊı¾İµãµÄÔö¼Ó£¬CChart½«²»¶ÏµØÎªvectorÖØĞÂ·ÖÅäÄÚ´æ£¬Ó°ÏìËÙ¶È
+	// Èç¹û¸ù¾İÊµ¼ÊÇé¿öÔ¤ÁôÁËÄÚ´æ£¬Ôò»áÒ»´ÎĞÔ³É¹¦·ÖÅäÄÚ´æ
 	void		SetReservedDataLength(int nLen, int nPlotIndex=0);
-	// è·å¾—æ›²çº¿çš„æ•°æ®ç‚¹æ•°
+	// »ñµÃÇúÏßµÄÊı¾İµãÊı
 	int			GetDataPointsCount(int nDataIndex, int nPlotIndex=0);
-	// è·å¾—å›¾ä¸­æ›²çº¿æœ€å¤šçš„æ•°æ®ç‚¹æ•°
+	// »ñµÃÍ¼ÖĞÇúÏß×î¶àµÄÊı¾İµãÊı
 	int			GetMaxDataPointsCount(int nPlotIndex=0);
-	// è·å–æ•°æ®ç‚¹x
+	// »ñÈ¡Êı¾İµãx
 	double		GetDataPointX(int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// è·å–æ•°æ®ç‚¹y
+	// »ñÈ¡Êı¾İµãy
 	double		GetDataPointY(int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	//è·å–æ•°æ®ç‚¹
+	//»ñÈ¡Êı¾İµã
 	bool		GetDataPoint(double data[2], int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// å»é™¤æ›²çº¿ä¸Šå•ä¸ªæ•°æ®ç‚¹
+	// È¥³ıÇúÏßÉÏµ¥¸öÊı¾İµã
 	int			RemoveSinglePoint(int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// å»é™¤æ›²çº¿ä¸Šç¬¬ä¸€ä¸ªæ•°æ®ç‚¹
+	// È¥³ıÇúÏßÉÏµÚÒ»¸öÊı¾İµã
 	int			RemoveFirstPoint(int nDataIndex, int nPlotIndex=0);
-	// å»é™¤æ›²çº¿ä¸Šæœ€åä¸€ä¸ªæ•°æ®ç‚¹
+	// È¥³ıÇúÏßÉÏ×îºóÒ»¸öÊı¾İµã
 	int			RemoveLastPoint(int nDataIndex, int nPlotIndex=0);
-	// æ›¿æ¢æ›²çº¿ä¸Šç¬¬ä¸€ä¸ªæ•°æ®ç‚¹
+	// Ìæ»»ÇúÏßÉÏµÚÒ»¸öÊı¾İµã
 	int			ReplaceFirstPoint(double x, double y, int nDataIndex, int nPlotIndex=0);
-	// æ›¿æ¢æ›²çº¿ä¸Šæœ€åä¸€ä¸ªæ•°æ®ç‚¹
+	// Ìæ»»ÇúÏßÉÏ×îºóÒ»¸öÊı¾İµã
 	int			ReplaceLastPoint(double x, double y, int nDataIndex, int nPlotIndex=0);
-	// æ»‘åŠ¨Xæ•°æ®
+	// »¬¶¯XÊı¾İ
 	int			SlipXValue(int nStep, int nDataIndex, int nPlotIndex=0);
-	// æ»‘åŠ¨Yæ•°æ®
+	// »¬¶¯YÊı¾İ
 	int			SlipYValue(int nStep, int nDataIndex, int nPlotIndex=0);
 
 public:
-	// æ·»åŠ é¥¼å›¾çš„ä¸€ä¸ªå€¼
+	// Ìí¼Ó±ıÍ¼µÄÒ»¸öÖµ
 	int			AddPie(double value);
-	// æ·»åŠ é¥¼å›¾çš„ä¸€ä¸ªå€¼ï¼ŒåŒæ—¶è®¾ç½®è¯¥å—é¥¼çš„æ ‡é¢˜
+	// Ìí¼Ó±ıÍ¼µÄÒ»¸öÖµ£¬Í¬Ê±ÉèÖÃ¸Ã¿é±ıµÄ±êÌâ
 	int			AddPie(double value, TCHAR* title);
-	// æ·»åŠ æŸ±å›¾çš„ä¸€ä¸ªåºåˆ—
+	// Ìí¼ÓÖùÍ¼µÄÒ»¸öĞòÁĞ
 	int			AddStems(double *pData, int nLen);
-	// æ·»åŠ æŸ±å›¾çš„ä¸€ä¸ªåºåˆ—ï¼ŒåŒæ—¶è®¾ç½®è¯¥åºåˆ—çš„æ ‡é¢˜
+	// Ìí¼ÓÖùÍ¼µÄÒ»¸öĞòÁĞ£¬Í¬Ê±ÉèÖÃ¸ÃĞòÁĞµÄ±êÌâ
 	int			AddStems(double *pData, int nLen, TCHAR* title);
 
 public:
-	// è®¾ç½®åœºå‡½æ•°ï¼Œç”¨äºç­‰é«˜çº¿å›¾ã€äº‘å›¾
+	// ÉèÖÃ³¡º¯Êı£¬ÓÃÓÚµÈ¸ßÏßÍ¼¡¢ÔÆÍ¼
 	void		SetFieldFcn(double (*_pFieldFcn) (double, double));
 #ifndef _WIN64
-	// è®¾ç½®åœºå‡½æ•°ï¼Œç”¨äºç­‰é«˜çº¿å›¾ã€äº‘å›¾
+	// ÉèÖÃ³¡º¯Êı£¬ÓÃÓÚµÈ¸ßÏßÍ¼¡¢ÔÆÍ¼
 	void		SetFieldFcn(double (_stdcall *_pFieldFcn) (double, double));
 #endif
-	// è·å¾—åœºå‡½æ•°æŒ‡é’ˆï¼Œç”¨äºç­‰é«˜çº¿å›¾ã€äº‘å›¾
+	// »ñµÃ³¡º¯ÊıÖ¸Õë£¬ÓÃÓÚµÈ¸ßÏßÍ¼¡¢ÔÆÍ¼
 	double		(*GetFieldFcn( ))( double, double );
-	// æ·»åŠ ç­‰é«˜çº¿æ•°æ®ç‚¹
+	// Ìí¼ÓµÈ¸ßÏßÊı¾İµã
 	void		AddContourPoint(double x, double y, double h);
-	// æ¸…é™¤ç­‰é«˜çº¿æ•°æ®ç‚¹
+	// Çå³ıµÈ¸ßÏßÊı¾İµã
 	void		ClrContourPoints();
 public:
-	// è®¾ç½®é¥¼å›¾å•ä¸ªé¥¼çš„æ ‡é¢˜
+	// ÉèÖÃ±ıÍ¼µ¥¸ö±ıµÄ±êÌâ
 	void		SetPieTitle(const TCHAR* title, int which);
-	// è®¾ç½®é¥¼å›¾å•ä¸ªé¥¼çš„é¢œè‰²
+	// ÉèÖÃ±ıÍ¼µ¥¸ö±ıµÄÑÕÉ«
 	void		SetPieColor(COLORREF color, int which);
-	// è®¾ç½®é¥¼å›¾æœ€å¤§é¥¼æ•°
+	// ÉèÖÃ±ıÍ¼×î´ó±ıÊı
 	void		SetMaxPies(int maxp);
-	// è·å¾—é¥¼å›¾é¥¼æ ‡é¢˜å­—ä½“
+	// »ñµÃ±ıÍ¼±ı±êÌâ×ÖÌå
 	LOGFONT		&GetPieTitleFont();
 	
 public:
-	// è®¾ç½®æŸ±å›¾å•æ ¹æŸ±å­çš„æ ‡ç­¾
+	// ÉèÖÃÖùÍ¼µ¥¸ùÖù×ÓµÄ±êÇ©
 	void		SetStemLabel(const TCHAR* label, int which);
-	// è®¾ç½®æŸ±å›¾å•ä¸ªåºåˆ—çš„æ ‡é¢˜
+	// ÉèÖÃÖùÍ¼µ¥¸öĞòÁĞµÄ±êÌâ
 	void		SetStemTitle(const TCHAR* title, int nDataIndex);
-	// è®¾ç½®æŸ±å›¾å•æ ¹æŸ±å­æ‰€å æ¯”ä¾‹
+	// ÉèÖÃÖùÍ¼µ¥¸ùÖù×ÓËùÕ¼±ÈÀı
 	void		SetStemRatio(double ratio);
-	// è®¾ç½®æŸ±å›¾ä»é‚£æ¡åæ ‡è½´å¼€å§‹ç”»
+	// ÉèÖÃÖùÍ¼´ÓÄÇÌõ×ø±êÖá¿ªÊ¼»­
 	void		SetStemBase(int base);
-	// è®¾ç½®æŸ±å›¾çš„æœ€å¤§æ•°é‡
+	// ÉèÖÃÖùÍ¼µÄ×î´óÊıÁ¿
 	void		SetStemMaxNum(int num);
-	// è®¾ç½®åœ¨æŸ±é¡¶æ˜¾ç¤ºæ•°å€¼
+	// ÉèÖÃÔÚÖù¶¥ÏÔÊ¾ÊıÖµ
 	void		SetShowValOnTop(bool show);
 
 public:
-	// è®¾ç½®ç­‰é«˜çº¿å›¾ç­‰é«˜çº¿çš„æ•°é‡
+	// ÉèÖÃµÈ¸ßÏßÍ¼µÈ¸ßÏßµÄÊıÁ¿
 	void		SetContourLineNum(int num);
-	// è®¾ç½®ç­‰é«˜çº¿å›¾ç­‰é«˜çº¿ç»˜åˆ¶çš„ç²¾åº¦ï¼Œnè¶Šå¤§ï¼Œç²¾åº¦è¶Šé«˜ï¼Œä¸€èˆ¬5å°±å¯ä»¥äº†
+	// ÉèÖÃµÈ¸ßÏßÍ¼µÈ¸ßÏß»æÖÆµÄ¾«¶È£¬nÔ½´ó£¬¾«¶ÈÔ½¸ß£¬Ò»°ã5¾Í¿ÉÒÔÁË
 	void		SetContourPrecision(int n);
-	// è®¾ç½®æ˜¾ç¤ºç­‰é«˜çº¿æ•°å€¼
+	// ÉèÖÃÏÔÊ¾µÈ¸ßÏßÊıÖµ
 	void		SetContourValueShow(bool show);
-	// å…è®¸é€šè¿‡é¼ æ ‡ç‚¹å‡»æ·»åŠ ç­‰é«˜çº¿
+	// ÔÊĞíÍ¨¹ıÊó±êµã»÷Ìí¼ÓµÈ¸ßÏß
 	void		SetMouseAddContour(bool bAdd);
-	// å…è®¸äº‘å›¾ä¸­æœ‰æ´
+	// ÔÊĞíÔÆÍ¼ÖĞÓĞ¶´
 	void		SetEnableContourHole(bool enable);
-	// è®¾ç½®äº‘å›¾æ´çš„æ ‡è¯†ï¼Œç”¨äºåœºå‡½æ•°
+	// ÉèÖÃÔÆÍ¼¶´µÄ±êÊ¶£¬ÓÃÓÚ³¡º¯Êı
 	void		SetContourHoleFlag(bool flag);
-	// è®¾ç½®äº‘å›¾ä¸­æ´çš„é¢œè‰²
+	// ÉèÖÃÔÆÍ¼ÖĞ¶´µÄÑÕÉ«
 	void		SetContourHoleColor(COLORREF cr);
-	// è®¾ç½®ç­‰é«˜çº¿æ˜¯å¦æ˜¾ç¤ºï¼Œåªç”¨äºç­‰é«˜äº‘å›¾ã€‚
-	// å¦‚æœç­‰é«˜çº¿ä¸æ˜¾ç¤ºï¼Œåˆ™ç­‰é«˜äº‘å›¾åŸºæœ¬ç­‰åŒäºäº‘å›¾ï¼Œä¸åŒä¹‹å¤„åœ¨äºç­‰é«˜äº‘å›¾å¯ä»¥æ‰‹åŠ¨æ·»åŠ æ›²çº¿
+	// ÉèÖÃµÈ¸ßÏßÊÇ·ñÏÔÊ¾£¬Ö»ÓÃÓÚµÈ¸ßÔÆÍ¼¡£
+	// Èç¹ûµÈ¸ßÏß²»ÏÔÊ¾£¬ÔòµÈ¸ßÔÆÍ¼»ù±¾µÈÍ¬ÓÚÔÆÍ¼£¬²»Í¬Ö®´¦ÔÚÓÚµÈ¸ßÔÆÍ¼¿ÉÒÔÊÖ¶¯Ìí¼ÓÇúÏß
 	void		SetContourLineShow(bool show);
 	
-	// è®¾ç½®äº‘å›¾ã€çƒ­å›¾çš„èµ·å§‹é¢œè‰²
+	// ÉèÖÃÔÆÍ¼¡¢ÈÈÍ¼µÄÆğÊ¼ÑÕÉ«
 	void		SetMapColor1(COLORREF cr);
-	// è®¾ç½®äº‘å›¾ã€çƒ­å›¾çš„æœ€ç»ˆé¢œè‰²
+	// ÉèÖÃÔÆÍ¼¡¢ÈÈÍ¼µÄ×îÖÕÑÕÉ«
 	void		SetMapColor2(COLORREF cr);
 	
-	// è®¾ç½®ç”±æ•°æ®ç‚¹è¾“å…¥ï¼Œè€Œä¸æ˜¯åœºå‡½æ•°
+	// ÉèÖÃÓÉÊı¾İµãÊäÈë£¬¶ø²»ÊÇ³¡º¯Êı
 	void		SetContourByPoints();
 	
-	// è®¾ç½®äº‘å›¾ã€çƒ­å›¾çš„å³åæ ‡è½´ä½œä¸ºå›¾ä¾‹
+	// ÉèÖÃÔÆÍ¼¡¢ÈÈÍ¼µÄÓÒ×ø±êÖá×÷ÎªÍ¼Àı
 	void		SetRightAxisAsLegend(bool as);
-	// è®¾ç½®äº‘å›¾ã€çƒ­å›¾çš„ä¸Šåæ ‡è½´ä½œä¸ºå›¾ä¾‹
+	// ÉèÖÃÔÆÍ¼¡¢ÈÈÍ¼µÄÉÏ×ø±êÖá×÷ÎªÍ¼Àı
 	void		SetTopAxisAsLegend(bool as);
 
 public:
-	// è®¾ç½®çƒ­å›¾çš„å®½åº¦å’Œé«˜åº¦
+	// ÉèÖÃÈÈÍ¼µÄ¿í¶ÈºÍ¸ß¶È
 	void		SetHeatDimension(int width, int height);
-	// è®¾ç½®çƒ­å›¾çš„æ•°æ®
+	// ÉèÖÃÈÈÍ¼µÄÊı¾İ
 	void		SetHeatData(double val, int iRow, int iCol);
-	// è®¾ç½®çƒ­å›¾ã€äº‘å›¾çš„æ•°å€¼èŒƒå›´
+	// ÉèÖÃÈÈÍ¼¡¢ÔÆÍ¼µÄÊıÖµ·¶Î§
 	void		SetMapRange(double low, double high);
-	// è®¾ç½®è‡ªåŠ¨è®¡ç®—çƒ­å›¾ã€äº‘å›¾çš„æ•°å€¼èŒƒå›´
+	// ÉèÖÃ×Ô¶¯¼ÆËãÈÈÍ¼¡¢ÔÆÍ¼µÄÊıÖµ·¶Î§
 	void		SetAutoMapRange(bool bAt);
 
 public:
-	// å¢åŠ ä¸€ä¸ªå›¾å±‚ï¼Œç”¨äºåˆ†å±‚è§†å›¾ã€å…±äº«Xè½´è§†å›¾
+	// Ôö¼ÓÒ»¸öÍ¼²ã£¬ÓÃÓÚ·Ö²ãÊÓÍ¼¡¢¹²ÏíXÖáÊÓÍ¼
 	int			AddLayer();
-	// è®¾ç½®å­å›¾æ•°é‡ï¼Œç”¨äºåˆ†è£‚è§†å›¾ï¼Œå…¶ä¸­modeè¡¨ç¤ºåˆ†è£‚æ¨¡å¼ï¼ŒnRowsè¡¨ç¤ºåˆ—æ•°ï¼ŒnColsè¡¨ç¤ºè¡Œæ•°
-	// åˆ†è£‚æ¨¡å¼å‚åŠ æœ¬æ–‡ä»¶å¤´éƒ¨è¢«æ³¨é‡Šæ‰çš„enumã€‚å¯ä»¥è§£é™¤æ³¨é‡Šï¼Œå°±èƒ½ç›´æ¥ä½¿ç”¨è¿™äº›enumäº†ã€‚
+	// ÉèÖÃ×ÓÍ¼ÊıÁ¿£¬ÓÃÓÚ·ÖÁÑÊÓÍ¼£¬ÆäÖĞmode±íÊ¾·ÖÁÑÄ£Ê½£¬nRows±íÊ¾ÁĞÊı£¬nCols±íÊ¾ĞĞÊı
+	// ·ÖÁÑÄ£Ê½²Î¼Ó±¾ÎÄ¼şÍ·²¿±»×¢ÊÍµôµÄenum¡£¿ÉÒÔ½â³ı×¢ÊÍ£¬¾ÍÄÜÖ±½ÓÊ¹ÓÃÕâĞ©enumÁË¡£
 	void		ResizePlots(int mode, int nRows, int nCols);
-	// è®¾ç½®å›¾å±‚æ•°é‡ï¼Œç”¨äºåˆ†å±‚è§†å›¾ã€å…±äº«Xè½´è§†å›¾
+	// ÉèÖÃÍ¼²ãÊıÁ¿£¬ÓÃÓÚ·Ö²ãÊÓÍ¼¡¢¹²ÏíXÖáÊÓÍ¼
 	void		ResizePlots(int nLayers);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å­å›¾æ•°
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼×ÓÍ¼Êı
 	static	bool	ResizeSplit(CChart *pChart, int nSubPlots);
 
-	// è·å¾—å­å›¾æ•°é‡
+	// »ñµÃ×ÓÍ¼ÊıÁ¿
 	int			GetSubPlotCount();
 
-	// æœ‰å­å›¾æ—¶è·å¾—å½“å‰å­å›¾åºå·
+	// ÓĞ×ÓÍ¼Ê±»ñµÃµ±Ç°×ÓÍ¼ĞòºÅ
 	int			GetTop();
 
-	// è®¾ç½®å¤šå±‚è§†å›¾çš„å›¾å±‚æ˜¯å¦é¢œè‰²å½’ä¸€åŒ–
+	// ÉèÖÃ¶à²ãÊÓÍ¼µÄÍ¼²ãÊÇ·ñÑÕÉ«¹éÒ»»¯
 	void		SetUniteLayerColor(bool bUnite);
-	// è®¾ç½®å¤šå±‚è§†å›¾å›¾å±‚é¢œè‰²å½’ä¸€åŒ–æ—¶æ˜¯å¦åŒ…æ‹¬æ›²çº¿
+	// ÉèÖÃ¶à²ãÊÓÍ¼Í¼²ãÑÕÉ«¹éÒ»»¯Ê±ÊÇ·ñ°üÀ¨ÇúÏß
 	void		SetExcludeDataWhenUniteColor(bool bExclude, int nPlotIndex);
 public:
-	// è·å¾—æ›²çº¿æ•°é‡ï¼Œå¯¹äºå¤šå±‚è§†å›¾ä¸ºå­å›¾æ›²çº¿æ¡æ•°
+	// »ñµÃÇúÏßÊıÁ¿£¬¶ÔÓÚ¶à²ãÊÓÍ¼Îª×ÓÍ¼ÇúÏßÌõÊı
 	int			GetPlotDataCount(int nPlotIndex=0);
-	// è®¾ç½®å•æ¡æ›²çº¿æ˜¯å¦å“åº”é¼ æ ‡é”®ç›˜æ¶ˆæ¯
+	// ÉèÖÃµ¥ÌõÇúÏßÊÇ·ñÏìÓ¦Êó±ê¼üÅÌÏûÏ¢
 	void		SetDataReact(bool react, int nDataIndex, int nPlotIndex=0);
-	// å¼ºåˆ¶ä½¿ç”¨GDI+è¿›è¡Œæ¸²æŸ“
+	// Ç¿ÖÆÊ¹ÓÃGDI+½øĞĞäÖÈ¾
 	void		SetDataForceGdiPlus(bool bForce, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—æ•°æ®æ›²çº¿çš„æ ‡é¢˜,nDataIndexè¡¨ç¤ºæ›²çº¿çš„åºå·
+	// »ñµÃÊı¾İÇúÏßµÄ±êÌâ,nDataIndex±íÊ¾ÇúÏßµÄĞòºÅ
 	const TCHAR*		GetDataTitle(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®æ ‡é¢˜
+	// ÉèÖÃÊı¾İ±êÌâ
 	void		SetDataTitle(const TCHAR* title, int nDataIndex, int nPlotIndex=0);
-	// æ‰€æœ‰æ•°æ®è‡ªåŠ¨è®¾ç½®é¢œè‰²
+	// ËùÓĞÊı¾İ×Ô¶¯ÉèÖÃÑÕÉ«
 	void		SetAutoDataColorGeneral(bool bAuto, int nPlotIndex=0);
-	// æ•°æ®è‡ªåŠ¨è®¾ç½®é¢œè‰²
+	// Êı¾İ×Ô¶¯ÉèÖÃÑÕÉ«
 	void		SetAutoDataColor(bool bAuto, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—æ•°æ®é¢œè‰²
+	// »ñµÃÊı¾İÑÕÉ«
 	COLORREF	GetDataColor(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®é¢œè‰²
+	// ÉèÖÃÊı¾İÑÕÉ«
 	void		SetDataColor(COLORREF color, int nDataIndex, int nPlotIndex=0);
-	// æ˜¯å¦åŒè‰²æ¸å˜æ¨¡å¼
+	// ÊÇ·ñË«É«½¥±äÄ£Ê½
 	bool		IsBiColorMode(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®åŒè‰²æ¸å˜æ¨¡å¼
+	// ÉèÖÃË«É«½¥±äÄ£Ê½
 	void		SetBiColorMode(bool bBi, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—åŒè‰²æ¸å˜æ¨¡å¼ä¸‹ç¬¬äºŒæ•°æ®é¢œè‰²
+	// »ñµÃË«É«½¥±äÄ£Ê½ÏÂµÚ¶şÊı¾İÑÕÉ«
 	COLORREF	GetDataColor2(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®åŒè‰²æ¸å˜æ¨¡å¼ä¸‹ç¬¬äºŒæ•°æ®é¢œè‰²
+	// ÉèÖÃË«É«½¥±äÄ£Ê½ÏÂµÚ¶şÊı¾İÑÕÉ«
 	void		SetDataColor2(COLORREF color, int nDataIndex, int nPlotIndex=0);
-	// æ˜¯å¦å¤šè‰²æ¸å˜æ¨¡å¼ï¼Œä¼˜å…ˆäºåŒè‰²æ¸å˜
+	// ÊÇ·ñ¶àÉ«½¥±äÄ£Ê½£¬ÓÅÏÈÓÚË«É«½¥±ä
 	bool		IsMultiColorMode(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®å¤šè‰²æ¸å˜æ¨¡å¼
+	// ÉèÖÃ¶àÉ«½¥±äÄ£Ê½
 	void		SetMultiColorMode(bool bMul, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—å¤šè‰²æ¸å˜æ¨¡å¼ä¸‹è¾“å…¥èŠ‚ç‚¹çš„æ–¹æ³•ï¼Œ0ï¼šæ•°æ®ç‚¹æ¯”ä¾‹0.0-1.0ï¼Œ1ï¼šXæ•°æ®å€¼ï¼Œ2ï¼šYæ•°æ®å€¼
+	// »ñµÃ¶àÉ«½¥±äÄ£Ê½ÏÂÊäÈë½ÚµãµÄ·½·¨£¬0£ºÊı¾İµã±ÈÀı0.0-1.0£¬1£ºXÊı¾İÖµ£¬2£ºYÊı¾İÖµ
 	int			GetMultiColorInputType(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®å¤šè‰²æ¸å˜æ¨¡å¼ä¸‹è¾“å…¥èŠ‚ç‚¹çš„æ–¹æ³•
+	// ÉèÖÃ¶àÉ«½¥±äÄ£Ê½ÏÂÊäÈë½ÚµãµÄ·½·¨
 	void		SetMultiColorInputType(int nType, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®å¤šè‰²æ¸å˜æ¨¡å¼çš„èŠ‚ç‚¹ï¼Œå…¶ä¸­ratioçš„çš„èŒƒå›´ç”±è¾“å…¥æ–¹æ³•å†³å®š
+	// ÉèÖÃ¶àÉ«½¥±äÄ£Ê½µÄ½Úµã£¬ÆäÖĞratioµÄµÄ·¶Î§ÓÉÊäÈë·½·¨¾ö¶¨
 	void		AddSegmentColor(double ratio, COLORREF color, int nDataIndex, int nPlotIndex=0);
-	// æ˜¯å¦é€æ•°æ®ç‚¹å®šè‰²
+	// ÊÇ·ñÖğÊı¾İµã¶¨É«
 	bool		IsColorPtByPt(int nDataIndex, int nPlotIndex=0);
-	// æ˜¯å¦é€æ•°æ®ç‚¹å®šè‰²
+	// ÊÇ·ñÖğÊı¾İµã¶¨É«
 	void		SetColorPtByPt(bool bBy, int nDataIndex, int nPlotIndex=0);
-	// æ·»åŠ æ•°æ®ç‚¹é¢œè‰²ï¼Œæ³¨æ„ï¼Œæ·»åŠ çš„é¢œè‰²æ•°æ®ç‚¹å¿…é¡»å’Œæ•°æ®ç‚¹ä¸ªæ•°å®Œå…¨ä¸€æ ·ï¼Œä¸ç„¶æ²¡æœ‰ä½œç”¨
+	// Ìí¼ÓÊı¾İµãÑÕÉ«£¬×¢Òâ£¬Ìí¼ÓµÄÑÕÉ«Êı¾İµã±ØĞëºÍÊı¾İµã¸öÊıÍêÈ«Ò»Ñù£¬²»È»Ã»ÓĞ×÷ÓÃ
 	void		AddDataPointColor(COLORREF color, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®ç‚¹é¢œè‰²
+	// ÉèÖÃÊı¾İµãÑÕÉ«
 	void		SetDataPointColor(COLORREF color, int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// åˆ é™¤ä¸€ä¸ªæ•°æ®ç‚¹é¢œè‰²
+	// É¾³ıÒ»¸öÊı¾İµãÑÕÉ«
 	void		EraseDataPointColor(int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// æ’å…¥ä¸€ä¸ªæ•°æ®ç‚¹é¢œè‰²
+	// ²åÈëÒ»¸öÊı¾İµãÑÕÉ«
 	void		InsertDataPointColor(COLORREF color, int nPointIndex, int nDataIndex, int nPlotIndex=0);
 
-	// è·å¾—æ•°æ®çº¿å‹
+	// »ñµÃÊı¾İÏßĞÍ
 	int			GetDataLineStyle(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®çº¿å‹
+	// ÉèÖÃÊı¾İÏßĞÍ
 	void		SetDataLineStyle(int nStyle, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—æ•°æ®çº¿å®½
+	// »ñµÃÊı¾İÏß¿í
 	int			GetDataLineSize(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®çº¿å®½
+	// ÉèÖÃÊı¾İÏß¿í
 	void		SetDataLineSize(int nSize, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿çš„ç»˜åˆ¶æ–¹å¼
+	// ÉèÖÃÇúÏßµÄ»æÖÆ·½Ê½
 	void		SetPlotType(int nType, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ ‡è®°æ˜¯å¦æ˜¾ç¤º
+	// ÉèÖÃÇúÏßÊı¾İµã±ê¼ÇÊÇ·ñÏÔÊ¾
 	void		SetMarkerShow(bool bShow, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ ‡è®°æ˜¯å¦å¡«å……
+	// ÉèÖÃÇúÏßÊı¾İµã±ê¼ÇÊÇ·ñÌî³ä
 	void		SetMarkerFill(bool bFill, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ ‡è®°çš„å½¢çŠ¶
+	// ÉèÖÃÇúÏßÊı¾İµã±ê¼ÇµÄĞÎ×´
 	void		SetMarkerType(int nType, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹çš„å¤§å°
+	// ÉèÖÃÇúÏßÊı¾İµãµÄ´óĞ¡
 	void		SetMarkerSize(int nSize, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ ‡è®°é¢‘ç‡ï¼Œ0è¡¨ç¤ºä¸æ ‡è®°ï¼Œæ­£nè¡¨ç¤ºæ¯éš”nä¸ªç‚¹æ ‡è®°ä¸€æ¬¡ï¼Œè´Ÿnè¡¨ç¤ºä¸€å…±æ ‡è®°nä¸ªç‚¹
+	// ÉèÖÃÇúÏßÊı¾İµã±ê¼ÇÆµÂÊ£¬0±íÊ¾²»±ê¼Ç£¬Õın±íÊ¾Ã¿¸ôn¸öµã±ê¼ÇÒ»´Î£¬¸ºn±íÊ¾Ò»¹²±ê¼Çn¸öµã
 	void		SetMarkerFreq(int nFreq, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ ‡è®°çš„èµ·å§‹ç‚¹ï¼Œç”¨äºä¸æ˜¯å…¨éƒ¨æ ‡è®°æ—¶
+	// ÉèÖÃÇúÏßÊı¾İµã±ê¼ÇµÄÆğÊ¼µã£¬ÓÃÓÚ²»ÊÇÈ«²¿±ê¼ÇÊ±
 	void		SetMarkerStartIndex(int nStartIndex, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹ç¬¬ä¸€ä¸ªç‚¹æ ‡è®°
+	// ÉèÖÃÇúÏßÊı¾İµãµÚÒ»¸öµã±ê¼Ç
 	void		SetMarkFirstPoint(bool bMark, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æœ€åä¸€ä¸ªç‚¹æ ‡è®°
+	// ÉèÖÃÇúÏßÊı¾İµã×îºóÒ»¸öµã±ê¼Ç
 	void		SetMarkLastPoint(bool bMark, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹å•ç‹¬æ ‡è®°ä¸€ä¸ªç‚¹
+	// ÉèÖÃÇúÏßÊı¾İµãµ¥¶À±ê¼ÇÒ»¸öµã
 	void		SetMarkSinglePoint(bool bMark, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹å•ç‹¬æ ‡è®°ä¸€ä¸ªç‚¹
+	// ÉèÖÃÇúÏßÊı¾İµãµ¥¶À±ê¼ÇÒ»¸öµã
 	void		SetMarkPointIndex(int nPointIndex, int nDataIndex, int nPlotIndex=0);
 
-	// è®¾ç½®æ›²çº¿æ•£ç‚¹æ˜¾ç¤ºæ¨¡å¼
+	// ÉèÖÃÇúÏßÉ¢µãÏÔÊ¾Ä£Ê½
 	void		SetScatter(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿å¡«å……é¢œè‰²
+	// ÉèÖÃÇúÏßÌî³äÑÕÉ«
 	void		SetDataFillColor(bool bFill, COLORREF color, int nOpaque, int nFillMode, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®æ£’æ˜¾ç¤º
+	// ÉèÖÃÇúÏßÊı¾İ°ôÏÔÊ¾
 	void		SetDataBarMode(bool bShowBar, int nBarBase, int nBarSize, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®é€‰æ‹©å’Œé«˜äº®æ¨¡å¼
+	// ÉèÖÃÑ¡ÔñºÍ¸ßÁÁÄ£Ê½
 	void		SetSLMode(int nMode, int nDataIndex, int nPlotIndex=0);
-	// è·å–æ•°æ®çš„æ ‡å¿—ï¼Œç‰¹æ®Šç”¨é€”
+	// »ñÈ¡Êı¾İµÄ±êÖ¾£¬ÌØÊâÓÃÍ¾
 	bool		GetDataFlag(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®çš„æ ‡å¿—ï¼Œç‰¹æ®Šç”¨é€”
+	// ÉèÖÃÊı¾İµÄ±êÖ¾£¬ÌØÊâÓÃÍ¾
 	void		SetDataFlag(bool bFlag, int nDataIndex, int nPlotIndex=0);
-	// è·å–æ•°æ®å¯è§æ ‡å¿—
+	// »ñÈ¡Êı¾İ¿É¼û±êÖ¾
 	bool		IsDataVisible(int nDataIndex, int nPlotIndex=0);
-	//è®¾ç½®æ•°æ®æ˜¯å¦å¯è§
+	//ÉèÖÃÊı¾İÊÇ·ñ¿É¼û
 	void		SetDataVisible(bool bVis, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®çº¿æ˜¯å¦æ˜¾ç¤º
-	// æ³¨æ„ï¼Œå’ŒSetDataVisibleä¸åŒï¼Œè¿™é‡Œé™¤äº†çº¿ï¼Œè¿˜å¯ä»¥æ˜¾ç¤ºåˆ«çš„ï¼Œå¦‚Marker
+	// ÉèÖÃÊı¾İÏßÊÇ·ñÏÔÊ¾
+	// ×¢Òâ£¬ºÍSetDataVisible²»Í¬£¬ÕâÀï³ıÁËÏß£¬»¹¿ÉÒÔÏÔÊ¾±ğµÄ£¬ÈçMarker
 	void		SetDataLineShow(bool bShow, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®å‹ç¼©æ˜¾ç¤ºæ¨¡å¼ï¼Œä¸»è¦ç”¨äºå¤§æ•°æ®é‡æ—¶çš„æ˜¾ç¤º
-	// å‹ç¼©æ˜¾ç¤ºæ¨¡å¼ä¸­ï¼Œå¦‚æœç›¸é‚»æ•°æ®ç‚¹åœ¨å±å¹•ä¸Šæ˜¾ç¤ºæ—¶çš„Xç›¸åŒï¼Œå°†å‹ç¼©æˆä¸€ä¸ªæ•°æ®ç‚¹ï¼Œå€¼å–å¹³å‡ï¼Œ
+	// ÉèÖÃÑ¹ËõÏÔÊ¾Ä£Ê½£¬Ö÷ÒªÓÃÓÚ´óÊı¾İÁ¿Ê±µÄÏÔÊ¾
+	// Ñ¹ËõÏÔÊ¾Ä£Ê½ÖĞ£¬Èç¹ûÏàÁÚÊı¾İµãÔÚÆÁÄ»ÉÏÏÔÊ¾Ê±µÄXÏàÍ¬£¬½«Ñ¹Ëõ³ÉÒ»¸öÊı¾İµã£¬ÖµÈ¡Æ½¾ù£¬
 	void		SetDataCompactDraw(bool bCompact, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ•°æ®æŒ‰ç›´æ–¹å›¾æ¨¡å¼æ˜¾ç¤º
+	// ÉèÖÃÊı¾İ°´Ö±·½Í¼Ä£Ê½ÏÔÊ¾
 	void		SetDataHistro(bool bHistro, int nDataIndex, int nPlotIndex=0);
 
-	// è·å¾—é«˜äº®æ›²çº¿çš„åºå·ï¼Œç›®å‰åªé€‚ç”¨äºæŠ˜çº¿å›¾
+	// »ñµÃ¸ßÁÁÇúÏßµÄĞòºÅ£¬Ä¿Ç°Ö»ÊÊÓÃÓÚÕÛÏßÍ¼
 	int			GetIndexOfLighted();
-	// è·å¾—é€‰æ‹©æ›²çº¿çš„åºå·ï¼Œç›®å‰åªé€‚ç”¨äºæŠ˜çº¿å›¾
+	// »ñµÃÑ¡ÔñÇúÏßµÄĞòºÅ£¬Ä¿Ç°Ö»ÊÊÓÃÓÚÕÛÏßÍ¼
 	int			GetIndexOfSelected();
 	
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ•°å€¼æ˜¯å¦æ˜¾ç¤º
+	// ÉèÖÃÇúÏßÊı¾İµãÊıÖµÊÇ·ñÏÔÊ¾
 	void		SetDataValueShow(bool bShow, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ•°å€¼æ˜¾ç¤ºæ–¹å¼ï¼Œ1ä¸ºXï¼Œ2ä¸ºYï¼Œ3ä¸ºX:Yï¼Œå…¶å®ƒä¸ºä¸æ˜¾ç¤º
+	// ÉèÖÃÇúÏßÊı¾İµãÊıÖµÏÔÊ¾·½Ê½£¬1ÎªX£¬2ÎªY£¬3ÎªX:Y£¬ÆäËüÎª²»ÏÔÊ¾
 	void		SetDataValueType(int nType, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ•°å€¼çš„å­—ä½“å¤§å°
+	// ÉèÖÃÇúÏßÊı¾İµãÊıÖµµÄ×ÖÌå´óĞ¡
 	void		SetDataValueFontSize(int nSize, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ•°å€¼æ˜¾ç¤ºé¢‘ç‡ï¼Œ0è¡¨ç¤ºä¸æ˜¾ç¤ºï¼Œæ­£nè¡¨ç¤ºæ¯éš”nä¸ªç‚¹æ˜¾ç¤ºä¸€æ¬¡ï¼Œè´Ÿnè¡¨ç¤ºä¸€å…±æ˜¾ç¤ºnä¸ªç‚¹
+	// ÉèÖÃÇúÏßÊı¾İµãÊıÖµÏÔÊ¾ÆµÂÊ£¬0±íÊ¾²»ÏÔÊ¾£¬Õın±íÊ¾Ã¿¸ôn¸öµãÏÔÊ¾Ò»´Î£¬¸ºn±íÊ¾Ò»¹²ÏÔÊ¾n¸öµã
 	void		SetDataValueFreq(int nFreq, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æ•°æ®ç‚¹æ•°å€¼æ˜¾ç¤ºçš„èµ·å§‹ç‚¹ï¼Œç”¨äºä¸æ˜¯å…¨éƒ¨æ˜¾ç¤ºæ—¶
+	// ÉèÖÃÇúÏßÊı¾İµãÊıÖµÏÔÊ¾µÄÆğÊ¼µã£¬ÓÃÓÚ²»ÊÇÈ«²¿ÏÔÊ¾Ê±
 	void		SetDataValueStartIndex(int nStartIndex, int nDataIndex, int nPlotIndex=0);
-	// æ·»åŠ æ›²çº¿æ•°æ®ç‚¹çš„æ³¨é‡Š
+	// Ìí¼ÓÇúÏßÊı¾İµãµÄ×¢ÊÍ
 	void		AddDataPointComment(TCHAR *comment, int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿æœ€å¤§æ•°æ®ç‚¹æ•°ï¼Œæ·»åŠ ç‚¹çš„æ—¶å€™ï¼Œæ€»æ•°è¶…å‡ºçš„è¯ï¼Œè‡ªåŠ¨ç§»é™¤ç¬¬ä¸€ä¸ªç‚¹
+	// ÉèÖÃÇúÏß×î´óÊı¾İµãÊı£¬Ìí¼ÓµãµÄÊ±ºò£¬×ÜÊı³¬³öµÄ»°£¬×Ô¶¯ÒÆ³ıµÚÒ»¸öµã
 	void		SetDataMaxPoints(int nMaxPoints, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿è‡ªåŠ¨åœ†æ»‘
+	// ÉèÖÃÇúÏß×Ô¶¯Ô²»¬
 	void		SetDataAutoSlick(bool bSlick, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿çº¿æ®µéšè—æ¨¡å¼
+	// ÉèÖÃÇúÏßÏß¶ÎÒş²ØÄ£Ê½
 	void		SetDataSegHideMode(bool hide, int nDataIndex, int nPlotIndex=0);
-	// æ·»åŠ æ›²çº¿çš„éšè—çº¿æ®µ
-	// nPointIndexä¸ºéšè—çº¿æ®µçš„èµ·ç‚¹
-	// ä¾‹å¦‚ï¼Œå¦‚éœ€è¦éšè—ç‚¹3åˆ°ç‚¹10ä¹‹é—´çš„æ‰€æœ‰çº¿æ®µï¼Œé‚£è¿™ä¸ªå‡½æ•°å°±éœ€è¦è°ƒç”¨7æ¬¡ï¼Œæ¯æ¬¡çš„nPointIndexä»3åˆ°9
+	// Ìí¼ÓÇúÏßµÄÒş²ØÏß¶Î
+	// nPointIndexÎªÒş²ØÏß¶ÎµÄÆğµã
+	// ÀıÈç£¬ÈçĞèÒªÒş²Øµã3µ½µã10Ö®¼äµÄËùÓĞÏß¶Î£¬ÄÇÕâ¸öº¯Êı¾ÍĞèÒªµ÷ÓÃ7´Î£¬Ã¿´ÎµÄnPointIndex´Ó3µ½9
 	void		AddDataSegHidden(int nPointIndex, int nDataIndex, int nPlotIndex=0);
-	// æ¸…é™¤æ‰€æœ‰éšè—çº¿æ®µ
+	// Çå³ıËùÓĞÒş²ØÏß¶Î
 	void		ClrDataSegHidden(int nDataIndex, int nPlotIndex=0);
-	// æ¸…é™¤æœ€å…ˆçš„éšè—çº¿æ®µ
+	// Çå³ı×îÏÈµÄÒş²ØÏß¶Î
 	void		ClrFirstSegHidden(int nDataIndex, int nPlotIndex=0);
-	// æ¸…é™¤æœ€åçš„éšè—çº¿æ®µ
+	// Çå³ı×îºóµÄÒş²ØÏß¶Î
 	void		ClrLastSegHidden(int nDataIndex, int nPlotIndex=0);
 
 public:
-	// æ£€æµ‹ç¤ºæ³¢å™¨æ¨¡å¼
+	// ¼ì²âÊ¾²¨Æ÷Ä£Ê½
 	bool		IsOscilloMode(int nPlotIndex=0);
-	// è®¾ç½®ç¤ºæ³¢å™¨æ¨¡å¼
+	// ÉèÖÃÊ¾²¨Æ÷Ä£Ê½
 	void		SetOscilloMode(bool bOscillo, int nPlotIndex=0);
-	// æ£€æµ‹æ˜¯å¦å·²å¯åŠ¨ç¤ºæ³¢å™¨æ¨¡å¼
+	// ¼ì²âÊÇ·ñÒÑÆô¶¯Ê¾²¨Æ÷Ä£Ê½
 	bool		IsStartOscilloScope(int nPlotIndex=0);
-	// è®¾ç½®æ˜¯å¦å·²å¯åŠ¨ç¤ºæ³¢å™¨æ¨¡å¼
+	// ÉèÖÃÊÇ·ñÒÑÆô¶¯Ê¾²¨Æ÷Ä£Ê½
 	void		SetStartOscilloScope(bool bOscillo, int nPlotIndex=0);
-	// æ£€æµ‹æ˜¯å¦å¯ä»¥æ‹–åŠ¨æ›²çº¿
+	// ¼ì²âÊÇ·ñ¿ÉÒÔÍÏ¶¯ÇúÏß
 	bool		IsEnableDataDrag();
-	// è®¾ç½®æ˜¯å¦å¯ä»¥æ‹–åŠ¨æ›²çº¿
+	// ÉèÖÃÊÇ·ñ¿ÉÒÔÍÏ¶¯ÇúÏß
 	void		SetEnableDataDrag(bool enable);
-	// æ£€æµ‹æ˜¯å¦å¯ä»¥æ‹–åŠ¨åŒºé—´è¾¹çº¿
+	// ¼ì²âÊÇ·ñ¿ÉÒÔÍÏ¶¯Çø¼ä±ßÏß
 	bool		IsEnableZoneDrag();
-	// è®¾ç½®æ˜¯å¦å¯ä»¥æ‹–åŠ¨åŒºé—´è¾¹çº¿
+	// ÉèÖÃÊÇ·ñ¿ÉÒÔÍÏ¶¯Çø¼ä±ßÏß
 	void		SetEnableZoneDrag(bool enable);
-	// ç§»åŠ¨æ›²çº¿
+	// ÒÆ¶¯ÇúÏß
 	bool		MoveData(double offsetx, double offsety, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—æ›²çº¿çš„æ°´å¹³åç§»
+	// »ñµÃÇúÏßµÄË®Æ½Æ«ÒÆ
 	double		GetDataOffsetX(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿çš„æ°´å¹³åç§»
+	// ÉèÖÃÇúÏßµÄË®Æ½Æ«ÒÆ
 	void		SetDataOffsetX(double offset, int nDataIndex, int nPlotIndex=0);
-	// è·å¾—æ›²çº¿çš„ç«–ç›´åç§»
+	// »ñµÃÇúÏßµÄÊúÖ±Æ«ÒÆ
 	double		GetDataOffsetY(int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®æ›²çº¿çš„ç«–ç›´åç§»
+	// ÉèÖÃÇúÏßµÄÊúÖ±Æ«ÒÆ
 	void		SetDataOffsetY(double offset, int nDataIndex, int nPlotIndex=0);
-	// è®¾ç½®Xæ–¹å‘å•ä½ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃX·½Ïòµ¥Î»£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetXUnit(TCHAR *unit, int nDataIndex);
-	// è®¾ç½®Yæ–¹å‘å•ä½ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃY·½Ïòµ¥Î»£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetYUnit(TCHAR *unit, int nDataIndex);
-	// åœ¨å›¾ä¾‹ä¸­ä»…ä»…æ˜¾ç¤ºYæ–¹å‘çš„æ¯”ä¾‹å°ºï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÔÚÍ¼ÀıÖĞ½ö½öÏÔÊ¾Y·½ÏòµÄ±ÈÀı³ß£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetShowYSCaleOnly(bool only);
-	// æ£€æµ‹å…‰æ ‡ç»‘å®šåˆ°é¼ æ ‡
+	// ¼ì²â¹â±ê°ó¶¨µ½Êó±ê
 	bool		IsHoldCursorToMouse(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡ç»‘å®šåˆ°é¼ æ ‡
+	// ÉèÖÃ¹â±ê°ó¶¨µ½Êó±ê
 	void		SetHoldCursorToMouse(bool hold, int nPlotIndex=0);
-	// æ£€æµ‹å…‰æ ‡ç»‘å®šåˆ°æ›²çº¿
+	// ¼ì²â¹â±ê°ó¶¨µ½ÇúÏß
 	bool		IsHoldCursorToCurve(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡ç»‘å®šåˆ°æ›²çº¿
+	// ÉèÖÃ¹â±ê°ó¶¨µ½ÇúÏß
 	void		SetHoldCursorToCurve(bool hold, int nPlotIndex=0);
-	// è·å¾—å…‰æ ‡ç»‘å®šçš„æ›²çº¿åºå·
+	// »ñµÃ¹â±ê°ó¶¨µÄÇúÏßĞòºÅ
 	int			GetIndexToHoldCursor(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡ç»‘å®šçš„æ›²çº¿åºå·
+	// ÉèÖÃ¹â±ê°ó¶¨µÄÇúÏßĞòºÅ
 	void		SetIndexToHoldCursor(int nCurveIndex, int nPlotIndex=0);
-	// æ£€æµ‹é›¶ç‚¹ç®­å¤´ç»˜åˆ¶
+	// ¼ì²âÁãµã¼ıÍ·»æÖÆ
 	bool		IsShowZeroArrow(int nPlotIndex=0);
-	// è®¾ç½®é›¶ç‚¹ç®­å¤´ç»˜åˆ¶
+	// ÉèÖÃÁãµã¼ıÍ·»æÖÆ
 	void		SetShowZeroArrow(bool show, int nPlotIndex=0);
-	// æ£€æµ‹è§¦å‘ç®­å¤´ç»˜åˆ¶
+	// ¼ì²â´¥·¢¼ıÍ·»æÖÆ
 	bool		IsShowTrigArrow(int nPlotIndex=0);
-	// è®¾ç½®è§¦å‘ç®­å¤´ç»˜åˆ¶
+	// ÉèÖÃ´¥·¢¼ıÍ·»æÖÆ
 	void		SetShowTrigArrow(bool show, int nPlotIndex=0);
-	// æ˜¾ç¤ºæ°´å¹³å…‰æ ‡çº¿ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÏÔÊ¾Ë®Æ½¹â±êÏß£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetShowHCursor(bool show, int nPlotIndex=0);
-	// æ˜¾ç¤ºç«–ç›´å…‰æ ‡çº¿ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÏÔÊ¾ÊúÖ±¹â±êÏß£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetShowVCursor(bool show, int nPlotIndex=0);
-	// è·å¾—å…‰æ ‡çº¿é¢œè‰²ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃ¹â±êÏßÑÕÉ«£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	COLORREF	GetCursorColor(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡çº¿é¢œè‰²ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃ¹â±êÏßÑÕÉ«£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetCursorColor(COLORREF color, int nPlotIndex=0);
-	// è·å¾—å…‰æ ‡çº¿çº¿å®½ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃ¹â±êÏßÏß¿í£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	int			GetCursorSize(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡çº¿çº¿å®½ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃ¹â±êÏßÏß¿í£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetCursorSize(int size, int nPlotIndex=0);
-	// è·å¾—å…‰æ ‡çº¿çº¿å‹ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃ¹â±êÏßÏßĞÍ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	int			GetCursorStyle(int nPlotIndex=0);
-	// è®¾ç½®å…‰æ ‡çº¿çº¿å‹ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃ¹â±êÏßÏßĞÍ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetCursorStyle(int style, int nPlotIndex=0);
-	// è·å¾—æ°´å¹³å…‰æ ‡å€¼ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃË®Æ½¹â±êÖµ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetCursorX(int nPlotIndex=0);
-	// è®¾ç½®æ°´å¹³å…‰æ ‡å€¼ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃË®Æ½¹â±êÖµ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetCursorX( double cursor, int nPlotIndex=0);
-	// è·å¾—ç«–ç›´å…‰æ ‡å€¼ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃÊúÖ±¹â±êÖµ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetCursorY(int nPlotIndex=0);
-	// è®¾ç½®ç«–ç›´å…‰æ ‡å€¼ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃÊúÖ±¹â±êÖµ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetCursorY( double cursor, int nPlotIndex=0);
-	// æ˜¾ç¤ºæ°´å¹³é€‰æ‹©åŒºï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÏÔÊ¾Ë®Æ½Ñ¡ÔñÇø£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetShowHSel(bool show, int nPlotIndex=0);
-	// æ˜¾ç¤ºç«–ç›´é€‰æ‹©åŒºï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÏÔÊ¾ÊúÖ±Ñ¡ÔñÇø£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetShowVSel(bool show, int nPlotIndex=0);
-	// è·å¾—æ°´å¹³é€‰æ‹©åŒºçš„ä¸‹é™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃË®Æ½Ñ¡ÔñÇøµÄÏÂÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetHSelLower(int nPlotIndex=0);
-	// è®¾ç½®æ°´å¹³é€‰æ‹©åŒºçš„ä¸‹é™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃË®Æ½Ñ¡ÔñÇøµÄÏÂÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetHSelLower(int val, int nPlotIndex=0);
-	// è·å¾—æ°´å¹³é€‰æ‹©åŒºçš„ä¸Šé™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃË®Æ½Ñ¡ÔñÇøµÄÉÏÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetHSelUpper(int nPlotIndex=0);
-	// è®¾ç½®æ°´å¹³é€‰æ‹©åŒºçš„ä¸Šé™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃË®Æ½Ñ¡ÔñÇøµÄÉÏÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetHSelUpper(int val, int nPlotIndex=0);
-	// è·å¾—ç«–ç›´é€‰æ‹©åŒºçš„ä¸‹é™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃÊúÖ±Ñ¡ÔñÇøµÄÏÂÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetVSelLower(int nPlotIndex=0);
-	// è®¾ç½®ç«–ç›´é€‰æ‹©åŒºçš„ä¸‹é™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃÊúÖ±Ñ¡ÔñÇøµÄÏÂÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetVSelLower(int val, int nPlotIndex=0);
-	// è·å¾—ç«–ç›´é€‰æ‹©åŒºçš„ä¸Šé™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃÊúÖ±Ñ¡ÔñÇøµÄÉÏÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetVSelUpper(int nPlotIndex=0);
-	// è®¾ç½®ç«–ç›´é€‰æ‹©åŒºçš„ä¸Šé™ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// ÉèÖÃÊúÖ±Ñ¡ÔñÇøµÄÉÏÏŞ£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	void		SetVSelUpper(int val, int nPlotIndex=0);
-	// è·å¾—æ°´å¹³é€‰æ‹©åŒºçš„å®½åº¦ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃË®Æ½Ñ¡ÔñÇøµÄ¿í¶È£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetHSelWidth(int nPlotIndex=0);
-	// è·å¾—ç«–ç›´é€‰æ‹©åŒºçš„å®½åº¦ï¼Œä»…ä»…ç”¨äºæ¨¡æ‹Ÿç¤ºæ³¢å™¨
+	// »ñµÃÊúÖ±Ñ¡ÔñÇøµÄ¿í¶È£¬½ö½öÓÃÓÚÄ£ÄâÊ¾²¨Æ÷
 	double		GetVSelWidth(int nPlotIndex=0);
 
 
 public:
-	// è·å¾—å›¾åƒæ ‡é¢˜
+	// »ñµÃÍ¼Ïñ±êÌâ
 	TCHAR*		GetTitle();
-	// è·å¾—å­å›¾æ ‡é¢˜ï¼Œå¯ç”¨äºåˆ†è£‚è§†å›¾ã€åˆ†å±‚è§†å›¾ã€å…±äº«Xè½´è§†å›¾
+	// »ñµÃ×ÓÍ¼±êÌâ£¬¿ÉÓÃÓÚ·ÖÁÑÊÓÍ¼¡¢·Ö²ãÊÓÍ¼¡¢¹²ÏíXÖáÊÓÍ¼
 	TCHAR*		GetTitle(int nPlotIndex);
-	// è®¾ç½®å›¾åƒæ ‡é¢˜
+	// ÉèÖÃÍ¼Ïñ±êÌâ
 	void		SetTitle(const TCHAR* title);
-	// è®¾ç½®å­å›¾æ ‡é¢˜
+	// ÉèÖÃ×ÓÍ¼±êÌâ
 	void		SetTitle(const TCHAR* title, int nPlotIndex);
-	// è·å¾—å›¾åƒæ ‡é¢˜ä½ç½®
+	// »ñµÃÍ¼Ïñ±êÌâÎ»ÖÃ
 	int			GetTitlePosition();
-	// è·å¾—å­å›¾æ ‡é¢˜ä½ç½®
+	// »ñµÃ×ÓÍ¼±êÌâÎ»ÖÃ
 	int			GetTitlePosition(int nPlotIndex);
-	// è®¾ç½®å›¾åƒæ ‡é¢˜ä½ç½®ã€‚è´Ÿæ•°ï¼šå·¦ï¼›0ï¼šä¸­ï¼›æ­£æ•°ï¼šå³
+	// ÉèÖÃÍ¼Ïñ±êÌâÎ»ÖÃ¡£¸ºÊı£º×ó£»0£ºÖĞ£»ÕıÊı£ºÓÒ
 	void		SetTitlePosition(int position);
-	// è®¾ç½®å­å›¾æ ‡é¢˜ä½ç½®ã€‚è´Ÿæ•°ï¼šå·¦ï¼›0ï¼šä¸­ï¼›æ­£æ•°ï¼šå³
+	// ÉèÖÃ×ÓÍ¼±êÌâÎ»ÖÃ¡£¸ºÊı£º×ó£»0£ºÖĞ£»ÕıÊı£ºÓÒ
 	void		SetTitlePosition(int position, int nPlotIndex);
-	// å›¾åƒæ ‡é¢˜æ˜¯å¦æ˜¾ç¤º
+	// Í¼Ïñ±êÌâÊÇ·ñÏÔÊ¾
 	bool		IsTitleShow();
-	// å­å›¾æ ‡é¢˜æ˜¯å¦æ˜¾ç¤º
+	// ×ÓÍ¼±êÌâÊÇ·ñÏÔÊ¾
 	bool		IsTitleShow(int nPlotIndex);
-	// è®¾ç½®æ˜¾ç¤ºå›¾åƒæ ‡é¢˜
+	// ÉèÖÃÏÔÊ¾Í¼Ïñ±êÌâ
 	void		SetTitleShow(bool show);
-	// è®¾ç½®æ˜¾ç¤ºå­å›¾æ ‡é¢˜
+	// ÉèÖÃÏÔÊ¾×ÓÍ¼±êÌâ
 	void		SetTitleShow(bool show, int nPlotIndex);
-	// è·å¾—å›¾åƒæ ‡é¢˜é¢œè‰²
+	// »ñµÃÍ¼Ïñ±êÌâÑÕÉ«
 	COLORREF	GetTitleColor();
-	// è·å¾—å­å›¾æ ‡é¢˜é¢œè‰²
+	// »ñµÃ×ÓÍ¼±êÌâÑÕÉ«
 	COLORREF	GetTitleColor(int nPlotIndex);
-	// è®¾ç½®å›¾åƒæ ‡é¢˜é¢œè‰²
+	// ÉèÖÃÍ¼Ïñ±êÌâÑÕÉ«
 	void		SetTitleColor(COLORREF color);
-	// è®¾ç½®å­å›¾æ ‡é¢˜é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼±êÌâÑÕÉ«
 	void		SetTitleColor(COLORREF color, int nPlotIndex);
-	// è·å¾—æ ‡é¢˜å­—ä½“
+	// »ñµÃ±êÌâ×ÖÌå
 	LOGFONT		GetTitleFont();
-	// è·å¾—å­å›¾æ ‡é¢˜å­—ä½“
+	// »ñµÃ×ÓÍ¼±êÌâ×ÖÌå
 	LOGFONT		GetTitleFont(int nPlotIndex);
-	// è®¾ç½®æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ±êÌâ×ÖÌå
 	void		SetTitleFont(LOGFONT logFont);
-	// è®¾ç½®å­å›¾æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ×ÓÍ¼±êÌâ×ÖÌå
 	void		SetTitleFont(LOGFONT logFont, int nPlotIndex);
-	// åˆ†å±‚è§†å›¾æ˜¾ç¤ºä¸»æ ‡é¢˜
+	// ·Ö²ãÊÓÍ¼ÏÔÊ¾Ö÷±êÌâ
 	void		SetShowParentTitle(bool set);
 
-	// è·å¾—å›¾åƒå‰¯æ ‡é¢˜
+	// »ñµÃÍ¼Ïñ¸±±êÌâ
 	TCHAR*		GetSubTitle();
-	// è·å¾—å­å›¾å‰¯æ ‡é¢˜ï¼Œå¯ç”¨äºåˆ†è£‚è§†å›¾ã€åˆ†å±‚è§†å›¾ã€å…±äº«Xè½´è§†å›¾
+	// »ñµÃ×ÓÍ¼¸±±êÌâ£¬¿ÉÓÃÓÚ·ÖÁÑÊÓÍ¼¡¢·Ö²ãÊÓÍ¼¡¢¹²ÏíXÖáÊÓÍ¼
 	TCHAR*		GetSubTitle(int nPlotIndex);
-	// è®¾ç½®å›¾åƒå‰¯æ ‡é¢˜
+	// ÉèÖÃÍ¼Ïñ¸±±êÌâ
 	void		SetSubTitle(const TCHAR* title);
-	// è®¾ç½®å­å›¾å‰¯æ ‡é¢˜
+	// ÉèÖÃ×ÓÍ¼¸±±êÌâ
 	void		SetSubTitle(const TCHAR* title, int nPlotIndex);
-	// è·å¾—å›¾åƒå‰¯æ ‡é¢˜ä½ç½®
+	// »ñµÃÍ¼Ïñ¸±±êÌâÎ»ÖÃ
 	int			GetSubTitlePosition();
-	// è·å¾—å­å›¾å‰¯æ ‡é¢˜ä½ç½®
+	// »ñµÃ×ÓÍ¼¸±±êÌâÎ»ÖÃ
 	int			GetSubTitlePosition(int nPlotIndex);
-	// è®¾ç½®å›¾åƒå‰¯æ ‡é¢˜ä½ç½®ã€‚è´Ÿæ•°ï¼šå·¦ï¼›0ï¼šä¸­ï¼›æ­£æ•°ï¼šå³
+	// ÉèÖÃÍ¼Ïñ¸±±êÌâÎ»ÖÃ¡£¸ºÊı£º×ó£»0£ºÖĞ£»ÕıÊı£ºÓÒ
 	void		SetSubTitlePosition(int position);
-	// è®¾ç½®å­å›¾å‰¯æ ‡é¢˜ä½ç½®ã€‚è´Ÿæ•°ï¼šå·¦ï¼›0ï¼šä¸­ï¼›æ­£æ•°ï¼šå³
+	// ÉèÖÃ×ÓÍ¼¸±±êÌâÎ»ÖÃ¡£¸ºÊı£º×ó£»0£ºÖĞ£»ÕıÊı£ºÓÒ
 	void		SetSubTitlePosition(int position, int nPlotIndex);
-	// å›¾åƒå‰¯æ ‡é¢˜æ˜¯å¦æ˜¾ç¤º
+	// Í¼Ïñ¸±±êÌâÊÇ·ñÏÔÊ¾
 	bool		IsSubTitleShow();
-	// å­å›¾å‰¯æ ‡é¢˜æ˜¯å¦æ˜¾ç¤º
+	// ×ÓÍ¼¸±±êÌâÊÇ·ñÏÔÊ¾
 	bool		IsSubTitleShow(int nPlotIndex);
-	// è®¾ç½®æ˜¾ç¤ºå›¾åƒå‰¯æ ‡é¢˜
+	// ÉèÖÃÏÔÊ¾Í¼Ïñ¸±±êÌâ
 	void		SetSubTitleShow(bool show);
-	// è®¾ç½®æ˜¾ç¤ºå­å›¾å‰¯æ ‡é¢˜
+	// ÉèÖÃÏÔÊ¾×ÓÍ¼¸±±êÌâ
 	void		SetSubTitleShow(bool show, int nPlotIndex);
-	// è·å¾—å›¾åƒå‰¯æ ‡é¢˜é¢œè‰²
+	// »ñµÃÍ¼Ïñ¸±±êÌâÑÕÉ«
 	COLORREF	GetSubTitleColor();
-	// è·å¾—å­å›¾å‰¯æ ‡é¢˜é¢œè‰²
+	// »ñµÃ×ÓÍ¼¸±±êÌâÑÕÉ«
 	COLORREF	GetSubTitleColor(int nPlotIndex);
-	// è®¾ç½®å›¾åƒå‰¯æ ‡é¢˜é¢œè‰²
+	// ÉèÖÃÍ¼Ïñ¸±±êÌâÑÕÉ«
 	void		SetSubTitleColor(COLORREF color);
-	// è®¾ç½®å­å›¾å‰¯æ ‡é¢˜é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼¸±±êÌâÑÕÉ«
 	void		SetSubTitleColor(COLORREF color, int nPlotIndex);
-	// è·å¾—å‰¯æ ‡é¢˜å­—ä½“
+	// »ñµÃ¸±±êÌâ×ÖÌå
 	LOGFONT		GetSubTitleFont();
-	// è·å¾—å­å›¾å‰¯æ ‡é¢˜å­—ä½“
+	// »ñµÃ×ÓÍ¼¸±±êÌâ×ÖÌå
 	LOGFONT		GetSubTitleFont(int nPlotIndex);
-	// è®¾ç½®å‰¯æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ¸±±êÌâ×ÖÌå
 	void		SetSubTitleFont(LOGFONT logFont);
-	// è®¾ç½®å­å›¾å‰¯æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ×ÓÍ¼¸±±êÌâ×ÖÌå
 	void		SetSubTitleFont(LOGFONT logFont, int nPlotIndex);
 	
-	// è®¾ç½®é«˜äº®è¾¹æ¡†é¢œè‰²
+	// ÉèÖÃ¸ßÁÁ±ß¿òÑÕÉ«
 	void		SetLightColor(COLORREF color);
-	// è®¾ç½®å­å›¾é«˜äº®è¾¹æ¡†é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼¸ßÁÁ±ß¿òÑÕÉ«
 	void		SetLightColor(COLORREF color, int nPlotIndex);
-	// è®¾ç½®é«˜äº®è¾¹æ¡†çº¿å®½
+	// ÉèÖÃ¸ßÁÁ±ß¿òÏß¿í
 	void		SetLightLineSize(int nSize);
-	// è®¾ç½®å­å›¾é«˜äº®è¾¹æ¡†çº¿å®½
+	// ÉèÖÃ×ÓÍ¼¸ßÁÁ±ß¿òÏß¿í
 	void		SetLightLineSize(int nSize, int nPlotIndex);
-	// è®¾ç½®é«˜äº®è¾¹æ¡†çº¿å‹
+	// ÉèÖÃ¸ßÁÁ±ß¿òÏßĞÍ
 	void		SetLightLineStyle(int nStyle);
-	// è®¾ç½®å­å›¾é«˜äº®è¾¹æ¡†çº¿å‹
+	// ÉèÖÃ×ÓÍ¼¸ßÁÁ±ß¿òÏßĞÍ
 	void		SetLightLineStyle(int nStyle, int nPlotIndex);
 
 private:
-	// å†…éƒ¨è°ƒç”¨å‡½æ•°
+	// ÄÚ²¿µ÷ÓÃº¯Êı
 	void		*GetAxis(int location);
 	void		*GetAxis(int location, int nPlotIndex);
 
 public:
-	// å¢åŠ åæ ‡è½´ï¼Œåæ ‡è½´çš„ä½ç½®locationè§æœ¬æ–‡ä»¶å¤´éƒ¨è¢«æ³¨é‡Šæ‰çš„enum
+	// Ôö¼Ó×ø±êÖá£¬×ø±êÖáµÄÎ»ÖÃlocation¼û±¾ÎÄ¼şÍ·²¿±»×¢ÊÍµôµÄenum
 	void		AddAxis(int location, int nPlotIndex=0);
-	// åˆ é™¤æ‰€æœ‰åæ ‡è½´
+	// É¾³ıËùÓĞ×ø±êÖá
 	void		DeleteAxes();
-	// åˆ é™¤å­å›¾æ‰€æœ‰åæ ‡è½´
+	// É¾³ı×ÓÍ¼ËùÓĞ×ø±êÖá
 	void		DeleteAxes(int nPlotIndex);
-	// åˆ é™¤åæ ‡è½´
+	// É¾³ı×ø±êÖá
 	void		DeleteAxisByLocation(int location);
-	// åˆ é™¤å­å›¾åæ ‡è½´
+	// É¾³ı×ÓÍ¼×ø±êÖá
 	void		DeleteAxisByLocation(int location, int nPlotIndex);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ ‡é¢˜
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá±êÌâ
 	void		SetAxisTitle(const TCHAR* title, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´æ ‡é¢˜
+	// ÉèÖÃ×ø±êÖá±êÌâ
 	void		SetAxisTitle(const TCHAR* title, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá±êÌâ×ÖÌå
 	void		SetAxisTitleFont(LOGFONT logFont, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´æ ‡é¢˜å­—ä½“
+	// ÉèÖÃ×ø±êÖá±êÌâ×ÖÌå
 	void		SetAxisTitleFont(LOGFONT logFont, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ ‡ç­¾å­—ä½“
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá±êÇ©×ÖÌå
 	void		SetAxisLabelFont(LOGFONT logFont, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´æ ‡ç­¾å­—ä½“
+	// ÉèÖÃ×ø±êÖá±êÇ©×ÖÌå
 	void		SetAxisLabelFont(LOGFONT logFont, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´åªæ˜¾ç¤ºä¸¤ç«¯æ ‡ç­¾
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÖ»ÏÔÊ¾Á½¶Ë±êÇ©
 	void		SetAxisLabelAtEnd(bool bEnd, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´åªæ˜¾ç¤ºä¸¤ç«¯æ ‡ç­¾
+	// ÉèÖÃ×ø±êÖáÖ»ÏÔÊ¾Á½¶Ë±êÇ©
 	void		SetAxisLabelAtEnd(bool bEnd, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´ä¸¤ç«¯æ ‡ç­¾å†…æ”¶
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÁ½¶Ë±êÇ©ÄÚÊÕ
 	void		SetAxisLabelWithdraw(bool bWithdraw, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´ä¸¤ç«¯æ ‡ç­¾å†…æ”¶
+	// ÉèÖÃ×ø±êÖáÁ½¶Ë±êÇ©ÄÚÊÕ
 	void		SetAxisLabelWithdraw(bool bWithdraw, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´ä¸¤ç«¯æ ‡ç­¾å†…æ”¶é•¿åº¦
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÁ½¶Ë±êÇ©ÄÚÊÕ³¤¶È
 	void		SetAxisLabelWithdrawLength(int nLen, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´ä¸¤ç«¯æ ‡ç­¾å†…æ”¶é•¿åº¦
+	// ÉèÖÃ×ø±êÖáÁ½¶Ë±êÇ©ÄÚÊÕ³¤¶È
 	void		SetAxisLabelWithdrawLength(int nLen, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ ‡é¢˜ä½ç½®
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá±êÌâÎ»ÖÃ
 	void		SetAxisTitlePosition(int position, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´æ ‡é¢˜ä½ç½®
+	// ÉèÖÃ×ø±êÖá±êÌâÎ»ÖÃ
 	void		SetAxisTitlePosition(int position, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´ä¸ç»˜å›¾åŒºçš„é—´éš™
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÓë»æÍ¼ÇøµÄ¼äÏ¶
 	void		SetAxisGap(int gap, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´ä¸ç»˜å›¾åŒºçš„é—´éš™
+	// ÉèÖÃ×ø±êÖáÓë»æÍ¼ÇøµÄ¼äÏ¶
 	void		SetAxisGap(int gap, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´åˆ»åº¦çº¿ä½ç½®
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá¿Ì¶ÈÏßÎ»ÖÃ
 	void		SetAxisTickPosition(int pos, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´åˆ»åº¦çº¿ä½ç½®
+	// ÉèÖÃ×ø±êÖá¿Ì¶ÈÏßÎ»ÖÃ
 	void		SetAxisTickPosition(int pos, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´å‰¯åˆ»åº¦çº¿ä½ç½®
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá¸±¿Ì¶ÈÏßÎ»ÖÃ
 	void		SetAxisMinorTickPosition(int pos, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´å‰¯åˆ»åº¦çº¿ä½ç½®
+	// ÉèÖÃ×ø±êÖá¸±¿Ì¶ÈÏßÎ»ÖÃ
 	void		SetAxisMinorTickPosition(int pos, int location);
-	// è®¾ç½®å­å›¾æ—¶é—´åæ ‡è½´
+	// ÉèÖÃ×ÓÍ¼Ê±¼ä×ø±êÖá
 	void		SetAxisToTime(bool bTime, int location, int nPlotIndex);
-	// è®¾ç½®æ—¶é—´åæ ‡è½´
+	// ÉèÖÃÊ±¼ä×ø±êÖá
 	void		SetAxisToTime(bool bTime, int location);
-	// è®¾ç½®å­å›¾æ—¶é—´åæ ‡è½´æ ¼å¼,"%Y%m%d%H%M%S",å‚è€ƒstrftimeå‡½æ•°æˆ–CTimeç±»çš„æ ¼å¼åŒ–æ–¹æ³•
+	// ÉèÖÃ×ÓÍ¼Ê±¼ä×ø±êÖá¸ñÊ½,"%Y%m%d%H%M%S",²Î¿¼strftimeº¯Êı»òCTimeÀàµÄ¸ñÊ½»¯·½·¨
 	void		SetAxisTimeFormat(TCHAR *format, int location, int nPlotIndex);
-	// è®¾ç½®æ—¶é—´åæ ‡è½´æ ¼å¼,"%Y%m%d%H%M%S",å‚è€ƒstrftimeå‡½æ•°æˆ–CTimeç±»çš„æ ¼å¼åŒ–æ–¹æ³•
+	// ÉèÖÃÊ±¼ä×ø±êÖá¸ñÊ½,"%Y%m%d%H%M%S",²Î¿¼strftimeº¯Êı»òCTimeÀàµÄ¸ñÊ½»¯·½·¨
 	void		SetAxisTimeFormat(TCHAR *format, int location);
-	// è®¾ç½®å­å›¾æ—¶é—´åæ ‡è½´æ··åˆæ¨¡å¼ã€‚è®¾ç½®æ­¤å‚æ•°åï¼Œæ•°æ®åªéœ€æŒ‰ç§’æ·»åŠ ï¼Œå¯ä»¥å¸¦ä»»æ„å°æ•°ã€‚åŠ ä¸ŠåŸºå‡†æ—¶é—´ï¼Œå°±æ˜¯åæ ‡è½´æ˜¾ç¤ºçš„æ—¶é—´ã€‚
+	// ÉèÖÃ×ÓÍ¼Ê±¼ä×ø±êÖá»ìºÏÄ£Ê½¡£ÉèÖÃ´Ë²ÎÊıºó£¬Êı¾İÖ»Ğè°´ÃëÌí¼Ó£¬¿ÉÒÔ´øÈÎÒâĞ¡Êı¡£¼ÓÉÏ»ù×¼Ê±¼ä£¬¾ÍÊÇ×ø±êÖáÏÔÊ¾µÄÊ±¼ä¡£
 	void		SetAxisTimeMixMode(bool bMix, int location, int nPlotIndex);
-	// è®¾ç½®æ—¶é—´åæ ‡è½´æ··åˆæ¨¡å¼ã€‚è®¾ç½®æ­¤å‚æ•°åï¼Œæ•°æ®åªéœ€æŒ‰ç§’æ·»åŠ ï¼Œå¯ä»¥å¸¦ä»»æ„å°æ•°ã€‚åŠ ä¸ŠåŸºå‡†æ—¶é—´ï¼Œå°±æ˜¯åæ ‡è½´æ˜¾ç¤ºçš„æ—¶é—´ã€‚
+	// ÉèÖÃÊ±¼ä×ø±êÖá»ìºÏÄ£Ê½¡£ÉèÖÃ´Ë²ÎÊıºó£¬Êı¾İÖ»Ğè°´ÃëÌí¼Ó£¬¿ÉÒÔ´øÈÎÒâĞ¡Êı¡£¼ÓÉÏ»ù×¼Ê±¼ä£¬¾ÍÊÇ×ø±êÖáÏÔÊ¾µÄÊ±¼ä¡£
 	void		SetAxisTimeMixMode(bool bMix, int location);
-	// è®¾ç½®å­å›¾æ—¶é—´åæ ‡è½´åŸºå‡†
+	// ÉèÖÃ×ÓÍ¼Ê±¼ä×ø±êÖá»ù×¼
 	void		SetAxisTimeBase(TCHAR *strTime, TCHAR *strFmt, int location, int nPlotIndex);
-	// è®¾ç½®æ—¶é—´åæ ‡è½´åŸºå‡†
+	// ÉèÖÃÊ±¼ä×ø±êÖá»ù×¼
 	void		SetAxisTimeBase(TCHAR *strTime, TCHAR *strFmt, int location);
-	// è®¾ç½®å­å›¾æ˜¾ç¤ºé¢œè‰²æ£’
+	// ÉèÖÃ×ÓÍ¼ÏÔÊ¾ÑÕÉ«°ô
 	void		SetAxisColorBar(bool bShow, int location, int nPlotIndex);
-	// è®¾ç½®æ˜¾ç¤ºé¢œè‰²æ£’
+	// ÉèÖÃÏÔÊ¾ÑÕÉ«°ô
 	void		SetAxisColorBar(bool bShow, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÑÕÉ«
 	void		SetAxisColor(COLORREF color, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´é¢œè‰²
+	// ÉèÖÃ×ø±êÖáÑÕÉ«
 	void		SetAxisColor(COLORREF color, int location);
-	// è®¾ç½®åæ ‡è½´æ˜¯å¦æ˜¾ç¤ºåˆ»åº¦å€¼
+	// ÉèÖÃ×ø±êÖáÊÇ·ñÏÔÊ¾¿Ì¶ÈÖµ
 	void		SetAxisLabelShow(bool bShow, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ˜¯å¦æ˜¾ç¤ºåˆ»åº¦å€¼
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÊÇ·ñÏÔÊ¾¿Ì¶ÈÖµ
 	void		SetAxisLabelShow(bool bShow, int location, int nPlotIndex);
-	// è®¾ç½®å­å›¾åæ ‡å€¼çš„æ ¼å¼,å‚è€ƒprintfçš„æ ¼å¼åŒ–æ–¹æ³•
+	// ÉèÖÃ×ÓÍ¼×ø±êÖµµÄ¸ñÊ½,²Î¿¼printfµÄ¸ñÊ½»¯·½·¨
 	void		SetAxisLabelFormat(TCHAR *format, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡å€¼çš„æ ¼å¼,å‚è€ƒprintfçš„æ ¼å¼åŒ–æ–¹æ³•
+	// ÉèÖÃ×ø±êÖµµÄ¸ñÊ½,²Î¿¼printfµÄ¸ñÊ½»¯·½·¨
 	void		SetAxisLabelFormat(TCHAR *format, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ˜¯å¦æ˜¾ç¤º
+	// ÉèÖÃ×ÓÍ¼×ø±êÖáÊÇ·ñÏÔÊ¾
 	void		SetAxisShow(bool bShow, int location, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´æ˜¯å¦æ˜¾ç¤º
+	// ÉèÖÃ×ø±êÖáÊÇ·ñÏÔÊ¾
 	void		SetAxisShow(bool bShow, int location);
-	// å­å›¾åæ ‡è½´æ˜¯å¦æ˜¾ç¤º
+	// ×ÓÍ¼×ø±êÖáÊÇ·ñÏÔÊ¾
 	bool		IsAxisShow(int location, int nPlotIndex);
-	//åæ ‡è½´æ˜¯å¦æ˜¾ç¤º
+	//×ø±êÖáÊÇ·ñÏÔÊ¾
 	bool		IsAxisShow(int location);
-	// è®¾ç½®åæ ‡è½´ç´§å‡‘æ¨¡å¼
+	// ÉèÖÃ×ø±êÖá½ô´ÕÄ£Ê½
 	void		SetAxesCompact(int nPlotIndex=0);
-	// æ·»åŠ å­å›¾éšè—åæ ‡è½´æ ‡ç­¾çš„ä¸€ä¸ªæ•°æ®èŒƒå›´
+	// Ìí¼Ó×ÓÍ¼Òş²Ø×ø±êÖá±êÇ©µÄÒ»¸öÊı¾İ·¶Î§
 	void		AddRange4LabelHiden(double low, double high, int location, int nPlotIndex);
-	// æ·»åŠ éšè—åæ ‡è½´æ ‡ç­¾çš„ä¸€ä¸ªæ•°æ®èŒƒå›´
+	// Ìí¼ÓÒş²Ø×ø±êÖá±êÇ©µÄÒ»¸öÊı¾İ·¶Î§
 	void		AddRange4LabelHiden(double low, double high, int location);
-	// è®¾ç½®åæ ‡è½´æ ‡ç­¾æ›¿æ¢
+	// ÉèÖÃ×ø±êÖá±êÇ©Ìæ»»
 	void		SetReplaceLabel(bool bReplace, int location);
-	// è®¾ç½®å­å›¾åæ ‡è½´æ ‡ç­¾æ›¿æ¢
+	// ÉèÖÃ×ÓÍ¼×ø±êÖá±êÇ©Ìæ»»
 	void		SetReplaceLabel(bool bReplace, int location, int nPlotIndex);
-	// æ·»åŠ ä¸€ä¸ªæ›¿æ¢çš„æ ‡ç­¾
+	// Ìí¼ÓÒ»¸öÌæ»»µÄ±êÇ©
 	void		AddAlternateLabel(TCHAR *label, int location);
-	// å­å›¾æ·»åŠ ä¸€ä¸ªæ›¿æ¢çš„æ ‡ç­¾
+	// ×ÓÍ¼Ìí¼ÓÒ»¸öÌæ»»µÄ±êÇ©
 	void		AddAlternateLabel(TCHAR *label, int location, int nPlotIndex);
-	// æ¸…ç©ºåæ ‡è½´æ›¿æ¢æ ‡ç­¾
+	// Çå¿Õ×ø±êÖáÌæ»»±êÇ©
 	void		ClrAlternateLabel(int location);
-	// æ¸…ç©ºå­å›¾åæ ‡è½´æ›¿æ¢æ ‡ç­¾
+	// Çå¿Õ×ÓÍ¼×ø±êÖáÌæ»»±êÇ©
 	void		ClrAlternateLabel(int location, int nPlotIndex);
-	// è®¾ç½®å­å›¾æ¨ªè½´æ ‡ç­¾æ—‹è½¬90åº¦
+	// ÉèÖÃ×ÓÍ¼ºáÖá±êÇ©Ğı×ª90¶È
 	void		SetXLabelRotate(bool bRot, int location, int nPlotIndex);
-	// è®¾ç½®æ¨ªè½´æ ‡ç­¾æ—‹è½¬90åº¦
+	// ÉèÖÃºáÖá±êÇ©Ğı×ª90¶È
 	void		SetXLabelRotate(bool bRot, int location);
-	// è®¾ç½®å­å›¾æ¨ªè½´æ ‡ç­¾æ—‹è½¬90åº¦æ–¹å‘ï¼Œ0å·¦æ—‹ï¼Œ1å³æ—‹
+	// ÉèÖÃ×ÓÍ¼ºáÖá±êÇ©Ğı×ª90¶È·½Ïò£¬0×óĞı£¬1ÓÒĞı
 	void		SetXLabelRotateDirect(int direct, int location, int nPlotIndex);
-	// è®¾ç½®æ¨ªè½´æ ‡ç­¾æ—‹è½¬90åº¦æ–¹å‘ï¼Œ0å·¦æ—‹ï¼Œ1å³æ—‹
+	// ÉèÖÃºáÖá±êÇ©Ğı×ª90¶È·½Ïò£¬0×óĞı£¬1ÓÒĞı
 	void		SetXLabelRotateDirect(int direct, int location);
 
 public:
-	// å­å›¾è‡ªåŠ¨è®¾ç½®Xåæ ‡è½´åˆ»åº¦æ•°
+	// ×ÓÍ¼×Ô¶¯ÉèÖÃX×ø±êÖá¿Ì¶ÈÊı
 	void		SetXAutoTicks(bool bAuto, int nPlotIndex);
-	// è‡ªåŠ¨è®¾ç½®Xåæ ‡è½´åˆ»åº¦æ•°
+	// ×Ô¶¯ÉèÖÃX×ø±êÖá¿Ì¶ÈÊı
 	void		SetXAutoTicks(bool bAuto);
-	// å­å›¾è‡ªåŠ¨è®¾ç½®Yåæ ‡è½´åˆ»åº¦æ•°
+	// ×ÓÍ¼×Ô¶¯ÉèÖÃY×ø±êÖá¿Ì¶ÈÊı
 	void		SetYAutoTicks(bool bAuto, int nPlotIndex);
-	// è‡ªåŠ¨è®¾ç½®Yåæ ‡è½´åˆ»åº¦æ•°
+	// ×Ô¶¯ÉèÖÃY×ø±êÖá¿Ì¶ÈÊı
 	void		SetYAutoTicks(bool bAuto);
-	// è®¾ç½®å­å›¾Xåæ ‡è½´åˆ»åº¦æ•°
+	// ÉèÖÃ×ÓÍ¼X×ø±êÖá¿Ì¶ÈÊı
 	void		SetXTickCount(int count, int nPlotIndex);
-	// è®¾ç½®åæ ‡Xè½´åˆ»åº¦æ•°
+	// ÉèÖÃ×ø±êXÖá¿Ì¶ÈÊı
 	void		SetXTickCount(int count);
-	// è®¾ç½®å­å›¾Yåæ ‡è½´åˆ»åº¦æ•°
+	// ÉèÖÃ×ÓÍ¼Y×ø±êÖá¿Ì¶ÈÊı
 	void		SetYTickCount(int count, int nPlotIndex);
-	// è®¾ç½®åæ ‡Yè½´åˆ»åº¦æ•°
+	// ÉèÖÃ×ø±êYÖá¿Ì¶ÈÊı
 	void		SetYTickCount(int count);
-	// å­å›¾è‡ªåŠ¨è®¾ç½®Xåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ×ÓÍ¼×Ô¶¯ÉèÖÃX×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetXAutoMinorTicks(bool bAuto, int nPlotIndex);
-	// è‡ªåŠ¨è®¾ç½®Xåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ×Ô¶¯ÉèÖÃX×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetXAutoMinorTicks(bool bAuto);
-	// å­å›¾è‡ªåŠ¨è®¾ç½®Yåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ×ÓÍ¼×Ô¶¯ÉèÖÃY×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetYAutoMinorTicks(bool bAuto, int nPlotIndex);
-	// è‡ªåŠ¨è®¾ç½®Yåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ×Ô¶¯ÉèÖÃY×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetYAutoMinorTicks(bool bAuto);
-	// è®¾ç½®å­å›¾Xåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ÉèÖÃ×ÓÍ¼X×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetXMinorTickCount(int count, int nPlotIndex);
-	// è®¾ç½®Xåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ÉèÖÃX×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetXMinorTickCount(int count);
-	// è®¾ç½®å­å›¾Yåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ÉèÖÃ×ÓÍ¼Y×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetYMinorTickCount(int count, int nPlotIndex);
-	// è®¾ç½®Yåæ ‡è½´å‰¯åˆ»åº¦æ•°
+	// ÉèÖÃY×ø±êÖá¸±¿Ì¶ÈÊı
 	void		SetYMinorTickCount(int count);
 
-	// å­å›¾Xåæ ‡èŒƒå›´æ ¹æ®é—´éš”è®¾ç½®
+	// ×ÓÍ¼X×ø±ê·¶Î§¸ù¾İ¼ä¸ôÉèÖÃ
 	void		SetXRangeByInterval(bool bBy, int nPlotIndex);
-	// Xåæ ‡èŒƒå›´æ ¹æ®é—´éš”è®¾ç½®
+	// X×ø±ê·¶Î§¸ù¾İ¼ä¸ôÉèÖÃ
 	void		SetXRangeByInterval(bool bBy);
-	// å­å›¾Yåæ ‡èŒƒå›´æ ¹æ®é—´éš”è®¾ç½®
+	// ×ÓÍ¼Y×ø±ê·¶Î§¸ù¾İ¼ä¸ôÉèÖÃ
 	void		SetYRangeByInterval(bool bBy, int nPlotIndex);
-	// Yåæ ‡èŒƒå›´æ ¹æ®é—´éš”è®¾ç½®
+	// Y×ø±ê·¶Î§¸ù¾İ¼ä¸ôÉèÖÃ
 	void		SetYRangeByInterval(bool bBy);
-	// å­å›¾Xåæ ‡åˆ»åº¦é—´éš”
+	// ×ÓÍ¼X×ø±ê¿Ì¶È¼ä¸ô
 	void		SetXTicksInterval(double interval, int nPlotIndex);
-	// Xåæ ‡åˆ»åº¦é—´éš”
+	// X×ø±ê¿Ì¶È¼ä¸ô
 	void		SetXTicksInterval(double interval);
-	// å­å›¾Yåæ ‡åˆ»åº¦é—´éš”
+	// ×ÓÍ¼Y×ø±ê¿Ì¶È¼ä¸ô
 	void		SetYTicksInterval(double interval, int nPlotIndex);
-	// Yåæ ‡åˆ»åº¦é—´éš”
+	// Y×ø±ê¿Ì¶È¼ä¸ô
 	void		SetYTicksInterval(double interval);
 
-	// è®¾ç½®å­å›¾Xåæ ‡è½´æµ®åŠ¨æ ‡è®°
+	// ÉèÖÃ×ÓÍ¼X×ø±êÖá¸¡¶¯±ê¼Ç
 	void		SetXFloatTicks(bool flt, int nPlotIndex);
-	// è®¾ç½®Xåæ ‡è½´æµ®åŠ¨æ ‡è®°
+	// ÉèÖÃX×ø±êÖá¸¡¶¯±ê¼Ç
 	void		SetXFloatTicks(bool flt);
-	// è®¾ç½®å­å›¾Yåæ ‡è½´æµ®åŠ¨æ ‡è®°
+	// ÉèÖÃ×ÓÍ¼Y×ø±êÖá¸¡¶¯±ê¼Ç
 	void		SetYFloatTicks(bool flt, int nPlotIndex);
-	// è®¾ç½®Yåæ ‡è½´æµ®åŠ¨æ ‡è®°
+	// ÉèÖÃY×ø±êÖá¸¡¶¯±ê¼Ç
 	void		SetYFloatTicks(bool flt);
-	// è®¾ç½®å­å›¾Xåæ ‡è½´æˆæŒ‡æ•°
+	// ÉèÖÃ×ÓÍ¼X×ø±êÖá³ÉÖ¸Êı
 	void		SetXLogarithm(bool bLog, int nPlotIndex);
-	// è®¾ç½®Xåæ ‡è½´æˆæŒ‡æ•°
+	// ÉèÖÃX×ø±êÖá³ÉÖ¸Êı
 	void		SetXLogarithm(bool bLog);
-	// è®¾ç½®å­å›¾Yåæ ‡è½´æˆæŒ‡æ•°
+	// ÉèÖÃ×ÓÍ¼Y×ø±êÖá³ÉÖ¸Êı
 	void		SetYLogarithm(bool bLog, int nPlotIndex);
-	// è®¾ç½®Yåæ ‡è½´æˆæŒ‡æ•°
+	// ÉèÖÃY×ø±êÖá³ÉÖ¸Êı
 	void		SetYLogarithm(bool bLog);
-	// è®¾ç½®å­å›¾Xåæ ‡åå‘ç»˜åˆ¶
+	// ÉèÖÃ×ÓÍ¼X×ø±ê·´Ïò»æÖÆ
 	void		SetXOpposite(bool bOpposite, int nPlotIndex);
-	// è®¾ç½®Xåæ ‡åå‘ç»˜åˆ¶
+	// ÉèÖÃX×ø±ê·´Ïò»æÖÆ
 	void		SetXOpposite(bool bOpposite);
-	// è®¾ç½®å­å›¾Yåæ ‡åå‘ç»˜åˆ¶
+	// ÉèÖÃ×ÓÍ¼Y×ø±ê·´Ïò»æÖÆ
 	void		SetYOpposite(bool bOpposite, int nPlotIndex);
-	// è®¾ç½®Yåæ ‡åå‘ç»˜åˆ¶
+	// ÉèÖÃY×ø±ê·´Ïò»æÖÆ
 	void		SetYOpposite(bool bOpposite);
-	// è®¾ç½®å­å›¾åæ ‡æ¨ªè½´é—´éš”æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ÓÍ¼×ø±êºáÖá¼ä¸ôÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomX(double atom, int nPlotIndex);
-	// è®¾ç½®åæ ‡æ¨ªè½´é—´éš”æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ø±êºáÖá¼ä¸ôÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomX(double atom);
-	// è®¾ç½®å­å›¾åæ ‡çºµè½´é—´éš”æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ÓÍ¼×ø±ê×İÖá¼ä¸ôÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomY(double atom, int nPlotIndex);
-	// è®¾ç½®åæ ‡çºµè½´é—´éš”æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ø±ê×İÖá¼ä¸ôÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomY(double atom);
-	// è®¾ç½®å­å›¾åæ ‡æ¨ªè½´èµ·ç‚¹æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ÓÍ¼×ø±êºáÖáÆğµãÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomZeroX(double zero, int nPlotIndex);
-	// è®¾ç½®åæ ‡æ¨ªè½´èµ·ç‚¹æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ø±êºáÖáÆğµãÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomZeroX(double zero);
-	// è®¾ç½®å­å›¾åæ ‡çºµè½´èµ·ç‚¹æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ÓÍ¼×ø±ê×İÖáÆğµãÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomZeroY(double zero, int nPlotIndex);
-	// è®¾ç½®åæ ‡çºµè½´èµ·ç‚¹æ˜¯æŸæ•°çš„å€æ•°
+	// ÉèÖÃ×ø±ê×İÖáÆğµãÊÇÄ³ÊıµÄ±¶Êı
 	void		SetAtomZeroY(double zero);
-	// åœ¨è®¾ç½®åæ ‡èŒƒå›´æ˜¯æŸæ•°å€æ•°æƒ…å†µä¸‹ï¼Œå­å›¾åæ ‡æ¨ªè½´åˆ†å‰²ä»½æ•°
+	// ÔÚÉèÖÃ×ø±ê·¶Î§ÊÇÄ³Êı±¶ÊıÇé¿öÏÂ£¬×ÓÍ¼×ø±êºáÖá·Ö¸î·İÊı
 	void		SetSegsPreferX(int segs, int nPlotIndex);
-	// åœ¨è®¾ç½®åæ ‡èŒƒå›´æ˜¯æŸæ•°å€æ•°æƒ…å†µä¸‹ï¼Œåæ ‡æ¨ªè½´åˆ†å‰²ä»½æ•°
+	// ÔÚÉèÖÃ×ø±ê·¶Î§ÊÇÄ³Êı±¶ÊıÇé¿öÏÂ£¬×ø±êºáÖá·Ö¸î·İÊı
 	void		SetSegsPreferX(int segs);
-	// åœ¨è®¾ç½®åæ ‡èŒƒå›´æ˜¯æŸæ•°å€æ•°æƒ…å†µä¸‹ï¼Œå­å›¾åæ ‡çºµè½´åˆ†å‰²ä»½æ•°
+	// ÔÚÉèÖÃ×ø±ê·¶Î§ÊÇÄ³Êı±¶ÊıÇé¿öÏÂ£¬×ÓÍ¼×ø±ê×İÖá·Ö¸î·İÊı
 	void		SetSegsPreferY(int segs, int nPlotIndex);
-	// åœ¨è®¾ç½®åæ ‡èŒƒå›´æ˜¯æŸæ•°å€æ•°æƒ…å†µä¸‹ï¼Œåæ ‡çºµè½´åˆ†å‰²ä»½æ•°
+	// ÔÚÉèÖÃ×ø±ê·¶Î§ÊÇÄ³Êı±¶ÊıÇé¿öÏÂ£¬×ø±ê×İÖá·Ö¸î·İÊı
 	void		SetSegsPreferY(int segs);
-	// è®¾ç½®å­å›¾Xåˆ»åº¦å¯†é›†æ˜¾ç¤º
+	// ÉèÖÃ×ÓÍ¼X¿Ì¶ÈÃÜ¼¯ÏÔÊ¾
 	void		SetDenseXTicks(bool dense, int nPlotIndex);
-	// è®¾ç½®Xåˆ»åº¦å¯†é›†æ˜¾ç¤º
+	// ÉèÖÃX¿Ì¶ÈÃÜ¼¯ÏÔÊ¾
 	void		SetDenseXTicks(bool dense);
-	// è®¾ç½®å­å›¾Yåˆ»åº¦å¯†é›†æ˜¾ç¤º
+	// ÉèÖÃ×ÓÍ¼Y¿Ì¶ÈÃÜ¼¯ÏÔÊ¾
 	void		SetDenseYTicks(bool dense, int nPlotIndex);
-	// è®¾ç½®Yåˆ»åº¦å¯†é›†æ˜¾ç¤º
+	// ÉèÖÃY¿Ì¶ÈÃÜ¼¯ÏÔÊ¾
 	void		SetDenseYTicks(bool dense);
 
 public:
-	// è®¾ç½®åæ ‡è½´èŒƒå›´
+	// ÉèÖÃ×ø±êÖá·¶Î§
 	void		SetPlotRange(double xRange[2], double yRange[2]);
 	void		SetPlotRange(double xl, double xu, double yl, double yu);
 	void		SetXRange(double low, double high, int nPlotIndex);
 	void		SetXRange(double low, double high);
 	void		SetYRange(double low, double high, int nPlotIndex);
 	void		SetYRange(double low, double high);
-	// è®¾ç½®åæ ‡è½´èŒƒå›´è‡ªåŠ¨è®¡ç®—
+	// ÉèÖÃ×ø±êÖá·¶Î§×Ô¶¯¼ÆËã
 	void		SetAutoRange(bool bAuto);
 	void		SetAutoRange(bool bAuto, int nPlotIndex);
 	void		SetXAutoRange(bool bAuto);
 	void		SetYAutoRange(bool bAuto);
 	void		SetXAutoRange(bool bAuto, int nPlotIndex);
 	void		SetYAutoRange(bool bAuto, int nPlotIndex);
-	// è®¾ç½®åæ ‡è½´èŒƒå›´ä¸æ•°æ®èŒƒå›´ç›¸åŒï¼Œä¸å‘ä¸¤ç«¯æ‰©å±•
+	// ÉèÖÃ×ø±êÖá·¶Î§ÓëÊı¾İ·¶Î§ÏàÍ¬£¬²»ÏòÁ½¶ËÀ©Õ¹
 	void		SetExactXRange(bool bExact, int nPlotIndex=0);
 	void		SetExactYRange(bool bExact, int nPlotIndex=0);
-	// è®¾ç½®åæ ‡è½´èŒƒå›´å°½é‡ä¸æ•°æ®èŒƒå›´ç›¸åŒ
+	// ÉèÖÃ×ø±êÖá·¶Î§¾¡Á¿ÓëÊı¾İ·¶Î§ÏàÍ¬
 	void		SetOptimalExactXRange(bool bExact, int nPlotIndex=0);
 	void		SetOptimalExactYRange(bool bExact, int nPlotIndex=0);
-	// è®¾ç½®åæ ‡è½´èŒƒå›´å°½é‡å‘ä¸¤ç«¯æ‰©å±•ä¸€æ ¼
+	// ÉèÖÃ×ø±êÖá·¶Î§¾¡Á¿ÏòÁ½¶ËÀ©Õ¹Ò»¸ñ
 	void		SetOptimalXExtend(bool bExtend, int nPlotIndex=0);
 	void		SetOptimalYExtend(bool bExtend, int nPlotIndex=0);
-	// è®¾ç½®åæ ‡è½´èŒƒå›´ä¸€è‡´ä¸å˜
+	// ÉèÖÃ×ø±êÖá·¶Î§Ò»ÖÂ²»±ä
 	void		SetStaticRange(bool sr, int nPlotIndex=0);
-	// è®¾ç½®Xåæ ‡è½´èŒƒå›´ä¸€è‡´ä¸å˜
+	// ÉèÖÃX×ø±êÖá·¶Î§Ò»ÖÂ²»±ä
 	void		SetStaticXRange(bool sr, int nPlotIndex=0);
-	// è®¾ç½®Yåæ ‡è½´èŒƒå›´ä¸€è‡´ä¸å˜
+	// ÉèÖÃY×ø±êÖá·¶Î§Ò»ÖÂ²»±ä
 	void		SetStaticYRange(bool sr, int nPlotIndex=0);
 	
-	// è®¾ç½®åæ ‡è½´ç­‰é•¿ï¼Œåªå¯¹kTypeXYæœ‰æ•ˆ
+	// ÉèÖÃ×ø±êÖáµÈ³¤£¬Ö»¶ÔkTypeXYÓĞĞ§
 	void		SetEqualXYAxis(bool bEqual);
-	// è®¾ç½®åæ ‡è½´ç­‰èŒƒå›´ï¼Œåªå¯¹kTypeXYæœ‰æ•ˆ
+	// ÉèÖÃ×ø±êÖáµÈ·¶Î§£¬Ö»¶ÔkTypeXYÓĞĞ§
 	void		SetEqualXYRange(bool bEqual);
-	// è®¾ç½®åæ ‡è½´ç­‰æ¯”ä¾‹å°ºï¼Œåªå¯¹kTypeXYæœ‰æ•ˆ
+	// ÉèÖÃ×ø±êÖáµÈ±ÈÀı³ß£¬Ö»¶ÔkTypeXYÓĞĞ§
 	void		SetEqualXYScale(bool bEqual);
 	
-	// Xåæ ‡è¶…å‡ºå±å¹•çš„ç‚¹ä¸å‚ä¸è®¡ç®—ï¼Œä»¥ä¼˜åŒ–é€Ÿåº¦
+	// X×ø±ê³¬³öÆÁÄ»µÄµã²»²ÎÓë¼ÆËã£¬ÒÔÓÅ»¯ËÙ¶È
 	void		SetClipXData(bool clip, int nDataIndex, int nPlotIndex = 0);
-	// Yåæ ‡è¶…å‡ºå±å¹•çš„ç‚¹ä¸å‚ä¸è®¡ç®—ï¼Œä»¥ä¼˜åŒ–é€Ÿåº¦
+	// Y×ø±ê³¬³öÆÁÄ»µÄµã²»²ÎÓë¼ÆËã£¬ÒÔÓÅ»¯ËÙ¶È
 	void		SetClipYData(bool clip, int nDataIndex, int nPlotIndex = 0);
 
-	// è®¾ç½®Xæ—¶é—´è½´åï¼Œå¯¹è¯æ¡†ä¸­Xæ•°æ®èŒƒå›´è®¾ç½®æ—¶å‡å»ä¸€ä¸ªåˆå€¼ï¼Œä»¥é¿å…æ•°æ®è¿‡å¤§
+	// ÉèÖÃXÊ±¼äÖáºó£¬¶Ô»°¿òÖĞXÊı¾İ·¶Î§ÉèÖÃÊ±¼õÈ¥Ò»¸ö³õÖµ£¬ÒÔ±ÜÃâÊı¾İ¹ı´ó
 	void		SetXStartTime(TCHAR *strTime, TCHAR *fmt, int nPlotIndex = 0);
-	// è®¾ç½®Yæ—¶é—´è½´åï¼Œå¯¹è¯æ¡†ä¸­Yæ•°æ®èŒƒå›´è®¾ç½®æ—¶å‡å»ä¸€ä¸ªåˆå€¼ï¼Œä»¥é¿å…æ•°æ®è¿‡å¤§
+	// ÉèÖÃYÊ±¼äÖáºó£¬¶Ô»°¿òÖĞYÊı¾İ·¶Î§ÉèÖÃÊ±¼õÈ¥Ò»¸ö³õÖµ£¬ÒÔ±ÜÃâÊı¾İ¹ı´ó
 	void		SetYStartTime(TCHAR *strTime, TCHAR *fmt, int nPlotIndex = 0);
 
 public:
-	// è®¾ç½®èƒŒæ™¯ç½‘æ ¼ä¸å“ªä¸€ä¸ªå­å›¾ç»‘å®šï¼Œç”¨äºå…±äº«Xè½´è§†å›¾
+	// ÉèÖÃ±³¾°Íø¸ñÓëÄÄÒ»¸ö×ÓÍ¼°ó¶¨£¬ÓÃÓÚ¹²ÏíXÖáÊÓÍ¼
 	void		SetGridBindLayer(int nPlotIndex);
-	// æ£€æµ‹å­å›¾çš„ç½‘æ ¼çº¿
+	// ¼ì²â×ÓÍ¼µÄÍø¸ñÏß
 	bool		GetGridLine(bool &MajorH, bool &MajorV, bool &MinorH, bool &MinorV, int nPlotIndex);
-	// æ£€æµ‹ç½‘æ ¼çº¿
+	// ¼ì²âÍø¸ñÏß
 	bool		GetGridLine(bool &MajorH, bool &MajorV, bool &MinorH, bool &MinorV);
-	// è®¾ç½®å­å›¾ç½‘æ ¼çº¿çš„ç»˜åˆ¶
+	// ÉèÖÃ×ÓÍ¼Íø¸ñÏßµÄ»æÖÆ
 	void		SetGridLine(bool MajorH, bool MajorV, bool MinorH, bool MinorV, int nPlotIndex);
-	// è®¾ç½®ç½‘æ ¼çº¿çš„ç»˜åˆ¶
+	// ÉèÖÃÍø¸ñÏßµÄ»æÖÆ
 	void		SetGridLine(bool MajorH=true, bool MajorV=true, bool MinorH=false, bool MinorV=false);
-	// è®¾ç½®ä¸»ç½‘æ ¼çº¿é¢œè‰²
+	// ÉèÖÃÖ÷Íø¸ñÏßÑÕÉ«
 	void		SetMajorGridColor(COLORREF color);
-	// è®¾ç½®å­å›¾ä¸»ç½‘æ ¼çº¿é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼Ö÷Íø¸ñÏßÑÕÉ«
 	void		SetMajorGridColor(COLORREF color, int nPlotIndex);
-	// è®¾ç½®å‰¯ç½‘æ ¼çº¿é¢œè‰²
+	// ÉèÖÃ¸±Íø¸ñÏßÑÕÉ«
 	void		SetMinorGridColor(COLORREF color);
-	// è®¾ç½®å­å›¾å‰¯ç½‘æ ¼çº¿é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼¸±Íø¸ñÏßÑÕÉ«
 	void		SetMinorGridColor(COLORREF color, int nPlotIndex);
-	// è®¾ç½®ä¸»ç½‘æ ¼çº¿çº¿å®½
+	// ÉèÖÃÖ÷Íø¸ñÏßÏß¿í
 	void		SetMajorGridLineSize(int nSize);
-	// è®¾ç½®å­å›¾ä¸»ç½‘æ ¼çº¿çº¿å®½
+	// ÉèÖÃ×ÓÍ¼Ö÷Íø¸ñÏßÏß¿í
 	void		SetMajorGridLineSize(int nSize, int nPlotIndex);
-	// è®¾ç½®å‰¯ç½‘æ ¼çº¿çº¿å®½
+	// ÉèÖÃ¸±Íø¸ñÏßÏß¿í
 	void		SetMinorGridLineSize(int nSize);
-	// è®¾ç½®å­å›¾å‰¯ç½‘æ ¼çº¿çº¿å®½
+	// ÉèÖÃ×ÓÍ¼¸±Íø¸ñÏßÏß¿í
 	void		SetMinorGridLineSize(int nSize, int nPlotIndex);
-	// è®¾ç½®ä¸»ç½‘æ ¼çº¿çº¿å‹
+	// ÉèÖÃÖ÷Íø¸ñÏßÏßĞÍ
 	void		SetMajorGridLineStyle(int nStyle);
-	// è®¾ç½®å­å›¾ä¸»ç½‘æ ¼çº¿çº¿å‹
+	// ÉèÖÃ×ÓÍ¼Ö÷Íø¸ñÏßÏßĞÍ
 	void		SetMajorGridLineStyle(int nStyle, int nPlotIndex);
-	// è®¾ç½®å‰¯ç½‘æ ¼çº¿çº¿å‹
+	// ÉèÖÃ¸±Íø¸ñÏßÏßĞÍ
 	void		SetMinorGridLineStyle(int nStyle);
-	// è®¾ç½®å­å›¾å‰¯ç½‘æ ¼çº¿çº¿å‹
+	// ÉèÖÃ×ÓÍ¼¸±Íø¸ñÏßÏßĞÍ
 	void		SetMinorGridLineStyle(int nStyle, int nPlotIndex);
-	// è·å–å­å›¾èƒŒæ™¯é¢œè‰²
+	// »ñÈ¡×ÓÍ¼±³¾°ÑÕÉ«
 	COLORREF	GetBkgndColor(int nPlotIndex);
-	// è·å–èƒŒæ™¯é¢œè‰²
+	// »ñÈ¡±³¾°ÑÕÉ«
 	COLORREF	GetBkgndColor();
-	// è®¾ç½®å­å›¾èƒŒæ™¯é¢œè‰²
+	// ÉèÖÃ×ÓÍ¼±³¾°ÑÕÉ«
 	void		SetBkgndColor(COLORREF color, int nPlotIndex);
-	// è®¾ç½®èƒŒæ™¯é¢œè‰²
+	// ÉèÖÃ±³¾°ÑÕÉ«
 	void		SetBkgndColor(COLORREF color);
-	// èƒŒæ™¯è‰²æ˜¯å¦æ¸å˜
+	// ±³¾°É«ÊÇ·ñ½¥±ä
 	bool		IsGradientBkgnd();
-	// èƒŒæ™¯è‰²æ¸å˜
+	// ±³¾°É«½¥±ä
 	void		SetGradientBkgnd(bool bGrad);
-	// è®¾ç½®èƒŒæ™¯å›¾åƒ
+	// ÉèÖÃ±³¾°Í¼Ïñ
 	void		SetBkgndImage(TCHAR *strImgName);
 
 public:
-	// æµ‹è¯•å›¾åƒè¾¹æ¡†æ˜¯å¦æ˜¾ç¤º
+	// ²âÊÔÍ¼Ïñ±ß¿òÊÇ·ñÏÔÊ¾
 	bool		IsEdgeShow();
-	// è®¾ç½®å›¾åƒè¾¹æ¡†æ˜¾ç¤º
+	// ÉèÖÃÍ¼Ïñ±ß¿òÏÔÊ¾
 	void		SetEdgeShow(bool bShow);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å­å›¾è¾¹æ¡†æ˜¾ç¤º
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼×ÓÍ¼±ß¿òÏÔÊ¾
 	void		SetEdgeShow(bool bShow, int nPlotIndex);
-	// è®¾ç½®å›¾åƒè¾¹æ¡†æ˜¾ç¤º
+	// ÉèÖÃÍ¼Ïñ±ß¿òÏÔÊ¾
 	void		SetEdgeRoundConor(bool bRound);
-	// è®¾ç½®å›¾åƒè¾¹æ¡†é¢œè‰²
+	// ÉèÖÃÍ¼Ïñ±ß¿òÑÕÉ«
 	void		SetEdgeColor(COLORREF color);
-	// è®¾ç½®å›¾åƒè¾¹æ¡†å®½åº¦
+	// ÉèÖÃÍ¼Ïñ±ß¿ò¿í¶È
 	void		SetEdgeWidth(int width);
 
-	// è®¾ç½®å›¾åƒå·¦ç©ºç™½
+	// ÉèÖÃÍ¼Ïñ×ó¿Õ°×
 	void		SetMarginLeft(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å·¦ç©ºç™½
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼×ó¿Õ°×
 	void		SetMarginLeft(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒå³ç©ºç™½
+	// ÉèÖÃÍ¼ÏñÓÒ¿Õ°×
 	void		SetMarginRight(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å³ç©ºç™½
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÓÒ¿Õ°×
 	void		SetMarginRight(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒä¸Šç©ºç™½
+	// ÉèÖÃÍ¼ÏñÉÏ¿Õ°×
 	void		SetMarginTop(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾ä¸Šç©ºç™½
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÉÏ¿Õ°×
 	void		SetMarginTop(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒä¸‹ç©ºç™½
+	// ÉèÖÃÍ¼ÏñÏÂ¿Õ°×
 	void		SetMarginBottom(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾ä¸‹ç©ºç™½
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÏÂ¿Õ°×
 	void		SetMarginBottom(int margin, int nPlotIndex);
 
-	// è®¾ç½®å›¾åƒå·¦é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€å·¦è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃÍ¼Ïñ×óÔ¤Áô¿Õ°×£¬ÓÃÓÚ×î×ó±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginLeft(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å·¦é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€å·¦è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼×óÔ¤Áô¿Õ°×£¬ÓÃÓÚ×î×ó±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginLeft(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒå³é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€å³è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃÍ¼ÏñÓÒÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÓÒ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginRight(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾å³é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€å³è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÓÒÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÓÒ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginRight(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒä¸Šé¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€ä¸Šè¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃÍ¼ÏñÉÏÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÉÏ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginTop(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾ä¸Šé¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€ä¸Šè¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÉÏÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÉÏ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginTop(int margin, int nPlotIndex);
-	// è®¾ç½®å›¾åƒä¸‹é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€ä¸‹è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃÍ¼ÏñÏÂÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÏÂ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginBottom(int margin);
-	// è®¾ç½®åˆ†è£‚è§†å›¾ä¸‹é¢„ç•™ç©ºç™½ï¼Œç”¨äºæœ€ä¸‹è¾¹æ ‡ç­¾æ˜¾ç¤º
+	// ÉèÖÃ·ÖÁÑÊÓÍ¼ÏÂÔ¤Áô¿Õ°×£¬ÓÃÓÚ×îÏÂ±ß±êÇ©ÏÔÊ¾
 	void		SetReservedMarginBottom(int margin, int nPlotIndex);
 	
-	// è®¾ç½®æ•°æ®åŒºè¾¹æ¡†æ˜¾ç¤º
+	// ÉèÖÃÊı¾İÇø±ß¿òÏÔÊ¾
 	void		SetBorderShow(bool bShow);
-	// è®¾ç½®æ•°æ®åŒºè¾¹æ¡†é¢œè‰²
+	// ÉèÖÃÊı¾İÇø±ß¿òÑÕÉ«
 	void		SetBorderColor(COLORREF color);
-	// è®¾ç½®æ•°æ®åŒºè¾¹æ¡†å®½åº¦
+	// ÉèÖÃÊı¾İÇø±ß¿ò¿í¶È
 	void		SetBorderWidth(int width);
 
 public:
-	// æ£€æµ‹æ˜¯å¦ä½¿ç”¨å›¾ä¾‹
+	// ¼ì²âÊÇ·ñÊ¹ÓÃÍ¼Àı
 	bool		IsLegendShow(int nPlotIndex=0);
-	// è®¾ç½®æ˜¯å¦ä½¿ç”¨å›¾ä¾‹
+	// ÉèÖÃÊÇ·ñÊ¹ÓÃÍ¼Àı
 	void		SetLegendShow(bool bUse, int nPlotIndex=0);
-	// è®¾ç½®å›¾ä¾‹çš„æœ€å¤§è¡Œæ•°
+	// ÉèÖÃÍ¼ÀıµÄ×î´óĞĞÊı
 	void		SetLegendMaxRows(int nRows, int nPlotIndex=0);
-	// è®¾ç½®æ¯è¡Œæ˜¾ç¤ºçš„å›¾ä¾‹æ•°
+	// ÉèÖÃÃ¿ĞĞÏÔÊ¾µÄÍ¼ÀıÊı
 	void		SetLegendMaxCols(int nCols, int nPlotIndex=0);
-	// è®¾ç½®å›¾ä¾‹ä½ç½®
+	// ÉèÖÃÍ¼ÀıÎ»ÖÃ
 	void		SetLegendPosition(int nPos, int nPlotIndex=0);
-	// è®¾ç½®å›¾ä¾‹å­—ä½“
+	// ÉèÖÃÍ¼Àı×ÖÌå
 	void		SetLegendFont(LOGFONT logFont, int nPlotIndex=0);
-	// è®¾ç½®å›¾ä¾‹å­—ä½“é«˜åº¦
+	// ÉèÖÃÍ¼Àı×ÖÌå¸ß¶È
 	void		SetLegendFontHeight(int nHeight, int nPlotIndex=0);
-	// è®¾ç½®å›¾ä¾‹æ˜¾ç¤ºæ°´å¹³ï¼Œ0:æ˜¾ç¤ºæ‰€æœ‰æ›²çº¿ï¼Œ1:éšè—visibleä¸ºfalseçš„æ›²çº¿ï¼Œ2:éšè—visibleä¸ºfalseçš„æ›²çº¿å’Œç©ºæ›²çº¿
+	// ÉèÖÃÍ¼ÀıÏÔÊ¾Ë®Æ½£¬0:ÏÔÊ¾ËùÓĞÇúÏß£¬1:Òş²ØvisibleÎªfalseµÄÇúÏß£¬2:Òş²ØvisibleÎªfalseµÄÇúÏßºÍ¿ÕÇúÏß
 	void		SetLegendLevel(int nLevel, int nPlotIndex=0);
 
 public:
-	// åœ¨åˆ†å±‚è§†å›¾å’Œåˆ†è£‚è§†å›¾ä¸­ï¼Œè®¾ç½®ç¬¬ä¸€å±‚æ˜¾ç¤ºå·¦åæ ‡è½´ï¼Œç¬¬äºŒå±‚æ˜¾ç¤ºå³åæ ‡è½´
+	// ÔÚ·Ö²ãÊÓÍ¼ºÍ·ÖÁÑÊÓÍ¼ÖĞ£¬ÉèÖÃµÚÒ»²ãÏÔÊ¾×ó×ø±êÖá£¬µÚ¶ş²ãÏÔÊ¾ÓÒ×ø±êÖá
 	void		SetLRAxis();
-	// åœ¨åˆ†å±‚è§†å›¾ä¸­ï¼Œè®¾ç½®ç¬¬ä¸€å±‚æ˜¾ç¤ºä¸‹åæ ‡è½´ï¼Œç¬¬äºŒå±‚æ˜¾ç¤ºä¸Šåæ ‡è½´
+	// ÔÚ·Ö²ãÊÓÍ¼ÖĞ£¬ÉèÖÃµÚÒ»²ãÏÔÊ¾ÏÂ×ø±êÖá£¬µÚ¶ş²ãÏÔÊ¾ÉÏ×ø±êÖá
 	void		SetTBAxis();
 
 public:
-	// æ ¹æ®æ•°æ®å€¼æ·»åŠ å¤‡æ³¨
+	// ¸ù¾İÊı¾İÖµÌí¼Ó±¸×¢
 	int			AddComment(TCHAR *comment, double x, double y, int nPlotIndex=0);
-	// è®¾ç½®ä¸Šä¸€ä¸ªå‡½æ•°å‚æ•°ä¸­ï¼Œx,yæ˜¯å¦æ˜¯ç›¸å¯¹å€¼ã€‚ç›¸å¯¹å€¼çš„å®šä¹‰ï¼Œå°±æ˜¯æœ¬èº«å€¼å‡å»èŒƒå›´æœ€å°å€¼
+	// ÉèÖÃÉÏÒ»¸öº¯Êı²ÎÊıÖĞ£¬x,yÊÇ·ñÊÇÏà¶ÔÖµ¡£Ïà¶ÔÖµµÄ¶¨Òå£¬¾ÍÊÇ±¾ÉíÖµ¼õÈ¥·¶Î§×îĞ¡Öµ
 	void		SetCommentPosRelative(bool relative, int nCommentIndex, int nPlotIndex=0);
-	// è®¾ç½®å¤‡æ³¨çš„ä½ç½®ï¼Œç”¨äºåœ¨AddCommentåä¿®æ”¹
+	// ÉèÖÃ±¸×¢µÄÎ»ÖÃ£¬ÓÃÓÚÔÚAddCommentºóĞŞ¸Ä
 	void		SetCommentPos(int nCommentIndex, double x, double y, int nPlotIndex=0);
 
 public:
-	// åº•å±‚å‡½æ•°ï¼Œè·å–å­å›¾çš„ç»˜å›¾åŒºåŸŸ
+	// µ×²ãº¯Êı£¬»ñÈ¡×ÓÍ¼µÄ»æÍ¼ÇøÓò
 	RECT		GetLastClientRect(int nPlotIndex);
-	// åº•å±‚å‡½æ•°ï¼Œè·å–ç»˜å›¾åŒºåŸŸ
+	// µ×²ãº¯Êı£¬»ñÈ¡»æÍ¼ÇøÓò
 	RECT		GetLastClientRect();
-	// åº•å±‚å‡½æ•°ï¼Œè·å–å­å›¾çš„æ•°æ®åŒºåŸŸ
+	// µ×²ãº¯Êı£¬»ñÈ¡×ÓÍ¼µÄÊı¾İÇøÓò
 	RECT		GetLastPlotRect(int nPlotIndex);
-	// åº•å±‚å‡½æ•°ï¼Œè·å–æ•°æ®åŒºåŸŸ
+	// µ×²ãº¯Êı£¬»ñÈ¡Êı¾İÇøÓò
 	RECT		GetLastPlotRect();
-	// åº•å±‚å‡½æ•°ï¼Œè·å–åæ ‡è½´çš„èŒƒå›´
+	// µ×²ãº¯Êı£¬»ñÈ¡×ø±êÖáµÄ·¶Î§
 	void		GetLastPlotRange(double xRange[2], double yRange[2], int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè·å–æ•°æ®çš„èŒƒå›´
+	// µ×²ãº¯Êı£¬»ñÈ¡Êı¾İµÄ·¶Î§
 	void		GetLastDataRange(double xRange[2], double yRange[2], int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œæ ¹æ®å±å¹•åæ ‡è®¡ç®—æ•°æ®åæ ‡
+	// µ×²ãº¯Êı£¬¸ù¾İÆÁÄ»×ø±ê¼ÆËãÊı¾İ×ø±ê
 	void		ClientToData(POINT *point, double *data, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œæ ¹æ®æ•°æ®åæ ‡è®¡ç®—å±å¹•åæ ‡
+	// µ×²ãº¯Êı£¬¸ù¾İÊı¾İ×ø±ê¼ÆËãÆÁÄ»×ø±ê
 	void		DataToClient(double *data, POINT *point, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè®¾ç½®ç»˜å›¾åŒºåŸŸå›ºå®š
+	// µ×²ãº¯Êı£¬ÉèÖÃ»æÍ¼ÇøÓò¹Ì¶¨
 	void		SetPlotRectFixed(bool bFixLeft, bool bFixRight, bool bFixBottom, bool bFixTop, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè®¾ç½®å›ºå®šçš„ç»˜å›¾åŒºåŸŸ
+	// µ×²ãº¯Êı£¬ÉèÖÃ¹Ì¶¨µÄ»æÍ¼ÇøÓò
 	void		SetFixedPlotRect(long nFixLeft, long nFixRight, long nFixBottom, long nFixTop, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè·å¾—åæ ‡è½´å¤§å°
+	// µ×²ãº¯Êı£¬»ñµÃ×ø±êÖá´óĞ¡
 	SIZE		GetAxisSize(int location, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè®¾ç½®åˆ†è£‚è§†å›¾æ°´å¹³åˆ†éš”æ¡ä½ç½®
+	// µ×²ãº¯Êı£¬ÉèÖÃ·ÖÁÑÊÓÍ¼Ë®Æ½·Ö¸ôÌõÎ»ÖÃ
 	void		SetRowRatio(double ratio, int nSplitIndex, int nPlotIndex=0);
-	// åº•å±‚å‡½æ•°ï¼Œè®¾ç½®åˆ†è£‚è§†å›¾ç«–ç›´åˆ†éš”æ¡ä½ç½®
+	// µ×²ãº¯Êı£¬ÉèÖÃ·ÖÁÑÊÓÍ¼ÊúÖ±·Ö¸ôÌõÎ»ÖÃ
 	void		SetColRatio(double ratio, int nSplitIndex, int nPlotIndex=0);
 
 public:
-	// è®¾ç½®ä¸‰ç»´æ›²çº¿çš„ç½‘æ ¼
+	// ÉèÖÃÈıÎ¬ÇúÏßµÄÍø¸ñ
 	void		SetGridLine(bool MajorXY, bool MinorXY, bool MajorYZ, bool MinorYZ, bool MajorZX, bool MinorZX);
-	// è®¾ç½®XYå±å¹•ä¸»ç½‘æ ¼
+	// ÉèÖÃXYÆÁÄ»Ö÷Íø¸ñ
 	void		SetShowXYMajorGrid( bool show );
-	// è®¾ç½®YZå±å¹•ä¸»ç½‘æ ¼
+	// ÉèÖÃYZÆÁÄ»Ö÷Íø¸ñ
 	void		SetShowYZMajorGrid( bool show );
-	// è®¾ç½®ZXå±å¹•ä¸»ç½‘æ ¼
+	// ÉèÖÃZXÆÁÄ»Ö÷Íø¸ñ
 	void		SetShowZXMajorGrid( bool show );
-	// è®¾ç½®XYå±å¹•å‰¯ç½‘æ ¼
+	// ÉèÖÃXYÆÁÄ»¸±Íø¸ñ
 	void		SetShowXYMinorGrid( bool show );
-	// è®¾ç½®YZå±å¹•å‰¯ç½‘æ ¼
+	// ÉèÖÃYZÆÁÄ»¸±Íø¸ñ
 	void		SetShowYZMinorGrid( bool show );
-	// è®¾ç½®ZXå±å¹•å‰¯ç½‘æ ¼
+	// ÉèÖÃZXÆÁÄ»¸±Íø¸ñ
 	void		SetShowZXMinorGrid( bool show );
 
 public:
-	// ä¿å­˜å­å›¾æ•°æ®åˆ°æ–‡ä»¶
+	// ±£´æ×ÓÍ¼Êı¾İµ½ÎÄ¼ş
 	bool		WriteToFile(TCHAR *pathName, int nPlotIndex=0);
-	// ä¿å­˜å­å›¾æŸæ›²çº¿æ•°æ®åˆ°æ–‡ä»¶
+	// ±£´æ×ÓÍ¼Ä³ÇúÏßÊı¾İµ½ÎÄ¼ş
 	bool		WriteOneToFile(TCHAR *pathName, int nDataIndex, int nPlotIndex=0);
 
 public:
-	// è·å¾—å†…éƒ¨ç‰¹æ®ŠæŒ‡é’ˆï¼Œæ­¤æŒ‡é’ˆä¸€èˆ¬æ²¡ç”¨ï¼Œåªç”¨äºåœ¨æŸäº›æƒ…å†µä¸‹ä¼ é€’å‚æ•°ï¼Œä¾‹å¦‚çº¿ç¨‹å‡½æ•°
+	// »ñµÃÄÚ²¿ÌØÊâÖ¸Õë£¬´ËÖ¸ÕëÒ»°ãÃ»ÓÃ£¬Ö»ÓÃÓÚÔÚÄ³Ğ©Çé¿öÏÂ´«µİ²ÎÊı£¬ÀıÈçÏß³Ìº¯Êı
 	void		*GetUserPointer();
-	// è®¾ç½®å†…éƒ¨ç‰¹æ®ŠæŒ‡é’ˆ
+	// ÉèÖÃÄÚ²¿ÌØÊâÖ¸Õë
 	void		SetUserPointer(void *pUser);
-	// è·å¾—å†…éƒ¨ç‰¹æ®Šæ ‡å¿—çŠ¶æ€ï¼Œç‰¹æ®Šç”¨é€”
+	// »ñµÃÄÚ²¿ÌØÊâ±êÖ¾×´Ì¬£¬ÌØÊâÓÃÍ¾
 	bool		GetUserFlag();
-	// è®¾ç½®å†…éƒ¨ç‰¹æ®Šæ ‡å¿—çŠ¶æ€ï¼Œç‰¹æ®Šç”¨é€”
+	// ÉèÖÃÄÚ²¿ÌØÊâ±êÖ¾×´Ì¬£¬ÌØÊâÓÃÍ¾
 	void		SetUserFlag(bool flag);
 };
 
@@ -1568,20 +1568,20 @@ public:
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Declaration of class CChartWnd
 
-// çª—å£ç±»ï¼ŒåŒ…è£…äº†æ¶ˆæ¯å¤„ç†å‡½æ•°
+// ´°¿ÚÀà£¬°ü×°ÁËÏûÏ¢´¦Àíº¯Êı
 class	CChart_API	CChartWnd
 {
 public:
-	// CChartWndå†…éƒ¨æ‰€ç”¨çš„æ•°æ®ç»“æ„
+	// CChartWndÄÚ²¿ËùÓÃµÄÊı¾İ½á¹¹
 	struct	stChartWndPara;
-	// è·å¾—stChartWndParaçš„å¤§å°
+	// »ñµÃstChartWndParaµÄ´óĞ¡
 	static	int		GetParaSize();
-	// è·å¾—å†…éƒ¨æ•°æ®çš„æŒ‡é’ˆ
+	// »ñµÃÄÚ²¿Êı¾İµÄÖ¸Õë
 	stChartWndPara *GetPara();
 protected:
-	// å†…éƒ¨æ•°æ®
+	// ÄÚ²¿Êı¾İ
 	stChartWndPara *m_pPara;
-	// é‡Šæ”¾å†…éƒ¨èµ„æº
+	// ÊÍ·ÅÄÚ²¿×ÊÔ´
 	void	Release();
 	
 public:
@@ -1589,116 +1589,116 @@ public:
 	~CChartWnd();
 	
 public:
-	// æ ¹æ®æ ‡è¯†è·å¾—åºå·
+	// ¸ù¾İ±êÊ¶»ñµÃĞòºÅ
 	int		GetChartIndex(int nChartID);
-	// æ ¹æ®åºå·è·å¾—æ ‡è¯†
+	// ¸ù¾İĞòºÅ»ñµÃ±êÊ¶
 	int		GetChartID(int nChartIndex);
-	// æ ¹æ®åºå·è·å–CChartç±»çš„æŒ‡é’ˆï¼Œä»¥è°ƒç”¨å…¶å‡½æ•°
+	// ¸ù¾İĞòºÅ»ñÈ¡CChartÀàµÄÖ¸Õë£¬ÒÔµ÷ÓÃÆäº¯Êı
 	CChart	*GetChart(int nChartIndex=0);
-	// è®¾ç½®CChartç±»å¯¹è±¡ï¼Œä¸»è¦ç”¨äºå­ç±»åŒ–ï¼Œè¿”å›å€¼ä¸ºåŸCChartç±»æŒ‡é’ˆ
+	// ÉèÖÃCChartÀà¶ÔÏó£¬Ö÷ÒªÓÃÓÚ×ÓÀà»¯£¬·µ»ØÖµÎªÔ­CChartÀàÖ¸Õë
 	CChart	*SetChart(CChart *pChart, int nChartIndex=0);
-	// è·å¾—è§†å›¾ç±»å‹
+	// »ñµÃÊÓÍ¼ÀàĞÍ
 	int		GetChartType(int nChartIndex=0);
-	// æ”¹å˜è§†å›¾ç±»å‹
+	// ¸Ä±äÊÓÍ¼ÀàĞÍ
 	bool	SetChartType(int nType, int nChartIndex=0);
-	// è·å¾—å·²Attachçš„æ¬¡æ•°
+	// »ñµÃÒÑAttachµÄ´ÎÊı
 	int		GetChartCount();
 	
-	// ç²˜çª—å£ï¼Œæœ€åŸºæœ¬å½¢å¼ï¼Œé»˜è®¤æŠ˜çº¿å›¾
-	// è¿”å›å€¼æ˜¯CChartå¯¹è±¡çš„å”¯ä¸€æ ‡è¯†ç¬¦ï¼Œ-1è¡¨ç¤ºå¤±è´¥ã€‚ä¸‹åŒ
+	// Õ³´°¿Ú£¬×î»ù±¾ĞÎÊ½£¬Ä¬ÈÏÕÛÏßÍ¼
+	// ·µ»ØÖµÊÇCChart¶ÔÏóµÄÎ¨Ò»±êÊ¶·û£¬-1±íÊ¾Ê§°Ü¡£ÏÂÍ¬
 	int		Attach(HWND hWnd);
-	// ç²˜çª—å£ï¼Œå¹¶é™åˆ¶ç»˜å›¾åŒºï¼Œé»˜è®¤æŠ˜çº¿å›¾
+	// Õ³´°¿Ú£¬²¢ÏŞÖÆ»æÍ¼Çø£¬Ä¬ÈÏÕÛÏßÍ¼
 	int		Attach(HWND hWnd, RECT rtClient);
-	// ç²˜çª—å£ï¼Œç²˜åˆ°å¯¹è¯æ¡†ä¸Š, ç»™å®šæ§ä»¶å¥æŸ„ï¼Œé»˜è®¤æŠ˜çº¿å›¾
+	// Õ³´°¿Ú£¬Õ³µ½¶Ô»°¿òÉÏ, ¸ø¶¨¿Ø¼ş¾ä±ú£¬Ä¬ÈÏÕÛÏßÍ¼
 	int		AttachDlg(HWND hDlg, HWND hCtrl);
-	// ç²˜çª—å£ï¼Œç²˜åˆ°å¯¹è¯æ¡†ä¸Šï¼Œç»™å®šæ§ä»¶IDï¼Œé»˜è®¤æŠ˜çº¿å›¾
+	// Õ³´°¿Ú£¬Õ³µ½¶Ô»°¿òÉÏ£¬¸ø¶¨¿Ø¼şID£¬Ä¬ÈÏÕÛÏßÍ¼
 	int		AttachDlg(HWND hDlg, UINT nCtrlID);
 
-	// ç²˜çª—å£ï¼ŒåŒæ—¶è®¾ç½®ç»˜å›¾ç±»å‹
+	// Õ³´°¿Ú£¬Í¬Ê±ÉèÖÃ»æÍ¼ÀàĞÍ
 	int		Attach(HWND hWnd, int nType);
-	// ç²˜çª—å£ï¼ŒåŒæ—¶è®¾ç½®ç»˜å›¾ç±»å‹ï¼Œå¹¶é™åˆ¶ç»˜å›¾åŒº
+	// Õ³´°¿Ú£¬Í¬Ê±ÉèÖÃ»æÍ¼ÀàĞÍ£¬²¢ÏŞÖÆ»æÍ¼Çø
 	int		Attach(HWND hWnd, RECT rtClient, int nType);
-	// ç²˜çª—å£ï¼Œç²˜åˆ°å¯¹è¯æ¡†ä¸Š, ç»™å®šæ§ä»¶å¥æŸ„
+	// Õ³´°¿Ú£¬Õ³µ½¶Ô»°¿òÉÏ, ¸ø¶¨¿Ø¼ş¾ä±ú
 	int		AttachDlg(HWND hDlg, HWND hCtrl, int nType);
-	// ç²˜çª—å£ï¼Œç²˜åˆ°å¯¹è¯æ¡†ä¸Šï¼Œç»™å®šæ§ä»¶ID
+	// Õ³´°¿Ú£¬Õ³µ½¶Ô»°¿òÉÏ£¬¸ø¶¨¿Ø¼şID
 	int		AttachDlg(HWND hDlg, UINT nCtrlID, int nType);
 
-	// å¸çª—å£, æ‰€æœ‰å‡½æ•°çš„nChartIndexï¼Œå‡æŒ‰ç…§æˆåŠŸAttachçš„é¡ºåºä¾æ¬¡ä¸º0, 1, 2, ...
+	// Ğ¶´°¿Ú, ËùÓĞº¯ÊıµÄnChartIndex£¬¾ù°´ÕÕ³É¹¦AttachµÄË³ĞòÒÀ´ÎÎª0, 1, 2, ...
 	bool	Detach();
 	bool	Detach(HWND hWnd);
 	
-	// é‡ç»˜
+	// ÖØ»æ
 	void	ReDraw();
 	void	ReDraw(HWND hWnd);
 	void	ReDraw(int nChartIndex);
 	void	ReDraw(CChart *chart);
-	// é‡ç»˜æ–¹å¼é€‰æ‹©ã€‚
-	// bDirä¸ºfalseæ—¶ï¼Œå‘çª—å£å‘é€é‡ç»˜æ¶ˆæ¯ã€‚çº¿ç¨‹å®‰å…¨
-	// bDirä¸ºtrueæ—¶ï¼Œç›´æ¥è°ƒç”¨OnDrawç”»å›¾ã€‚æ•ˆç‡é«˜
-	// å†…éƒ¨é»˜è®¤çŠ¶æ€ä¸ºfalseã€‚å•çº¿ç¨‹æ—¶ï¼Œå¯ä»¥è€ƒè™‘è®¾ç½®ä¸ºtrue
+	// ÖØ»æ·½Ê½Ñ¡Ôñ¡£
+	// bDirÎªfalseÊ±£¬Ïò´°¿Ú·¢ËÍÖØ»æÏûÏ¢¡£Ïß³Ì°²È«
+	// bDirÎªtrueÊ±£¬Ö±½Óµ÷ÓÃOnDraw»­Í¼¡£Ğ§ÂÊ¸ß
+	// ÄÚ²¿Ä¬ÈÏ×´Ì¬Îªfalse¡£µ¥Ïß³ÌÊ±£¬¿ÉÒÔ¿¼ÂÇÉèÖÃÎªtrue
 	void	SetDirectReDraw(bool bDir);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // CChart Ctrl
 // A Standard windows control, whose class name is "ChartCtrl"
-// æ­¤æ³¨å†Œå‡½æ•°ä¸€èˆ¬ä¸éœ€è¦è°ƒç”¨ï¼Œå› ä¸ºåŠ¨æ€åº“é‡Œé¢å·²ç»è°ƒç”¨äº†
+// ´Ë×¢²áº¯ÊıÒ»°ã²»ĞèÒªµ÷ÓÃ£¬ÒòÎª¶¯Ì¬¿âÀïÃæÒÑ¾­µ÷ÓÃÁË
 CChart_API	ATOM	RegisterChartControl();
 CChart_API	ATOM	RegisterChartControl(TCHAR *strClsssName);
 
-// è¯·ç¡®è®¤hWndæ˜¯ä¸€ä¸ªChartCtrlçª—å£
+// ÇëÈ·ÈÏhWndÊÇÒ»¸öChartCtrl´°¿Ú
 CChart_API	CChart	*GetChart(HWND hWnd);
 
-// åˆ›å»ºä¸€ä¸ªå¼¹å‡ºçª—å£
+// ´´½¨Ò»¸öµ¯³ö´°¿Ú
 CChart_API	HWND	CreatePopupChartWnd(HWND hWndParent, int nChartType, TCHAR *wndTitle=_TEXT(""), int x=0, int y=0, int cx=CW_USEDEFAULT, int cy=CW_USEDEFAULT);
 
-// ä¸€ä¸ªæ¶ˆæ¯å¾ªç¯ï¼Œç”¨äºæ§åˆ¶å°ç¨‹åºä¸­å’ŒCreatePopupChartWndé…åˆä½¿ç”¨ã€‚æ³¨æ„è¿™ä¸ªå‡½æ•°ä¸€èˆ¬ä¸ä¼šè¿”å›ï¼Œä¸€èˆ¬æ”¾åœ¨ä»£ç çš„æœ€åé¢
+// Ò»¸öÏûÏ¢Ñ­»·£¬ÓÃÓÚ¿ØÖÆÌ¨³ÌĞòÖĞºÍCreatePopupChartWndÅäºÏÊ¹ÓÃ¡£×¢ÒâÕâ¸öº¯ÊıÒ»°ã²»»á·µ»Ø£¬Ò»°ã·ÅÔÚ´úÂëµÄ×îºóÃæ
 CChart_API	int		SimpleMsgLoop();
 
-// åˆ›å»ºä¸€ä¸ªåŒ…å«æ¶ˆæ¯å¾ªç¯çš„å¼¹å‡ºçª—å£ï¼Œç›¸å½“äºä»¥ä¸Šä¸¤ä¸ªå‡½æ•°æ‰“åŒ…
+// ´´½¨Ò»¸ö°üº¬ÏûÏ¢Ñ­»·µÄµ¯³ö´°¿Ú£¬Ïàµ±ÓÚÒÔÉÏÁ½¸öº¯Êı´ò°ü
 CChart_API	HWND	CreatePopupChartWndWithMsgLoop(HWND hWndParent, int nChartType, TCHAR *wndTitle=_TEXT(""), int x=0, int y=0, int cx=CW_USEDEFAULT, int cy=CW_USEDEFAULT);
 
-// åˆ›å»ºä¸€ä¸ªå­çª—å£
+// ´´½¨Ò»¸ö×Ó´°¿Ú
 CChart_API	HWND	CreateSubChartWnd(HWND hWndParent, int nChartType, TCHAR *wndTitle=_TEXT(""), int x=0, int y=0, int cx=CW_USEDEFAULT, int cy=CW_USEDEFAULT);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// é…ç½®æ–‡ä»¶
-// è¯»å–Xmlé…ç½®æ–‡ä»¶
+// ÅäÖÃÎÄ¼ş
+// ¶ÁÈ¡XmlÅäÖÃÎÄ¼ş
 CChart_API	bool	ReadXmlConfig(TCHAR *xmlName, CChart *pChart);
 
-// è¯»å–Jsoné…ç½®æ–‡ä»¶
+// ¶ÁÈ¡JsonÅäÖÃÎÄ¼ş
 CChart_API	bool	ReadJsonConfig(TCHAR *jsonName, CChart *pChart);
 
-// ä»ç±»å‹ç®€ç§°è·å¾—ç±»å‹ä»£ç 
+// ´ÓÀàĞÍ¼ò³Æ»ñµÃÀàĞÍ´úÂë
 CChart_API	int		GetTypeCodeFromAbbr(const TCHAR *szTypeAbbr);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// å®ç”¨å‡½æ•°
+// ÊµÓÃº¯Êı
 
-// ç”¨äºå°†æ—¶é—´ä¸²å­—ç¬¦è½¬æ¢ä¸ºtime_tã€‚
+// ÓÃÓÚ½«Ê±¼ä´®×Ö·û×ª»»Îªtime_t¡£
 CChart_API	double StringToTime(TCHAR *str, TCHAR *fmt);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// é€šç”¨å®šæ—¶å™¨å‡½æ•°ï¼Œç”¨å¤šåª’ä½“å®šæ—¶å™¨å®ç°
-// æ­¤å®šæ—¶å™¨ä¸CChartæ— å…³
+// Í¨ÓÃ¶¨Ê±Æ÷º¯Êı£¬ÓÃ¶àÃ½Ìå¶¨Ê±Æ÷ÊµÏÖ
+// ´Ë¶¨Ê±Æ÷ÓëCChartÎŞ¹Ø
 
-// å¯åŠ¨å®šæ—¶å™¨
+// Æô¶¯¶¨Ê±Æ÷
 CChart_API	bool StartTimer(UINT nPeriod, UINT nRes, DWORD dwUser,  BOOL (*pfnCallback)(DWORD));
 
-// åœæ­¢å®šæ—¶å™¨
+// Í£Ö¹¶¨Ê±Æ÷
 CChart_API	void StopTimer();
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// å…¨å±€ä»£ç é”ï¼Œç”¨äºçº¿ç¨‹åŒæ­¥ï¼Œå¯ä»¥å’Œåº“å†…éƒ¨éƒ¨åˆ†æ•°æ®è¯»å†™ä»£ç äº’é”
-// é”å®šä»£ç 
+// È«¾Ö´úÂëËø£¬ÓÃÓÚÏß³ÌÍ¬²½£¬¿ÉÒÔºÍ¿âÄÚ²¿²¿·ÖÊı¾İ¶ÁĞ´´úÂë»¥Ëø
+// Ëø¶¨´úÂë
 CChart_API	void		MyLockCode();
-// é‡Šæ”¾ä»£ç 
+// ÊÍ·Å´úÂë
 CChart_API	void		MyUnlockCode();
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// åˆ¤æ–­æŒ‡é’ˆæ˜¯å¦æœ‰æ•ˆï¼Œä¸»è¦æ˜¯æ£€æŸ¥å†…éƒ¨èµ„æºæ˜¯å¦å·²ç»è¢«é‡Šæ”¾
-// åœ¨å¤šçº¿ç¨‹æ—¶å€™ä½¿ç”¨ï¼Œå› ä¸ºæœ‰å¯èƒ½ä¸€ä¸ªçº¿ç¨‹å·²ç»é‡Šæ”¾èµ„æºï¼Œå¦ä¸€ä¸ªçº¿ç¨‹è¿˜åœ¨æŒ‰å¸¸è§„æ“ä½œ
+// ÅĞ¶ÏÖ¸ÕëÊÇ·ñÓĞĞ§£¬Ö÷ÒªÊÇ¼ì²éÄÚ²¿×ÊÔ´ÊÇ·ñÒÑ¾­±»ÊÍ·Å
+// ÔÚ¶àÏß³ÌÊ±ºòÊ¹ÓÃ£¬ÒòÎªÓĞ¿ÉÄÜÒ»¸öÏß³ÌÒÑ¾­ÊÍ·Å×ÊÔ´£¬ÁíÒ»¸öÏß³Ì»¹ÔÚ°´³£¹æ²Ù×÷
 CChart_API	bool		IsValid(CChart *pChart);
 CChart_API	bool		IsValid(CChartWnd *pChartWnd);
 
