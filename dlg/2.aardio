@@ -1,0 +1,45 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+static={cls="static";left=0;top=0;right=760;bottom=457;db=1;dl=1;dr=1;dt=1;notify=1;transparent=1;z=1}
+)
+/*}}*/
+
+//调用CChart波形图动态库函数
+import cchart;
+
+cchart.CreateChart();
+cchart.Attach1(winform.static.hwnd,4);//kTypeContourLine=4 等高线图
+cchart.ChooseCurChart1(winform.static.hwnd);
+
+//定义静态回调函数
+func = function(x,y){
+    var ret = 1.0/((x-1.0)*(x-1.0)+y*y+1.0);
+    return ret;
+}
+//dll中在别的线程中调用,所以这里用thread
+func_c = thread.tocdecl(func,"double(double,double)");
+//cchart.SetType(6);
+cchart.SetFieldFcn(func_c);
+cchart.SetPlotRange(-2.0, 2.0, -2.0, 2.0);
+cchart.SetTitle("Cchart等高线");
+//设置等高线的精度，一般设置为5或者6就可以了。设置得越高，第一次绘制的时候延迟就越长
+cchart.SetContourPrecision(5);
+//设置等高线高度的个数
+cchart.SetContourLineNum(50);
+cchart.ReDraw2();
+
+
+winform.onClose = function(hwnd,message,wParam,lParam){
+    cchart.Detach(winform.static.hwnd);
+    cchart.DestroyChart();
+}
+
+winform.static.oncommand = function(id,event){
+	
+}
+
+winform.show();
+win.loopMessage();
+return winform;

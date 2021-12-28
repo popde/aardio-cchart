@@ -1,0 +1,36 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+static={cls="static";left=0;top=0;right=760;bottom=462;db=1;dl=1;dr=1;dt=1;notify=1;transparent=1;z=1}
+)
+/*}}*/
+
+//调用CChart波形图动态库函数
+import cchart;
+
+cchart.CreateChart();
+cchart.Attach1(winform.static.hwnd,0);
+
+cchart.ChooseCurChart1(winform.static.hwnd);
+
+cchart.AddPoint2D(-3.0, 9.0 ,0,0);
+cchart.AddPoint2D(-2.0, 4.0 ,0,0);
+cchart.AddPoint2D(-1.0, 1.0 ,0,0);
+cchart.AddPoint2D(0.0, 0.0 ,0,0);
+cchart.AddPoint2D(1.0, 1.0 ,0,0);
+cchart.AddPoint2D(2.0, 4.0 ,0,0);
+cchart.AddPoint2D(3.0, 9.0 ,0,0);
+
+cchart.SetTitle("Hello World，我的第一个CChart程序！");
+cchart.ReDraw2();
+
+winform.onClose = function(hwnd,message,wParam,lParam){
+    cchart.Detach(winform.static.hwnd);
+    cchart.DestroyChart();
+}
+
+
+winform.show();
+win.loopMessage();
+return winform;

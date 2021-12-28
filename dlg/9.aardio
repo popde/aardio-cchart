@@ -1,0 +1,21 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=841;bottom=517)
+winform.add(
+custom={cls="custom";text="自定义控件";left=9;top=7;right=403;bottom=500;bgcolor=15780518;db=1;dl=1;dt=1;z=1};
+custom2={cls="custom";text="自定义控件";left=415;top=9;right=829;bottom=265;bgcolor=8421376;db=1;dl=1;dr=1;dt=1;z=2};
+custom3={cls="custom";text="自定义控件";left=415;top=271;right=829;bottom=498;bgcolor=12639424;db=1;dl=1;dr=1;z=3}
+)
+/*}}*/
+
+//为了能够在一个界面中显示多个图形
+//需要为每一个图形添加个函数
+//cchart.ChooseCurChart1(winform.static.hwnd);
+
+winform.custom.loadForm("\dlg\1.aardio");
+winform.custom2.loadForm("\dlg\3.aardio");
+winform.custom3.loadForm("\dlg\4.aardio");
+
+winform.show();
+win.loopMessage();
+return winform;
