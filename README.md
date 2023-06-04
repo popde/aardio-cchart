@@ -13,7 +13,7 @@ CChart官方:http://www.cchart.net/
 本代码是在cchartu.dll动态库上描述的aardio中使用方法
 此 cchart.dll 可以通过$符号内嵌到exe里, 这样就可以生成完全绿色版独立exe了,使用波形图的时候不用释放dll到外部目录.
 本文使用aardio编程软件 来自: http://www.aardio.com
-本文首发于: https://www.htmlayout.cn/t/361
+本文首发于: https://www.aardio.com.cn/t/361
 
 ![image](https://github.com/popde/aardio-cchart/blob/main/demoImg/1587217901210547.png)
 ![image](https://github.com/popde/aardio-cchart/blob/main/demoImg/1587263218990628.png)
